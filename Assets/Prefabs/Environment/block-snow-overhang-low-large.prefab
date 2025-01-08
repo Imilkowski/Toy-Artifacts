@@ -73,10 +73,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 47dada70edf9fc04b8bfd9b1e50b8893,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42fad6f3031e97f4eb37762fc4337747, type: 2}
     - target: {fileID: 919132149155446097, guid: 47dada70edf9fc04b8bfd9b1e50b8893,
         type: 3}
       propertyPath: m_Name
       value: block-snow-overhang-low-large
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 47dada70edf9fc04b8bfd9b1e50b8893,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
