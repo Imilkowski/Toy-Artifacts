@@ -18,13 +18,14 @@ using Highrise.Lua;
 
 namespace Highrise.Lua.Generated
 {
-    [AddComponentMenu("Lua/TestScript")]
+    [AddComponentMenu("Lua/CullOnEnter")]
     [LuaRegisterType(0xf5ec543c2701ff4a, typeof(LuaBehaviour))]
-    public class TestScript : LuaBehaviourThunk
+    public class CullOnEnter : LuaBehaviourThunk
     {
         private const string s_scriptGUID = "f5f6441ad96dfdd4ba13c39de9bf0f1d";
         public override string ScriptGUID => s_scriptGUID;
 
+        [SerializeField] public UnityEngine.GameObject m_cullObject = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -33,6 +34,7 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
+                CreateSerializedProperty(_script.GetPropertyAt(0), m_cullObject),
             };
         }
     }
