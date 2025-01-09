@@ -1,14 +1,16 @@
 --!Type(Client)
 
 --!SerializeField
-local cullObject: GameObject = nil
+local cullObjects: { GameObject } = {}
 
 function self:OnTriggerEnter(collider: Collider)
     local playerCharacter = collider.gameObject:GetComponent(Character)
     
     if CheckIfLocalPlayer(playerCharacter) ~= true then return end
 
-    cullObject.SetActive(cullObject, false)
+    for i, cullObject in ipairs(cullObjects) do
+        cullObject.SetActive(cullObject, false)
+    end
 end
 
 function self:OnTriggerExit(collider: Collider)
@@ -16,7 +18,9 @@ function self:OnTriggerExit(collider: Collider)
 
     if CheckIfLocalPlayer(playerCharacter) ~= true then return end
 
-    cullObject.SetActive(cullObject, true)
+    for i, cullObject in ipairs(cullObjects) do
+        cullObject.SetActive(cullObject, true)
+    end
 end
 
 function CheckIfLocalPlayer(playerCharacter: Character)
