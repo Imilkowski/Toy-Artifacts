@@ -1,6 +1,6 @@
 --!Type(Module)
 
-local InventoryModule = require("InventoryModule")
+local saveModule = require("SaveModule")
 
 function CheckIfLocalPlayer(playerCharacter: Character)
     if playerCharacter == nil then return false end
@@ -23,5 +23,7 @@ end
 
 function DrawAToy(tier, playerCharacter:Character)
     print("Drawing a random toy from tier " .. tier)
-    --InventoryModule.GivePlayerAnItem(playerCharacter.player, "Test Item", 1)
+    
+    --adding a Test Item
+    saveModule.CollectAToy(playerCharacter.player, "Test Toy")
 end
