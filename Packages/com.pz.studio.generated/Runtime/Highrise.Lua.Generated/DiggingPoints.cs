@@ -18,14 +18,15 @@ using Highrise.Lua;
 
 namespace Highrise.Lua.Generated
 {
-    [AddComponentMenu("Lua/CullOnEnter")]
-    [LuaRegisterType(0xc98a0267b31803b6, typeof(LuaBehaviour))]
-    public class CullOnEnter : LuaBehaviourThunk
+    [AddComponentMenu("Lua/DiggingPoints")]
+    [LuaRegisterType(0xe374178c58569dbb, typeof(LuaBehaviour))]
+    public class DiggingPoints : LuaBehaviourThunk
     {
-        private const string s_scriptGUID = "f5f6441ad96dfdd4ba13c39de9bf0f1d";
+        private const string s_scriptGUID = "066f2991ccd93874aaa3c3c5fe3e2ebe";
         public override string ScriptGUID => s_scriptGUID;
 
-        [SerializeField] public System.Collections.Generic.List<UnityEngine.GameObject> m_cullObjects = default;
+        [SerializeField] public System.Double m_tier = 0;
+        [SerializeField] public System.Double m_targetActivePoints = 0;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -34,7 +35,8 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
-                CreateSerializedProperty(_script.GetPropertyAt(0), m_cullObjects),
+                CreateSerializedProperty(_script.GetPropertyAt(0), m_tier),
+                CreateSerializedProperty(_script.GetPropertyAt(1), m_targetActivePoints),
             };
         }
     }

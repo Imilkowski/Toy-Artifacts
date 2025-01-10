@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5352807557548367866}
   - component: {fileID: 2774747279495798762}
+  - component: {fileID: 8763501436268296955}
   - component: {fileID: 1892945474260296021}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Digging Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,12 +51,35 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0.25}
+--- !u!114 &8763501436268296955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919309296944802004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622c7b8c61de75d10166678c0e4a5294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: d8f37b59db017504bbb96759b4955241, type: 3}
+  _properties: []
+  _uiOutput: 0
+  _uiOutputSettings:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &1892945474260296021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +100,7 @@ MonoBehaviour:
     rid: -2
   m_targetTransform: {fileID: 6499816652618554397}
   m_speed: 1.5
+  m_randomTimeOffset: 1
   references:
     version: 2
     RefIds:
