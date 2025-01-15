@@ -22584,6 +22584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1340690871}
   - component: {fileID: 1340690872}
+  - component: {fileID: 1340690873}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -22624,6 +22625,33 @@ MonoBehaviour:
   _uiOutput: 0
   _uiOutputSettings:
     rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &1340690873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340690870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d90d3d6a6ca11172eca45e2a3b53b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: 69060de8d0b3a1c4c833a48b90e45362, type: 3}
+  _properties: []
+  _uiOutput: 0
+  _uiOutputSettings:
+    rid: -2
+  m_toyGroups:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   references:
     version: 2
     RefIds:

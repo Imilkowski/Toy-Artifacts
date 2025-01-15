@@ -1,7 +1,5 @@
 --!Type(Module)
 
-local saveModule = require("SaveModule")
-
 function CheckIfLocalPlayer(playerCharacter: Character)
     if playerCharacter == nil then return false end
 
@@ -19,11 +17,4 @@ function RemoveByValue(t, value)
         end
     end
     return false
-end
-
-function DrawAToy(tier, playerCharacter:Character)
-    print("Drawing a random toy from tier " .. tier)
-    
-    --adding a Test Item
-    saveModule.CollectAToy(playerCharacter.player, "Test Toy")
 end

@@ -1,6 +1,7 @@
 --!Type(Client)
 
 local UtilsModule = require("UtilsModule")
+local ToysModule = require("ToysModule")
 
 --!SerializeField
 local tier:number = 0
@@ -54,5 +55,5 @@ function Dig(diggingPoint:DiggingPoint, playerCharacter:Character)
     UtilsModule.RemoveByValue(activePointsIndexes, diggingPoint.index);
 
     SetupActivePoints()
-    UtilsModule.DrawAToy(tier, playerCharacter)
+    ToysModule.DrawAToy(tier, playerCharacter)
 end

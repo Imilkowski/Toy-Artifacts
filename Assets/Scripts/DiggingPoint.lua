@@ -1,6 +1,7 @@
 --!Type(Client)
 
 local UtilsModule = require("UtilsModule")
+local ToysModule = require("ToysModule")
 
 diggingPoints = nil
 index = 0
