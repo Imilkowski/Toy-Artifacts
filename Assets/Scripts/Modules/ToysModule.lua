@@ -28,23 +28,36 @@ end
 
 local tiers = {}
 
+--!SerializeField
+local toyModels: { GameObject } = {}
+local toys = {}
+
 function self:Awake()
-    InitializeToyTables()
+    local status, result = pcall(function()
+        InitializeToyTables()
+    end)
+    
+    if not status then end
 end
 
 function InitializeToyTables()
+    -- Toy Models
+    for i, v in ipairs(toyModels) do
+        toys[v.name] = v
+    end
+
     -- Tier I
     local tierI = {}
-    table.insert(tierI, ToyRarity.new("Common", {"Toy IC1", "Toy IC2", "Toy IC3"}))
-    table.insert(tierI, ToyRarity.new("Rare", {"Toy IR1", "Toy IR2", "Toy IR3"}))
-    table.insert(tierI, ToyRarity.new("Epic", {"Toy IE1", "Toy IE2", "Toy IE3"}))
+    table.insert(tierI, ToyRarity.new("Common", {"Dolphin", "Cat", "Goose"}))
+    table.insert(tierI, ToyRarity.new("Rare", {"Shark", "Teddy Bear", "Doll"}))
+    table.insert(tierI, ToyRarity.new("Epic", {"Dinosaur", "Unicorn", "Rubber Duck"}))
     table.insert(tiers, tierI)
 
     -- Tier II
     local tierII = {}
-    table.insert(tierII, ToyRarity.new("Common", {"Toy IIC1", "Toy IIC2", "Toy IIC3"}))
-    table.insert(tierII, ToyRarity.new("Rare", {"Toy IIR1", "Toy IIR2", "Toy IIR3"}))
-    table.insert(tierII, ToyRarity.new("Epic", {"Toy IIE1", "Toy IIE2", "Toy IIE3"}))
+    table.insert(tierII, ToyRarity.new("Common", {"Car", "Ship", "Traktor"}))
+    table.insert(tierII, ToyRarity.new("Rare", {"Truck", "Airplane", "Submarine"}))
+    table.insert(tierII, ToyRarity.new("Epic", {"Police Car", "Rocket", "Tank"}))
     table.insert(tiers, tierII)
 
     -- for n, tier in ipairs(tiers) do
@@ -59,17 +72,16 @@ function InitializeToyTables()
 end
 
 function DrawAToy(tier, playerCharacter:Character)
-    print("Drawing a random toy from tier " .. tier)
+    local rarity = GetRandomRarity()
+    local toysTable = tiers[tier][rarity].toys
+    local toyIndex = math.random(1, #toysTable)
+    local toy = toysTable[toyIndex]
 
-    --local rarityIndex = math.random(1, #tiers[tier])
-    local rarityIndex = GetRandomRarity()
-    local toyIndex = math.random(1, #tiers[tier][rarityIndex].toys)
-
-    local toyName = tiers[tier][rarityIndex].toys[toyIndex]
-    print(toyName)
+    print("Tier:", tier, "Rarity:", rarity, "-", toy)
     
-    --adding a Test Item
-    saveModule.CollectAToy(playerCharacter.player, toyName)
+    saveModule.CollectAToy(playerCharacter.player, tier, rarity, toy)
+
+    return toys[toy]
 end
 
 function GetRandomRarity()

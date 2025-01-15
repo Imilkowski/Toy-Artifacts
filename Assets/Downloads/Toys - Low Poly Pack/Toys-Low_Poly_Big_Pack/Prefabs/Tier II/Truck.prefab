@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5084132126150657565}
+  - component: {fileID: -4925690828230329581}
   m_Layer: 0
-  m_Name: truck
+  m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,6 +33,29 @@ Transform:
   - {fileID: 8555471493763600987}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4925690828230329581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604069581551099047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 755219e1e6f36031723b582bbf91bdfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: cf8d19345c2c60e4c8e458fe054ebd2e, type: 3}
+  _properties: []
+  _uiOutput: 0
+  _uiOutputSettings:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &9075020783695349985
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +68,7 @@ GameObject:
   - component: {fileID: 4689646254233067006}
   - component: {fileID: 7417445225181571380}
   - component: {fileID: 8928458751946330023}
-  - component: {fileID: 9121304456071878546}
+  - component: {fileID: 8229927346761164077}
   m_Layer: 0
   m_Name: truck
   m_TagString: Untagged
@@ -144,14 +168,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &9121304456071878546
-MeshCollider:
+--- !u!65 &8229927346761164077
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9075020783695349985}
-  m_Material: {fileID: 13400000, guid: 3dd9c0175bbab174d81c738fc6cf1279, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -162,7 +186,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1121333905072906627, guid: b3279c938edf883479c2a94d46ce0fcc, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.20676, y: 0.20425348, z: 0.40398726}
+  m_Center: {x: -0.00000000372529, y: 0.09857609, z: -0.02478399}

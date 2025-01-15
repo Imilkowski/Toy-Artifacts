@@ -50,10 +50,13 @@ function SetupActivePoints()
     end
 end
 
-function Dig(diggingPoint:DiggingPoint, playerCharacter:Character)
+function Dig(diggingPoint:DiggingPoint, playerCharacter:Character, diggingPosition)
     diggingPoint.gameObject.SetActive(diggingPoint.gameObject, false)
     UtilsModule.RemoveByValue(activePointsIndexes, diggingPoint.index);
 
     SetupActivePoints()
-    ToysModule.DrawAToy(tier, playerCharacter)
+    local toy = ToysModule.DrawAToy(tier, playerCharacter)
+
+    local spawnedToy = Object.Instantiate(toy).gameObject
+    spawnedToy:GetComponent(Toy).DigUp(diggingPosition)
 end

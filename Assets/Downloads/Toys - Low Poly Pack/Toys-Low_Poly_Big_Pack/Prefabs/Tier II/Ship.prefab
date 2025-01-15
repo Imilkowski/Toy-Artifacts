@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4997981992886928771
+--- !u!1 &4736121412959435965
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,31 +8,55 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5627166957966155577}
+  - component: {fileID: 5400315104017327623}
+  - component: {fileID: 8738457155838691298}
   m_Layer: 0
-  m_Name: submarine
+  m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5627166957966155577
+--- !u!4 &5400315104017327623
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4997981992886928771}
+  m_GameObject: {fileID: 4736121412959435965}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8970699698675501475}
+  - {fileID: 8824661657629052702}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8589916399675216665
+--- !u!114 &8738457155838691298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736121412959435965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 755219e1e6f36031723b582bbf91bdfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: cf8d19345c2c60e4c8e458fe054ebd2e, type: 3}
+  _properties: []
+  _uiOutput: 0
+  _uiOutputSettings:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!1 &8159589766871717284
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,48 +64,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8970699698675501475}
-  - component: {fileID: 5463297689826280966}
-  - component: {fileID: 7797277986937254604}
-  - component: {fileID: 4975683127608952587}
-  - component: {fileID: 9067918289297461403}
+  - component: {fileID: 8824661657629052702}
+  - component: {fileID: 5609414276485890235}
+  - component: {fileID: 7655085659872474225}
+  - component: {fileID: 441727586653507619}
+  - component: {fileID: 6483144155676131837}
   m_Layer: 0
-  m_Name: submarine
+  m_Name: ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8970699698675501475
+--- !u!4 &8824661657629052702
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8589916399675216665}
+  m_GameObject: {fileID: 8159589766871717284}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 2.7599785, y: 2.7599785, z: 2.7599785}
+  m_LocalScale: {x: 3.2201314, y: 3.2201314, z: 3.2201314}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5627166957966155577}
+  m_Father: {fileID: 5400315104017327623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5463297689826280966
+--- !u!33 &5609414276485890235
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8589916399675216665}
-  m_Mesh: {fileID: -2537288834465864411, guid: 68831dd50b3477e479b9e11bf1ce8223, type: 3}
---- !u!23 &7797277986937254604
+  m_GameObject: {fileID: 8159589766871717284}
+  m_Mesh: {fileID: 2838047407261934760, guid: c41e7862e8b30a445abf3480211e0271, type: 3}
+--- !u!23 &7655085659872474225
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8589916399675216665}
+  m_GameObject: {fileID: 8159589766871717284}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -117,13 +141,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &4975683127608952587
+--- !u!54 &441727586653507619
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8589916399675216665}
+  m_GameObject: {fileID: 8159589766871717284}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0.1
@@ -144,14 +168,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &9067918289297461403
-MeshCollider:
+--- !u!65 &6483144155676131837
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8589916399675216665}
-  m_Material: {fileID: 13400000, guid: 3dd9c0175bbab174d81c738fc6cf1279, type: 2}
+  m_GameObject: {fileID: 8159589766871717284}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -162,7 +186,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5879652679918746422, guid: 67a5ac5a224c7eb409bb837450678f08, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.09894505, y: 0.13952674, z: 0.16727687}
+  m_Center: {x: 0, y: 0.06910924, z: 0.0036601275}
