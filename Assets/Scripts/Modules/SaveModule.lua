@@ -7,7 +7,8 @@ function TrackPlayers(game)
         localPlayersStorage[player] = {
           player = player,
           coins = 0,
-          toysCollected = {}
+          toysCollected = {},
+          toysInShop = {}
         }
     end)
 

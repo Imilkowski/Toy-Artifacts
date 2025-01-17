@@ -19,7 +19,7 @@ using Highrise.Lua;
 namespace Highrise.Lua.Generated
 {
     [AddComponentMenu("Lua/Toy")]
-    [LuaRegisterType(0xfd28e8df810da52e, typeof(LuaBehaviour))]
+    [LuaRegisterType(0x6d02e519e21ec3e7, typeof(LuaBehaviour))]
     public class Toy : LuaBehaviourThunk
     {
         private const string s_scriptGUID = "cf8d19345c2c60e4c8e458fe054ebd2e";

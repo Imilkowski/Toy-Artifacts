@@ -8,6 +8,7 @@ function self:Awake()
 end
 
 function DigUp(diggingPosition)
+    self.transform.localScale *= 1.5
     self.transform.position = diggingPosition + Vector3.new(0, 0.25, 0)
     self.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0)
     
