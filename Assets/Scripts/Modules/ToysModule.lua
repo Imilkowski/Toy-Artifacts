@@ -32,6 +32,9 @@ local tiers = {}
 local toyModels: { GameObject } = {}
 local toys = {}
 
+--!SerializeField
+local toyPrices: { number } = {}
+
 function self:Awake()
     local status, result = pcall(function()
         InitializeToyTables()
@@ -91,5 +94,8 @@ function GetRandomRarity()
     if(chance < 0.6) then return 1
     elseif(chance < 0.9) then return 2
     else return 3 end
+end
 
+function GetToyPrice(toyTypeKey)
+    return toyPrices[toyTypeKey]
 end

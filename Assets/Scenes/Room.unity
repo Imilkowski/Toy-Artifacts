@@ -22667,6 +22667,13 @@ MonoBehaviour:
   - {fileID: 6705004653067458499, guid: 5f0596e8ef3303843b8a3be990c651bb, type: 3}
   - {fileID: 3379387601007500950, guid: c363486fc0464a34486ac505d3ad7d5d, type: 3}
   - {fileID: 7383827342369672500, guid: 122687c721ca02d4bb5632dd3d7a2259, type: 3}
+  m_toyPrices:
+  - 2
+  - 3
+  - 6
+  - 6
+  - 9
+  - 18
   references:
     version: 2
     RefIds:

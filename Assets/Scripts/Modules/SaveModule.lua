@@ -1,5 +1,7 @@
 --!Type(Module)
 
+local ToysModule = require("ToysModule")
+
 localPlayerStorage = {}
 
 function TrackPlayers(game)
@@ -9,7 +11,7 @@ function TrackPlayers(game)
           coins = 0,
           toysCollected = {},
           toysInShop = {},
-          shopSellingRate = 2.0
+          shopSellingRate = 3.0
         }
     end)
 
@@ -54,8 +56,37 @@ function GetShopSellingRate(player:Player)
 end
 
 function SellRandomToy(player:Player)
+    local toyTypeKey = GetRandomToyFromShop(player)
+
+    if(toyTypeKey == nil) then return end
+
+    localPlayerStorage[player].coins += ToysModule.GetToyPrice(toyTypeKey)
+    print("Sold toy type:", toyTypeKey)
+    print("Coins:", localPlayerStorage[player].coins)
+
     print("Toys in shop:")
     for k, v in pairs(localPlayerStorage[player].toysInShop) do
-        print(k, v)
+        if(v ~= 0) then
+            print(k, v)
+        end
     end
+end
+
+function GetRandomToyFromShop(player:Player)
+    local keys = {}
+    for key in pairs(localPlayerStorage[player].toysInShop) do
+        if(localPlayerStorage[player].toysInShop[key] > 0) then
+            table.insert(keys, key)
+        end
+    end
+
+    if(#keys > 0) then
+        local randomIndex = math.random(1, #keys)
+        local chosenKey = keys[randomIndex]
+
+        localPlayerStorage[player].toysInShop[chosenKey] -= 1
+        return chosenKey
+    end
+
+    return nil
 end
