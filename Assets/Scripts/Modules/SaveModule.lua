@@ -1,14 +1,15 @@
 --!Type(Module)
 
-localPlayersStorage = {}
+localPlayerStorage = {}
 
 function TrackPlayers(game)
     game.PlayerConnected:Connect(function(player)
-        localPlayersStorage[player] = {
+        localPlayerStorage[player] = {
           player = player,
           coins = 0,
           toysCollected = {},
-          toysInShop = {}
+          toysInShop = {},
+          shopSellingRate = 2.0
         }
     end)
 
@@ -24,14 +25,37 @@ end
 
 function CollectAToy(player:Player, tier, rarity, toy)
     local index = (tier - 1) * 3 + rarity
-    if(localPlayersStorage[player].toysCollected[index] == nil) then
-        localPlayersStorage[player].toysCollected[index] = 1
+    if(localPlayerStorage[player].toysCollected[index] == nil) then
+        localPlayerStorage[player].toysCollected[index] = 1
     else
-        localPlayersStorage[player].toysCollected[index] += 1
+        localPlayerStorage[player].toysCollected[index] += 1
     end
     
     print("Toys collected:")
-    for i, v in ipairs(localPlayersStorage[player].toysCollected) do
-        print(i, v)
+    for k, v in pairs(localPlayerStorage[player].toysCollected) do
+        print(k, v)
+    end
+end
+
+function LeaveToysAtShop(player:Player)
+    for k, v in pairs(localPlayerStorage[player].toysCollected) do
+        if(localPlayerStorage[player].toysInShop[k] == nil) then
+            localPlayerStorage[player].toysInShop[k] = v
+        else
+            localPlayerStorage[player].toysInShop[k] += v
+        end
+    end
+
+    table.clear(localPlayerStorage[player].toysCollected)
+end
+
+function GetShopSellingRate(player:Player)
+    return localPlayerStorage[player].shopSellingRate
+end
+
+function SellRandomToy(player:Player)
+    print("Toys in shop:")
+    for k, v in pairs(localPlayerStorage[player].toysInShop) do
+        print(k, v)
     end
 end
