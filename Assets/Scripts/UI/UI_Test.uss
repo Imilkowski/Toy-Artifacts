@@ -1,0 +1,31 @@
+.lua-view {
+    .mini-game {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        flex-grow: 1;
+        -unity-font-definition: var(--font-regular);
+    }
+
+    .mini-game__counter {
+        position: absolute;
+        align-self: center;
+        top: 40;
+        font-size: 70px;
+        color: #fff;
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    }
+
+    .mini-game__game {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        bottom: 0;
+    }
+
+    .secondary-button:hover {
+        background-color: rgba(0, 255, 0, 0.4);
+    }
+}
