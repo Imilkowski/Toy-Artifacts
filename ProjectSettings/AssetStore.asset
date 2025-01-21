@@ -1055,3 +1055,20 @@ MonoBehaviour:
     - 3dd9c0175bbab174d81c738fc6cf1279
     - 0c641c523855910409d6803781b6539a
     IsBundle: 1
+  - Guid: e7dd73be5bb5936458cf746892567ef1
+    StoreId: 675728ba6eccdc965a2f6307
+    Name: Animated Water Shader
+    ThumbnailUrl: https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/647622d2106a74bac609d8ea/675728ba6eccdc965a2f6307/3ac77a730.jpg
+    AdditionalImageUrls:
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/647622d2106a74bac609d8ea/675728ba6eccdc965a2f6307/193ac77d9e0_0.jpg
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/647622d2106a74bac609d8ea/675728ba6eccdc965a2f6307/193ac77d9e0_1.jpg
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/647622d2106a74bac609d8ea/675728ba6eccdc965a2f6307/193ac77d9e0_2.jpg
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/647622d2106a74bac609d8ea/675728ba6eccdc965a2f6307/193ac77d9e0_3.jpg
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/647622d2106a74bac609d8ea/675728ba6eccdc965a2f6307/193ac783b88_0.jpg
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/647622d2106a74bac609d8ea/675728ba6eccdc965a2f6307/193ac789948_0.jpg
+    AdditionalAssetGUIDs:
+    - 865ce700cf6b2144b83d39205025965a
+    - 811fc5da5acaced4f96e57210d09e222
+    - 62c7ed5ed5478c44a9e101b871626e23
+    - 7238554189bdaa74d884bcaf715cb1e0
+    IsBundle: 0
