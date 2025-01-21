@@ -11,7 +11,8 @@ function TrackPlayers(game)
           coins = 0,
           toysCollected = {},
           toysInShop = {},
-          shopSellingRate = 3.0
+          toysRegister = {},
+          shopSellingRate = 5.0
         }
     end)
 
@@ -89,4 +90,17 @@ function GetRandomToyFromShop(player:Player)
     end
 
     return nil
+end
+
+function AddToyToRegister(player:Player, toy:string)
+    if(localPlayerStorage[player].toysRegister[toy] == nil) then
+        localPlayerStorage[player].toysRegister[toy] = 1
+    else
+        localPlayerStorage[player].toysRegister[toy] += 1
+    end
+
+    -- print("Toys Register:")
+    -- for k, v in pairs(localPlayerStorage[player].toysRegister) do
+    --     print(k, v)
+    -- end
 end

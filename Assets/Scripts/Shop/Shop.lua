@@ -2,6 +2,9 @@
 
 local SaveModule = require("SaveModule")
 
+--!SerializeField
+local tablesParent:Transform = nil
+
 assignedPlayer = nil
 local timePassed = 0.0
 
@@ -11,8 +14,8 @@ function SetPlayer(player:Player)
     print("Assigned player set to", player.name, "- TESTING")
 end
 
-function UpdateCollectedToys()
-
+function self:Start()
+    UpdateTables()
 end
 
 function self:Update()
@@ -28,4 +31,46 @@ end
 
 function SellAToy()
     SaveModule.SellRandomToy(assignedPlayer)
+end
+
+
+function UpdateTables()
+    local toysRegister
+
+    if(assignedPlayer == nil) then
+        ClearTables()
+        return
+    end
+
+    toysRegister = SaveModule.localPlayerStorage[assignedPlayer].toysRegister
+
+    for i = 0, tablesParent.childCount - 1 do
+        local tableToys = tablesParent:GetChild(i):GetChild(0)
+
+        for j = 0, tableToys.childCount - 1 do
+            local toy = tableToys:GetChild(j)
+            
+            for k, v in pairs(toysRegister) do
+                print(toy.name, k)
+                if(toy.name == k) then
+                    toy.gameObject.SetActive(toy.gameObject, true)
+                    break
+                else
+                    toy.gameObject.SetActive(toy.gameObject, false)
+                end
+            end
+        end
+    end
+end
+
+function ClearTables()
+    for i = 0, tablesParent.childCount - 1 do
+        local tableToys = tablesParent:GetChild(i):GetChild(0)
+
+        for j = 0, tableToys.childCount - 1 do
+            local toy = tableToys:GetChild(j)
+            
+            toy.gameObject.SetActive(toy.gameObject, false)
+        end
+    end
 end

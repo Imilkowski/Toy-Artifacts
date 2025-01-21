@@ -12,7 +12,7 @@
 --Tier II
     --...
 
-local saveModule = require("SaveModule")
+local SaveModule = require("SaveModule")
 
 ToyRarity = {}
 ToyRarity.__index = ToyRarity
@@ -82,7 +82,7 @@ function DrawAToy(tier, playerCharacter:Character)
 
     print("Tier:", tier, "Rarity:", rarity, "-", toy)
     
-    saveModule.CollectAToy(playerCharacter.player, tier, rarity, toy)
+    SaveModule.CollectAToy(playerCharacter.player, tier, rarity, toy)
 
     return toys[toy]
 end

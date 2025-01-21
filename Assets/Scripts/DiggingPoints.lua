@@ -2,6 +2,7 @@
 
 local UtilsModule = require("UtilsModule")
 local ToysModule = require("ToysModule")
+local SaveModule = require("SaveModule")
 
 --!SerializeField
 local tier:number = 0
@@ -56,6 +57,8 @@ function Dig(diggingPoint:DiggingPoint, playerCharacter:Character, diggingPositi
 
     SetupActivePoints()
     local toy = ToysModule.DrawAToy(tier, playerCharacter)
+
+    SaveModule.AddToyToRegister(playerCharacter.player, toy.name)
 
     local spawnedToy = Object.Instantiate(toy).gameObject
     spawnedToy:GetComponent(Toy).DigUp(diggingPosition)
