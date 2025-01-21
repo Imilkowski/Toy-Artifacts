@@ -1072,3 +1072,42 @@ MonoBehaviour:
     - 62c7ed5ed5478c44a9e101b871626e23
     - 7238554189bdaa74d884bcaf715cb1e0
     IsBundle: 0
+  - Guid: 6832741e837c3ce499356b8e22559b91
+    StoreId: 66ea18ed4a75f9d6237b082f
+    Name: Action Bar
+    ThumbnailUrl: https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/65dbb84c6d6b925046b4b3a3/66ea18ed4a75f9d6237b082f/19202b23370_0.jpg
+    AdditionalImageUrls:
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/65dbb84c6d6b925046b4b3a3/66ea18ed4a75f9d6237b082f/19202b822f8_0.jpg
+    AdditionalAssetGUIDs:
+    - 84d880a67304f494a89e0dfa3d2a532e
+    - 0693918c8aa324541bca72d24e4a7002
+    - e8ecadfe9dd9aeb43ad77c023a59d42d
+    - 4c05324c5085a354c80d1b2e395b355b
+    - c3ead373ebb550e41a728c24a801e227
+    - ed36dfa7ba5ad7b4bbf70bd891f925e2
+    - 4f27855ddd591aa47aeea63976243691
+    - 886b05d75c0b41de94acfe85a9548305
+    - c3ead373ebb550e41a728c24a801e227
+    - 96579e5e58c30d846b8cad7a4a2d3d40
+    - 15bb21e77feffa24b93d4ad7d6501c91
+    - dc78e34b837e629439d4f6351b62d21e
+    - 9fb8d849b2bbd434c85e0e1bf2e345d4
+    - 2471b48b8b1c4db8bb93efe4ff0fe580
+    - 42b89156f3d444e41930f6aa2537c029
+    - ed36dfa7ba5ad7b4bbf70bd891f925e2
+    - 4f27855ddd591aa47aeea63976243691
+    - 886b05d75c0b41de94acfe85a9548305
+    - 8a297b2b636ecd845ac576ed59bf3471
+    - c3ead373ebb550e41a728c24a801e227
+    - ae515ad82f07df143bf84339c830b4e9
+    - 15bb21e77feffa24b93d4ad7d6501c91
+    - dc78e34b837e629439d4f6351b62d21e
+    - 9fb8d849b2bbd434c85e0e1bf2e345d4
+    - 2471b48b8b1c4db8bb93efe4ff0fe580
+    - 42b89156f3d444e41930f6aa2537c029
+    - ed36dfa7ba5ad7b4bbf70bd891f925e2
+    - 4f27855ddd591aa47aeea63976243691
+    - 886b05d75c0b41de94acfe85a9548305
+    - 8a297b2b636ecd845ac576ed59bf3471
+    - c3ead373ebb550e41a728c24a801e227
+    IsBundle: 0
