@@ -1,11 +1,8 @@
 --!Type(Module)
 
-function CheckIfLocalPlayer(playerCharacter: Character)
-    if playerCharacter == nil then return false end
-
-    local player = playerCharacter.player
+function CheckIfLocalPlayer(player:Player)
     if client.localPlayer ~= player then return false end
-
+    
     return true
 end
 

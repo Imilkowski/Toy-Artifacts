@@ -1,0 +1,24 @@
+.toys-amount_-u-i {
+    -unity-font-definition: var(--font-regular);
+}
+
+.toys-container {
+    position: absolute;
+    top: 64px;
+    left: 16px;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.label {
+    font-size: 32px;
+    left: 16px;
+}
+
+.icon {
+    background-color: rgba(0, 0, 0, 0);
+    height: 48px;
+    width: 48px;
+}

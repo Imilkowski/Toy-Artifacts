@@ -1,6 +1,8 @@
 --!Type(Module)
 
+local UtilsModule = require("UtilsModule")
 local ToysModule = require("ToysModule")
+local UIManagerModule = require("UIManagerModule")
 
 localPlayerStorage = {}
 
@@ -50,6 +52,8 @@ function LeaveToysAtShop(player:Player)
     end
 
     table.clear(localPlayerStorage[player].toysCollected)
+
+    UpdateUIToysAmount(player, CountToysInShop(player))
 end
 
 function GetShopSellingRate(player:Player)
@@ -61,7 +65,7 @@ function SellRandomToy(player:Player)
 
     if(toyTypeKey == nil) then return end
 
-    localPlayerStorage[player].coins += ToysModule.GetToyPrice(toyTypeKey)
+    UpdateCoins(player, ToysModule.GetToyPrice(toyTypeKey))
     print("Sold toy type:", toyTypeKey)
     print("Coins:", localPlayerStorage[player].coins)
 
@@ -71,6 +75,18 @@ function SellRandomToy(player:Player)
             print(k, v)
         end
     end
+
+    UpdateUIToysAmount(player, CountToysInShop(player))
+end
+
+function CountToysInShop(player:Player)
+    local toysAmount = 0
+
+    for k, v in pairs(localPlayerStorage[player].toysInShop) do
+        toysAmount += v
+    end
+
+    return toysAmount
 end
 
 function GetRandomToyFromShop(player:Player)
@@ -103,4 +119,18 @@ function AddToyToRegister(player:Player, toy:string)
     -- for k, v in pairs(localPlayerStorage[player].toysRegister) do
     --     print(k, v)
     -- end
+end
+
+function UpdateCoins(player:Player, coinsChange)
+    localPlayerStorage[player].coins += coinsChange
+
+    if UtilsModule.CheckIfLocalPlayer(player) ~= true then return end
+
+    UIManagerModule.UpdateCoinsAmount(localPlayerStorage[player].coins)
+end
+
+function UpdateUIToysAmount(player:Player, toysAmount)
+    if UtilsModule.CheckIfLocalPlayer(player) ~= true then return end
+
+    UIManagerModule.UpdateToysAmount(toysAmount)
 end

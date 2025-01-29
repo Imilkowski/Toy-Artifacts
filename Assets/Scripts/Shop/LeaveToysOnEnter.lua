@@ -8,7 +8,7 @@ local shopScript:Shop = nil
 
 function self:OnTriggerEnter(collider: Collider)
     local playerCharacter = collider.gameObject:GetComponent(Character)
-    if UtilsModule.CheckIfLocalPlayer(playerCharacter) ~= true then return end
+    if UtilsModule.CheckIfLocalPlayer(playerCharacter.player) ~= true then return end
 
     SaveModule.LeaveToysAtShop(playerCharacter.player)
 

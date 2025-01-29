@@ -18,11 +18,11 @@ using Highrise.Lua;
 
 namespace Highrise.Lua.Generated
 {
-    [AddComponentMenu("Lua/Coins_UI")]
-    [LuaRegisterType(0x9ef70d56eb1c91d0, typeof(LuaBehaviour))]
-    public class Coins_UI : LuaBehaviourThunk
+    [AddComponentMenu("Lua/ToysAmount_UI")]
+    [LuaRegisterType(0xc6d4d6dbf1de4ca3, typeof(LuaBehaviour))]
+    public class ToysAmount_UI : LuaBehaviourThunk
     {
-        private const string s_scriptGUID = "edc3f4971b3051b4c8a9d25941ffc1dd";
+        private const string s_scriptGUID = "b329f80730f2f2442bb493de5e6368c6";
         public override string ScriptGUID => s_scriptGUID;
 
         [SerializeField] public UnityEngine.Texture m_img = default;
