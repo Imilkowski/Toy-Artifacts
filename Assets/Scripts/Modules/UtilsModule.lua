@@ -15,3 +15,7 @@ function RemoveByValue(t, value)
     end
     return false
 end
+
+function RoundNumber(number)
+    return math.round(number*100)/100
+end

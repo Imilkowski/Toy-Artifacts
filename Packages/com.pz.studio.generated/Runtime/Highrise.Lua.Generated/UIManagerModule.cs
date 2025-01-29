@@ -27,6 +27,8 @@ namespace Highrise.Lua.Generated
 
         [LuaScriptPropertyAttribute("ce6d7af3415efa440be9f37545cc3f2b")]
         [SerializeField] public UnityEngine.Object m_leftHUD = default;
+        [LuaScriptPropertyAttribute("cc0a8412b0339ed4a90a8bcd7f19bbc8")]
+        [SerializeField] public UnityEngine.Object m_shopUI = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -36,6 +38,7 @@ namespace Highrise.Lua.Generated
             return new SerializedPropertyValue[]
             {
                 CreateSerializedProperty(_script.GetPropertyAt(0), m_leftHUD),
+                CreateSerializedProperty(_script.GetPropertyAt(1), m_shopUI),
             };
         }
     }

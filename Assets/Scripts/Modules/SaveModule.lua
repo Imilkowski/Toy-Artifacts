@@ -14,7 +14,7 @@ function TrackPlayers(game)
           toysCollected = {},
           toysInShop = {},
           toysRegister = {},
-          shopSellingRate = 5.0
+          shopSellingRate = 3.0
         }
     end)
 

@@ -41,7 +41,7 @@ end
 
 -- Register a callback for when the button is pressed
 _ShopButton:RegisterPressCallback(function()
-    print("Shop Button clicked")
+    UIManagerModule.SwitchShop()
 end, true, true, true)
 
 -- Register a callback for when the button is pressed

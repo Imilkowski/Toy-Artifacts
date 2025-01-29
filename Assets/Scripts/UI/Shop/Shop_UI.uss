@@ -19,6 +19,7 @@
 }
 
 .title {
+    -unity-font-style: bold;
     font-size: 32px;
 }
 
@@ -31,7 +32,7 @@
     width: 100%;
     border-radius: 16;
 
-    background-color: rgba(255, 0, 0, 1);
+    background-color: rgb(128, 145, 184);
 }
 
 .title-container {
@@ -47,7 +48,9 @@
     height: 10%;
     width: 100%;
 
-    background-color: rgba(0, 0, 255, 0.5);
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .toys-container {
@@ -55,4 +58,23 @@
     width: 100%;
 
     background-color: rgba(0, 255, 0, 0.5);
+}
+
+.stat-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 50%;
+}
+
+.icon {
+    background-color: rgba(0, 0, 0, 0);
+    height: 48px;
+    width: 48px;
+}
+
+.label {
+    font-size: 24px;
+    left: 8px;
 }

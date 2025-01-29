@@ -9537,62 +9537,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 624553711}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &630449241
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 630449242}
-  - component: {fileID: 630449243}
-  m_Layer: 0
-  m_Name: Toys
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &630449242
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630449241}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2063701204}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &630449243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630449241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09f6f8d28a2df291916b930be4bc6813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _networkId: 0
-  _script: {fileID: -974389366465450183, guid: b329f80730f2f2442bb493de5e6368c6, type: 3}
-  _properties: []
-  _uiOutput: 3
-  _uiOutputSettings:
-    rid: -2
-  m_img: {fileID: 2800000, guid: f88e934b07c487f4692db557458d8e63, type: 3}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!1 &632818454
 GameObject:
   m_ObjectHideFlags: 0
@@ -28583,6 +28527,8 @@ MonoBehaviour:
   _uiOutput: 0
   _uiOutputSettings:
     rid: -2
+  m_sellingRateIcon: {fileID: 0}
+  m_toysIcon: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -33591,6 +33537,8 @@ MonoBehaviour:
   _uiOutput: 2
   _uiOutputSettings:
     rid: -2
+  m_sellingRateIcon: {fileID: 2800000, guid: 0b47ee54a4322a448a2ac2f148c0a69c, type: 3}
+  m_toysIcon: {fileID: 2800000, guid: f88e934b07c487f4692db557458d8e63, type: 3}
   references:
     version: 2
     RefIds:
@@ -34017,7 +33965,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1313540045}
-  - {fileID: 630449242}
   - {fileID: 1433507399}
   - {fileID: 1999914935}
   m_Father: {fileID: 0}
@@ -34041,6 +33988,7 @@ MonoBehaviour:
   _uiOutputSettings:
     rid: -2
   m_leftHUD: {fileID: 1433507400}
+  m_shopUI: {fileID: 1999914936}
   references:
     version: 2
     RefIds:
