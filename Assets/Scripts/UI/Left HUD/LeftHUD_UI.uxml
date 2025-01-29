@@ -17,13 +17,13 @@
 
       <VisualElement class="content-separator"></VisualElement>
 
-      <VisualElement class="content-container">
+      <hr:UIButton class="button-container" name="_ShopButton">
         <Image class="icon" name="_ShopIcon" />
-      </VisualElement>
+      </hr:UIButton>
 
-      <VisualElement class="content-container">
+      <hr:UIButton class="button-container" name="_UpgradesButton">
         <Image class="icon" name="_UpgradesIcon" />
-      </VisualElement>
+      </hr:UIButton>
 
     </VisualElement>
   </hr:UILuaView>

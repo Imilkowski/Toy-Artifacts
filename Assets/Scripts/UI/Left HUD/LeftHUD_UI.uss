@@ -18,13 +18,21 @@
     justify-content: flex-start;
 }
 
+.button-container {
+    margin-top: 16px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 64px;
+}
+
 .content-separator {
     height: 32px;
 }
 
 .label {
     font-size: 32px;
-    left: 16px;
+    left: 8px;
 }
 
 .icon {
