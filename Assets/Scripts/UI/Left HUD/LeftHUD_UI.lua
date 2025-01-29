@@ -1,5 +1,7 @@
 --!Type(UI)
 
+local UIManagerModule = require("UIManagerModule")
+
 --!SerializeField
 local coinIcon : Texture = nil
 --!SerializeField
