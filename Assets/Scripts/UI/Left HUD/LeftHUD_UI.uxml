@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="UnityEngine.UIElements"
+    xmlns:hr="Highrise.UI"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd"
+>
+
+  <hr:UILuaView class="left-h-u-d_-u-i">
+    <VisualElement class="hud-container">
+
+      <VisualElement class="content-container">
+        <Image class="icon" name="_CoinIcon" />
+        <hr:UILabel class="label" name="_CoinLabel"/>
+      </VisualElement>
+
+      <VisualElement class="content-separator"></VisualElement>
+
+      <VisualElement class="content-container">
+        <Image class="icon" name="_ShopIcon" />
+      </VisualElement>
+
+      <VisualElement class="content-container">
+        <Image class="icon" name="_UpgradesIcon" />
+      </VisualElement>
+
+    </VisualElement>
+  </hr:UILuaView>
+
+</UXML>

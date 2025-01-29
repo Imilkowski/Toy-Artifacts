@@ -25,10 +25,8 @@ namespace Highrise.Lua.Generated
         private const string s_scriptGUID = "230694961ba5d794480061662f7f5bdb";
         public override string ScriptGUID => s_scriptGUID;
 
-        [LuaScriptPropertyAttribute("edc3f4971b3051b4c8a9d25941ffc1dd")]
-        [SerializeField] public UnityEngine.Object m_coinsUI = default;
-        [LuaScriptPropertyAttribute("b329f80730f2f2442bb493de5e6368c6")]
-        [SerializeField] public UnityEngine.Object m_toysAmountUI = default;
+        [LuaScriptPropertyAttribute("ce6d7af3415efa440be9f37545cc3f2b")]
+        [SerializeField] public UnityEngine.Object m_leftHUD = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -37,8 +35,7 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
-                CreateSerializedProperty(_script.GetPropertyAt(0), m_coinsUI),
-                CreateSerializedProperty(_script.GetPropertyAt(1), m_toysAmountUI),
+                CreateSerializedProperty(_script.GetPropertyAt(0), m_leftHUD),
             };
         }
     }

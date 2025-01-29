@@ -1,14 +1,15 @@
 --!Type(Module)
 
+-- --!SerializeField
+-- local toysAmountUI : ToysAmount_UI = nil
+
 --!SerializeField
-local coinsUI : Coins_UI = nil
---!SerializeField
-local toysAmountUI : ToysAmount_UI = nil
+local leftHUD : LeftHUD_UI = nil
 
 function UpdateCoinsAmount(coinsAmount)
-    coinsUI.SetAmount(coinsAmount)
+    leftHUD.SetCoinsAmount(coinsAmount)
 end
 
 function UpdateToysAmount(toysAmount)
-    toysAmountUI.SetAmount(toysAmount)
+    --toysAmountUI.SetAmount(toysAmount)
 end
