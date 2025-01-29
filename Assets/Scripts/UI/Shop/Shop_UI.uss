@@ -40,12 +40,12 @@
     align-items: center;
     justify-content: center;
 
-    height: 10%;
+    height: 64px;
     width: 100%;
 }
 
 .stats-container {
-    height: 10%;
+    height: 64px;
     width: 100%;
 
     flex-direction: row;
@@ -54,8 +54,13 @@
 }
 
 .toys-container {
-    height: 80%;
+    height: 640px;
     width: 100%;
+
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 
     background-color: rgba(0, 255, 0, 0.5);
 }
@@ -77,4 +82,19 @@
 .label {
     font-size: 24px;
     left: 8px;
+}
+
+.toy-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    height: 96px;
+    width: 96px;
+}
+
+.toy-icon {
+    background-color: rgba(0, 47, 255, 1);
+    height: 90%;
+    width: 90%;
 }
