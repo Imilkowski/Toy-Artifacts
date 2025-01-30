@@ -4,22 +4,29 @@
 local leftHUD : LeftHUD_UI = nil
 --!SerializeField
 local shopUI : Shop_UI = nil
+--!SerializeField
+local bridgePopUpUI : BridgePopUp_UI = nil
 
 function self:Start()
     local status, result = pcall(function()
         SwitchShop()
+        SwitchBridgePopUp()
     end)
     
     if not status then end
 end
 
 function SwitchShop()
-    shopUI.gameObject.SetActive(shopUI.gameObject, not shopUI.gameObject.activeSelf)
+    shopUI.gameObject:SetActive(not shopUI.gameObject.activeSelf)
 
     if(shopUI.gameObject.activeSelf) then
         UpdateSellingRate()
         ShopCreateToysList()
     end
+end
+
+function SwitchBridgePopUp()
+    bridgePopUpUI.gameObject:SetActive(not bridgePopUpUI.gameObject.activeSelf)
 end
 
 function UpdateCoinsAmount(coinsAmount)

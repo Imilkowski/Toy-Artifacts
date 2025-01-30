@@ -18,6 +18,15 @@
     -unity-font-definition: var(--font-regular);
 }
 
+.title-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    height: 64px;
+    width: 100%;
+}
+
 .title {
     -unity-font-style: bold;
     font-size: 32px;
@@ -35,13 +44,22 @@
     background-color: rgb(128, 145, 184);
 }
 
-.title-container {
+.close-button-container {
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    height: 48px;
 
-    height: 64px;
-    width: 100%;
+    right: 16px;
+    top: 16px;
+
+    position: absolute
+}
+
+.close-button-icon {
+    background-color: rgba(0, 0, 0, 0);
+    height: 32px;
+    width: 32px;
 }
 
 .stats-container {

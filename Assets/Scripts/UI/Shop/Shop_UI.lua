@@ -1,5 +1,6 @@
 --!Type(UI)
 
+local UIManagerModule = require("UIManagerModule")
 local SaveModule = require("SaveModule")
 local UtilsModule = require("UtilsModule")
 local ToysModule = require("ToysModule")
@@ -8,9 +9,16 @@ local ToysModule = require("ToysModule")
 local sellingRateIcon : Texture = nil
 --!SerializeField
 local toysIcon : Texture = nil
+--!SerializeField
+local closeIcon : Texture = nil
 
 --!Bind
 local _TitleLabel: UILabel = nil
+
+--!Bind
+local _CloseButton : UIButton = nil
+--!Bind
+local _CloseIcon : Image = nil
 
 --!Bind
 local _SellingRateIcon: Image  = nil
@@ -31,6 +39,11 @@ function self:Awake()
     SetToysAmount(0)
 end
 
+-- Register a callback for when the button is pressed
+_CloseButton:RegisterPressCallback(function()
+    UIManagerModule.SwitchShop()
+end, true, true, true)
+
 function SetTitleText(text)
     _TitleLabel:SetPrelocalizedText(text)
 end
@@ -38,6 +51,7 @@ end
 function SetIcons()
     _SellingRateIcon.image = sellingRateIcon
     _ToysIcon.image = toysIcon
+    _CloseIcon.image = closeIcon
 end
 
 function SetToysAmount(amount)

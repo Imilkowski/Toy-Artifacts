@@ -7,8 +7,8 @@
     xsi:noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd"
 >
 
-  <hr:UILuaView class="shop_-u-i">
-    <VisualElement class="shop-container">
+  <hr:UILuaView class="bridge-pop-up_-u-i" picking-mode="Ignore">
+    <VisualElement class="sign-container">
 
       <VisualElement class="title-container">
 
@@ -20,21 +20,9 @@
 
       </VisualElement>
 
-      <VisualElement class="stats-container">
-
-        <VisualElement class="stat-container">
-          <Image class="icon" name="_SellingRateIcon" />
-          <hr:UILabel class="label" name="_SellingRateLabel"/>
-        </VisualElement>
-        
-        <VisualElement class="stat-container">
-          <Image class="icon" name="_ToysIcon" />
-          <hr:UILabel class="label" name="_ToysLabel"/>
-        </VisualElement>
-
-      </VisualElement>
-
-      <VisualElement class="toys-container" name="_ToysList"></VisualElement>
+      <hr:UIButton class="secondary-button" name="_RepairButton">
+          <Label text="Repair"/>
+       </hr:UIButton>
 
     </VisualElement>
   </hr:UILuaView>
