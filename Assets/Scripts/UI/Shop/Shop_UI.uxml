@@ -28,41 +28,7 @@
 
       </VisualElement>
 
-      <VisualElement class="toys-container">
-
-        <VisualElement class="toy-container">
-          <Image class="toy-icon" name="_ToyIcon" />
-        </VisualElement>
-
-        <VisualElement class="toy-container">
-          <Image class="toy-icon" name="_ToyIcon" />
-        </VisualElement>
-
-        <VisualElement class="toy-container">
-          <Image class="toy-icon" name="_ToyIcon" />
-        </VisualElement>
-
-        <VisualElement class="toy-container">
-          <Image class="toy-icon" name="_ToyIcon" />
-        </VisualElement>
-
-        <VisualElement class="toy-container">
-          <Image class="toy-icon" name="_ToyIcon" />
-        </VisualElement>
-
-        <VisualElement class="toy-container">
-          <Image class="toy-icon" name="_ToyIcon" />
-        </VisualElement>
-
-        <VisualElement class="toy-container">
-          <Image class="toy-icon" name="_ToyIcon" />
-        </VisualElement>
-
-        <VisualElement class="toy-container">
-          <Image class="toy-icon" name="_ToyIcon" />
-        </VisualElement>
-
-      </VisualElement>
+      <VisualElement class="toys-container" name="_ToysList"></VisualElement>
 
     </VisualElement>
   </hr:UILuaView>

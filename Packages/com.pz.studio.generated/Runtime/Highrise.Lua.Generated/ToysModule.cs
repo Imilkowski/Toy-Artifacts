@@ -26,6 +26,7 @@ namespace Highrise.Lua.Generated
         public override string ScriptGUID => s_scriptGUID;
 
         [SerializeField] public System.Collections.Generic.List<UnityEngine.GameObject> m_toyModels = default;
+        [SerializeField] public System.Collections.Generic.List<UnityEngine.Texture> m_toysIcons = default;
         [SerializeField] public System.Collections.Generic.List<System.Double> m_toyPrices = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
@@ -36,7 +37,8 @@ namespace Highrise.Lua.Generated
             return new SerializedPropertyValue[]
             {
                 CreateSerializedProperty(_script.GetPropertyAt(0), m_toyModels),
-                CreateSerializedProperty(_script.GetPropertyAt(1), m_toyPrices),
+                CreateSerializedProperty(_script.GetPropertyAt(1), m_toysIcons),
+                CreateSerializedProperty(_script.GetPropertyAt(2), m_toyPrices),
             };
         }
     }

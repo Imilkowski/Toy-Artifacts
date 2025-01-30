@@ -30,7 +30,11 @@ local tiers = {}
 
 --!SerializeField
 local toyModels: { GameObject } = {}
-local toys = {}
+local _toyModels = {}
+
+--!SerializeField
+local toysIcons: { Texture } = {}
+-- local _toyIcons = {}
 
 --!SerializeField
 local toyPrices: { number } = {}
@@ -46,8 +50,13 @@ end
 function InitializeToyTables()
     -- Toy Models
     for i, v in ipairs(toyModels) do
-        toys[v.name] = v
+        _toyModels[v.name] = v
     end
+
+    -- -- Toy Icons
+    -- for i, v in ipairs(toyIcons) do
+    --     _toyIcons[v.name] = v
+    -- end
 
     -- Tier I
     local tierI = {}
@@ -84,7 +93,7 @@ function DrawAToy(tier, playerCharacter:Character)
     
     SaveModule.CollectAToy(playerCharacter.player, tier, rarity, toy)
 
-    return toys[toy]
+    return _toyModels[toy]
 end
 
 function GetRandomRarity()
@@ -98,4 +107,8 @@ end
 
 function GetToyPrice(toyTypeKey)
     return toyPrices[toyTypeKey]
+end
+
+function GetToyIcons()
+    return toysIcons
 end
