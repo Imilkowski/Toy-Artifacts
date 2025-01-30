@@ -54,18 +54,43 @@ function CreateToysList()
 
     local toyIcons = ToysModule.GetToyIcons()
 
-    for i = 1, #toyIcons do 
-        local _toyElement = VisualElement.new()
-        _toyElement:AddToClassList("toy-container")
+    local tiersNum = ToysModule.GetNumberOfTiers()
+    for t = 0, tiersNum - 1 do 
+        for r = 0, 2 do 
+            for toy = 1, 3 do 
+                local i = t * 9 + r * 3 + toy
 
-        local _toyIcon = Image.new()
-        _toyIcon:AddToClassList("toy-icon")
-        _toyIcon.image = toyIcons[i]
+                local collected = SaveModule.GetToyFromRegister(client.localPlayer, toyIcons[i].name)
+                
+                local _toyElement = VisualElement.new()
 
-        print(toyIcons[i].name)
+                if(collected == nil) then
+                    _toyElement:AddToClassList("toy-container")
+                else
+                    _toyElement:AddToClassList("toy-container-collected")
+                end
 
-        _toyElement:Add(_toyIcon)
+                local _toyRarty = VisualElement.new()
 
-        _ToysList:Add(_toyElement)
+                if(r == 0)then
+                    _toyRarty:AddToClassList("toy-rarity-common")
+                elseif(r == 1) then
+                    _toyRarty:AddToClassList("toy-rarity-rare")
+                else
+                    _toyRarty:AddToClassList("toy-rarity-epic")
+                end
+
+                local _toyIcon = Image.new()
+                _toyIcon:AddToClassList("toy-icon")
+                _toyIcon.image = toyIcons[i]
+
+                --print(toyIcons[i].name)
+
+                _toyElement:Add(_toyIcon)
+                _toyElement:Add(_toyRarty)
+                
+                _ToysList:Add(_toyElement)
+            end
+        end
     end
 end

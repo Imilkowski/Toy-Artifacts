@@ -112,3 +112,7 @@ end
 function GetToyIcons()
     return toysIcons
 end
+
+function GetNumberOfTiers()
+    return #tiers
+end

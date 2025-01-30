@@ -91,9 +91,53 @@
 
     height: 96px;
     width: 96px;
+
+    opacity: 0.05;
+}
+
+.toy-container-collected {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    height: 96px;
+    width: 96px;
 }
 
 .toy-icon {
     height: 80%;
     width: 80%;
+}
+
+.toy-rarity-common{
+    background-color: rgba(186, 255, 129, 0.75);
+    height: 6px;
+    width: 20%;
+    border-radius: 4;
+
+    top: 90px;
+
+    position: absolute;
+}
+
+.toy-rarity-rare{
+    background-color: rgba(124, 213, 255, 0.75);
+    height: 6px;
+    width: 20%;
+    border-radius: 4;
+
+    top: 90px;
+
+    position: absolute;
+}
+
+.toy-rarity-epic{
+    background-color: rgba(251, 128, 255, 0.75);
+    height: 6px;
+    width: 20%;
+    border-radius: 4;
+
+    top: 90px;
+
+    position: absolute;
 }
