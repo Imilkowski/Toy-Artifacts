@@ -25,6 +25,10 @@ namespace Highrise.Lua.Generated
         private const string s_scriptGUID = "3f45ed2b894ab484494ff4c07a257658";
         public override string ScriptGUID => s_scriptGUID;
 
+        [SerializeField] public System.Double m_repairCost = 0;
+        [SerializeField] public UnityEngine.GameObject m_middlePart = default;
+        [SerializeField] public UnityEngine.GameObject m_blocker = default;
+        [SerializeField] public UnityEngine.GameObject m_sign = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -33,6 +37,10 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
+                CreateSerializedProperty(_script.GetPropertyAt(0), m_repairCost),
+                CreateSerializedProperty(_script.GetPropertyAt(1), m_middlePart),
+                CreateSerializedProperty(_script.GetPropertyAt(2), m_blocker),
+                CreateSerializedProperty(_script.GetPropertyAt(3), m_sign),
             };
         }
     }

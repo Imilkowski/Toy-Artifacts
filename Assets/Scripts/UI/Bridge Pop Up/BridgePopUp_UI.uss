@@ -62,8 +62,27 @@
     width: 32px;
 }
 
-.secondary-button {
+.repair-button {
     align-self: center;
     bottom: -32px;
     width: 50%;
+}
+
+.content-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding-left: 16px;
+}
+
+.coin-icon {
+    background-color: rgba(0, 0, 0, 0);
+    height: 24px;
+    width: 24px;
+}
+
+.label {
+    font-size: 24px;
+    left: 8px;
 }

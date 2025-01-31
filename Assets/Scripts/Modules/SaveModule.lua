@@ -53,7 +53,8 @@ function LeaveToysAtShop(player:Player)
 
     table.clear(localPlayerStorage[player].toysCollected)
 
-    UpdateUIToysAmount(player, CountToysInShop(player))
+    if UtilsModule.CheckIfLocalPlayer(player) ~= true then return end
+    UIManagerModule.UpdateToysAmount(CountToysInShop(player))
 end
 
 function GetShopSellingRate(player:Player)
@@ -76,7 +77,8 @@ function SellRandomToy(player:Player)
         end
     end
 
-    UpdateUIToysAmount(player, CountToysInShop(player))
+    if UtilsModule.CheckIfLocalPlayer(player) ~= true then return end
+    UIManagerModule.UpdateToysAmount(CountToysInShop(player))
 end
 
 function CountToysInShop(player:Player)
@@ -133,8 +135,6 @@ function UpdateCoins(player:Player, coinsChange)
     UIManagerModule.UpdateCoinsAmount(localPlayerStorage[player].coins)
 end
 
-function UpdateUIToysAmount(player:Player, toysAmount)
-    if UtilsModule.CheckIfLocalPlayer(player) ~= true then return end
-
-    UIManagerModule.UpdateToysAmount(toysAmount)
+function GetPlayerCoins(player:Player)
+    return localPlayerStorage[player].coins
 end

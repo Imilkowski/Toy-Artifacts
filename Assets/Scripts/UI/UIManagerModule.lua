@@ -29,6 +29,12 @@ function SwitchBridgePopUp()
     bridgePopUpUI.gameObject:SetActive(not bridgePopUpUI.gameObject.activeSelf)
 end
 
+function SwitchBridgePopUp(bridgeBuy:BridgeBuy, repairCost)
+    bridgePopUpUI.gameObject:SetActive(not bridgePopUpUI.gameObject.activeSelf)
+    bridgePopUpUI.ConnectBridgeBuy(bridgeBuy)
+    bridgePopUpUI.SetCost(repairCost)
+end
+
 function UpdateCoinsAmount(coinsAmount)
     leftHUD.SetCoinsAmount(coinsAmount)
 end
