@@ -20,18 +20,16 @@
 
       </VisualElement>
 
-      <VisualElement class="content-separator"></VisualElement>
-
       <VisualElement class="stats-container">
 
         <VisualElement class="stat-container">
           <Image class="icon" name="_SellingRateIcon" />
-          <hr:UILabel class="label" name="_SellingRateLabel"/>
+          <hr:UILabel class="sub-label" name="_SellingRateLabel"/>
         </VisualElement>
         
         <VisualElement class="stat-container">
           <Image class="icon" name="_ToysIcon" />
-          <hr:UILabel class="label" name="_ToysLabel"/>
+          <hr:UILabel class="sub-label" name="_ToysLabel"/>
         </VisualElement>
 
       </VisualElement>

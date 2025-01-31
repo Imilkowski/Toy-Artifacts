@@ -23,7 +23,7 @@
     align-items: center;
     justify-content: center;
 
-    height: 64px;
+    height: 96px;
     width: 100%;
 }
 
@@ -101,7 +101,7 @@
     width: 48px;
 }
 
-.label {
+.sub-label {
     font-size: 24px;
     left: 8px;
 }

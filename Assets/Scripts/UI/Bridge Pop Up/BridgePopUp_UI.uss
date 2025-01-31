@@ -76,13 +76,17 @@
     padding-left: 16px;
 }
 
+.sub-label {
+    font-size: 24px;
+}
+
 .coin-icon {
     background-color: rgba(0, 0, 0, 0);
     height: 24px;
     width: 24px;
 }
 
-.label {
+.coin-label {
     font-size: 24px;
     left: 8px;
 }

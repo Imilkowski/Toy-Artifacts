@@ -40,6 +40,10 @@ end
 
 function SwitchUpgrades()
     upgradesUI.gameObject:SetActive(not upgradesUI.gameObject.activeSelf)
+    
+    if(upgradesUI.gameObject.activeSelf) then
+        CreateUpgradesList()
+    end
 end
 
 function UpdateCoinsAmount(coinsAmount)
@@ -56,4 +60,8 @@ end
 
 function UpdateToysAmount(toysAmount)
     shopUI.SetToysAmount(toysAmount)
+end
+
+function CreateUpgradesList()
+    upgradesUI.CreateUpgradesList()
 end

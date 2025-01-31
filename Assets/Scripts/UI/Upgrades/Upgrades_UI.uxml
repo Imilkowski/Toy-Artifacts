@@ -22,20 +22,24 @@
 
       <VisualElement class="content-separator"></VisualElement>
 
-      <VisualElement class="upgrades-container">
-
+      <VisualElement class="upgrades-container" name="_UpgradesList">
         <VisualElement class="upgrade-container">
-          <VisualElement class="upgrade-panel">
 
+          <Image class="upgrade-icon"/>
+
+          <VisualElement class="upgrade-info">
+            <hr:UILabel class="description-label"/>
+
+            <hr:UIButton class="upgrade-button">
+              <hr:UILabel class="label"/>
+              <VisualElement class="price-container">
+                <Image class="coin-icon"/>
+                <hr:UILabel class="coin-label"/>
+              </VisualElement>
+            </hr:UIButton>
           </VisualElement>
+
         </VisualElement>
-
-        <VisualElement class="upgrade-container">
-          <VisualElement class="upgrade-panel">
-
-          </VisualElement>
-        </VisualElement>
-
       </VisualElement>
 
     </VisualElement>

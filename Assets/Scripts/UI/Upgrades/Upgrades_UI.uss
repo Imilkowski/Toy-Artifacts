@@ -88,3 +88,53 @@
 
     background-color: rgb(149, 167, 209);
 }
+
+.upgrade-info{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+
+    height: 128px;
+    width: 70%;
+}
+
+.upgrade-icon {
+    background-color: rgb(170, 185, 224);
+    height: 96px;
+    width: 96px;
+
+    border-radius: 16;
+}
+
+.upgrade-button {
+    margin-top: 16px;
+    align-self: center;
+    width: 85%;
+}
+
+.description-label {
+    width: 85%;
+    align-self: center;
+
+    font-size: 24px;
+    -unity-text-align: middle-center;
+}
+
+.price-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding-left: 16px;
+}
+
+.coin-icon {
+    height: 24px;
+    width: 24px;
+}
+
+.coin-label {
+    font-size: 24px;
+    left: 8px;
+}

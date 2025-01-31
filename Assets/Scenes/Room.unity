@@ -9857,6 +9857,7 @@ MonoBehaviour:
   _uiOutputSettings:
     rid: -2
   m_closeIcon: {fileID: 2800000, guid: a0e005b7fe1b74d459b34e5a18363a85, type: 3}
+  m_coinIcon: {fileID: 2800000, guid: df2d21485109aa747b88454b0bbc84ea, type: 3}
   references:
     version: 2
     RefIds:
@@ -22771,6 +22772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1340690871}
   - component: {fileID: 1340690872}
+  - component: {fileID: 1340690874}
   - component: {fileID: 1340690873}
   m_Layer: 0
   m_Name: Game Manager
@@ -22880,6 +22882,33 @@ MonoBehaviour:
   - 6
   - 9
   - 18
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &1340690874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340690870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8869c09b4937e1a2e182ee92bb747f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: 8457691521963734183e823b286474aa, type: 3}
+  _properties: []
+  _uiOutput: 0
+  _uiOutputSettings:
+    rid: -2
+  m_upgradeIcons:
+  - {fileID: 2800000, guid: f35b2fe143725ec489da1abd2e091047, type: 3}
+  - {fileID: 2800000, guid: da7a6bf9b33b7094bbdd70fe848d6239, type: 3}
+  - {fileID: 2800000, guid: c59337233bece1343a64304556d56747, type: 3}
   references:
     version: 2
     RefIds:

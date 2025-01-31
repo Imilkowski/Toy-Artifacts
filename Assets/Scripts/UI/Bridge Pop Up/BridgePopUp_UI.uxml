@@ -22,11 +22,11 @@
 
       <hr:UIButton class="repair-button" name="_RepairButton">
 
-          <hr:UILabel class="label" name="_RepairLabel"/>
+          <hr:UILabel class="sub-label" name="_RepairLabel"/>
 
           <VisualElement class="content-container">
             <Image class="coin-icon" name="_CoinIcon" />
-            <hr:UILabel class="label" name="_CoinLabel"/>
+            <hr:UILabel class="coin-label" name="_CoinLabel"/>
           </VisualElement>
 
        </hr:UIButton>
