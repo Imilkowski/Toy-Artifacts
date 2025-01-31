@@ -6,11 +6,14 @@ local leftHUD : LeftHUD_UI = nil
 local shopUI : Shop_UI = nil
 --!SerializeField
 local bridgePopUpUI : BridgePopUp_UI = nil
+--!SerializeField
+local upgradesUI : Upgrades_UI = nil
 
 function self:Start()
     local status, result = pcall(function()
         SwitchShop()
         SwitchBridgePopUp()
+        SwitchUpgrades()
     end)
     
     if not status then end
@@ -33,6 +36,10 @@ function SwitchBridgePopUp(bridgeBuy:BridgeBuy, repairCost)
     bridgePopUpUI.gameObject:SetActive(not bridgePopUpUI.gameObject.activeSelf)
     bridgePopUpUI.ConnectBridgeBuy(bridgeBuy)
     bridgePopUpUI.SetCost(repairCost)
+end
+
+function SwitchUpgrades()
+    upgradesUI.gameObject:SetActive(not upgradesUI.gameObject.activeSelf)
 end
 
 function UpdateCoinsAmount(coinsAmount)

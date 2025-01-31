@@ -18,13 +18,14 @@ using Highrise.Lua;
 
 namespace Highrise.Lua.Generated
 {
-    [AddComponentMenu("Lua/UI_Test")]
-    [LuaRegisterType(0xfe2844b0d501abc8, typeof(LuaBehaviour))]
-    public class UI_Test : LuaBehaviourThunk
+    [AddComponentMenu("Lua/Upgrades_UI")]
+    [LuaRegisterType(0xeebfcea349e1a5e7, typeof(LuaBehaviour))]
+    public class Upgrades_UI : LuaBehaviourThunk
     {
-        private const string s_scriptGUID = "0c4533862893013419f60fd1cb9271bb";
+        private const string s_scriptGUID = "cc2d86f5e3aeed041b46c799b231e707";
         public override string ScriptGUID => s_scriptGUID;
 
+        [SerializeField] public UnityEngine.Texture m_closeIcon = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -33,8 +34,10 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
-                CreateSerializedProperty(_script.GetPropertyAt(0), null),
+                CreateSerializedProperty(_script.GetPropertyAt(0), m_closeIcon),
                 CreateSerializedProperty(_script.GetPropertyAt(1), null),
+                CreateSerializedProperty(_script.GetPropertyAt(2), null),
+                CreateSerializedProperty(_script.GetPropertyAt(3), null),
             };
         }
     }

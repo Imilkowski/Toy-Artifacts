@@ -32,6 +32,10 @@
     font-size: 32px;
 }
 
+.content-separator {
+    height: 16px;
+}
+
 .shop-container {
     flex-direction: column;
     align-items: flex-start;

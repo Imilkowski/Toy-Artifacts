@@ -10,7 +10,7 @@ function TrackPlayers(game)
     game.PlayerConnected:Connect(function(player)
         localPlayerStorage[player] = {
           player = player,
-          coins = 0,
+          coins = 100,
           toysCollected = {},
           toysInShop = {},
           toysRegister = {},
