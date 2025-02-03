@@ -10,7 +10,7 @@ function TrackPlayers(game)
     game.PlayerConnected:Connect(function(player)
         localPlayerStorage[player] = {
           player = player,
-          coins = 100,
+          coins = 100000,
           toysCollected = {},
           toysInShop = {},
           toysRegister = {},
@@ -142,4 +142,12 @@ end
 
 function GetPlayerUpgrades(player:Player)
     return localPlayerStorage[player].upgrades
+end
+
+function IncreasePlayerUpgradeLevel(player:Player, upgradeId)
+    if(localPlayerStorage[player].upgrades[upgradeId] == nil) then
+        localPlayerStorage[player].upgrades[upgradeId] = 1
+    else
+        localPlayerStorage[player].upgrades[upgradeId] += 1
+    end
 end

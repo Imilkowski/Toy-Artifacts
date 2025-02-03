@@ -20,7 +20,6 @@ local _TitleLabel: UILabel = nil
 local _UpgradesList: VisualElement = nil 
 
 function self:Awake()
-    SetTitleText("Upgrades Test")
     SetIcons()
 end
 
@@ -33,9 +32,11 @@ function SetIcons()
 end
 
 function CreateUpgradesList(upgradeType)
-    local upgrades = UpgradesModule.GetUpgrades(client.localPlayer, upgradeType)
+    if(upgradeType == nil) then return end
 
-    if(upgrades == nil) then return end
+    SetTitleText(upgradeType .. " Upgrades")
+
+    local upgrades = UpgradesModule.GetUpgrades(client.localPlayer, upgradeType)
 
     _UpgradesList:Clear()
 
@@ -83,7 +84,7 @@ function CreateUpgradesList(upgradeType)
 
         -- Register a callback for when the button is pressed
         _upgradeButton:RegisterPressCallback(function()
-            UpgradesModule.BuyAnUpgrade(client.localPlayer, upgradeType, upgrades[i].upgradeId)
+            UpgradesModule.BuyAnUpgrade(client.localPlayer, upgradeType, upgrades[i].upgradeId, upgrades[i].price)
             UIManagerModule.SwitchUpgrades()
             UIManagerModule.SwitchUpgrades(upgradeType)
         end, true, true, true)
