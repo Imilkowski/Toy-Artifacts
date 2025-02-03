@@ -1,0 +1,54 @@
+{
+  "IncludeFallbacks": true,
+  "Skeleton": "",
+  "Clothing": [
+    {
+      "Id": "body-flesh",
+      "Color": 4
+    },
+    {
+      "Id": "eye-n_basic2018malesquare",
+      "Color": 0
+    },
+    {
+      "Id": "nose-n_03_b",
+      "Color": 0
+    },
+    {
+      "Id": "hair_front-n_malenew09",
+      "Color": 0
+    },
+    {
+      "Id": "hair_back-n_malenew09",
+      "Color": 0
+    },
+    {
+      "Id": "face_hair-n_newbasicfacehairlower02",
+      "Color": -1
+    },
+    {
+      "Id": "eyebrow-n_basic2018newbrows04",
+      "Color": 0
+    },
+    {
+      "Id": "mouth-n_02",
+      "Color": 0
+    },
+    {
+      "Id": "shoes-f_ugs",
+      "Color": 0
+    },
+    {
+      "Id": "shirt-n_hoodiejacketblack",
+      "Color": 0
+    },
+    {
+      "Id": "pants-m_cargo",
+      "Color": 0
+    },
+    {
+      "Id": "bag-n_octoberdailyrewards2018rambag",
+      "Color": -1
+    }
+  ]
+}
