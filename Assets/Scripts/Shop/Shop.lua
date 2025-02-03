@@ -2,12 +2,14 @@
 
 local SaveModule = require("SaveModule")
 local UpgradesModule = require("UpgradesModule")
+local ToysModule = require("ToysModule")
 
 --!SerializeField
 local tablesParent:Transform = nil
 
 assignedPlayer = nil
-local timePassed = 0.0
+local sellTimePassed = 0.0
+local collectToyTimePassed = 0.0
 
 --TEMP
 function SetPlayer(player:Player)
@@ -22,11 +24,17 @@ end
 function self:Update()
     if(assignedPlayer == nil) then return end
 
-    timePassed += Time.deltaTime
+    sellTimePassed += Time.deltaTime
+    collectToyTimePassed += Time.deltaTime
 
-    if(timePassed >= UpgradesModule.GetUpgradeValue("b-ssr")) then
-        timePassed = 0
+    if(sellTimePassed >= UpgradesModule.GetUpgradeValue("b-ssr")) then
+        sellTimePassed = 0
         SellAToy()
+    end
+
+    if(collectToyTimePassed >= UpgradesModule.GetUpgradeValue("es-psi")) then
+        collectToyTimePassed = 0
+        CollectAToyPassively()
     end
 end
 
@@ -34,6 +42,9 @@ function SellAToy()
     SaveModule.SellRandomToy(assignedPlayer)
 end
 
+function CollectAToyPassively()
+    local toy = ToysModule.DrawAToy(1, client.localPlayer.character, true)
+end
 
 function UpdateTables()
     local toysRegister

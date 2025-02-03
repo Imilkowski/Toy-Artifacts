@@ -23,8 +23,8 @@ function self:OnTriggerEnter(collider: Collider)
     UIManagerModule.SwitchBridgePopUp(self, repairCost)
 end
 
-function RepairBridge()
-    SaveModule.IncreasePlayerUpgradeLevel(upgradeId)
+function RepairBridge(player:Player)
+    SaveModule.IncreasePlayerUpgradeLevel(player, upgradeId)
 
     middlePart:SetActive(true)
     blocker:SetActive(false)

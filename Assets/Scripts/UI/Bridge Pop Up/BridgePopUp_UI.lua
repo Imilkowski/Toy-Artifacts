@@ -69,7 +69,7 @@ _RepairButton:RegisterPressCallback(function()
 
     if(coinsCollected >= repairCost) then
         SaveModule.UpdateCoins(client.localPlayer, -repairCost)
-        bridgeBuy.RepairBridge()
+        bridgeBuy.RepairBridge(client.localPlayer)
         UIManagerModule.SwitchBridgePopUp()
     else 
         print("Not enough coins")

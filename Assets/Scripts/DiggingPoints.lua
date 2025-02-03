@@ -3,11 +3,10 @@
 local UtilsModule = require("UtilsModule")
 local ToysModule = require("ToysModule")
 local SaveModule = require("SaveModule")
+local UpgradesModule = require("UpgradesModule")
 
 --!SerializeField
 local tier:number = 0
---!SerializeField
-local targetActivePoints:number = 0
 local activePointsIndexes = {}
 
 local points: { GameObject } = {}
@@ -27,6 +26,10 @@ function self:Start()
 end
 
 function SetupActivePoints()
+    local targetActivePoints = UpgradesModule.GetUpgradeValue("es-dp")
+    
+    if(#activePointsIndexes == targetActivePoints) then return end
+
     --populate a table with random indexes
     while #activePointsIndexes < targetActivePoints do
         local index = math.random(1, #points)
@@ -51,12 +54,16 @@ function SetupActivePoints()
     end
 end
 
+function self:FixedUpdate()
+    SetupActivePoints()
+end
+
 function Dig(diggingPoint:DiggingPoint, playerCharacter:Character, diggingPosition)
     diggingPoint.gameObject.SetActive(diggingPoint.gameObject, false)
     UtilsModule.RemoveByValue(activePointsIndexes, diggingPoint.index);
 
     SetupActivePoints()
-    local toy = ToysModule.DrawAToy(tier, playerCharacter)
+    local toy = ToysModule.DrawAToy(tier, playerCharacter, false)
 
     SaveModule.AddToyToRegister(playerCharacter.player, toy.name)
 

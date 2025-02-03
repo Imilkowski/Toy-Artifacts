@@ -58,6 +58,19 @@ function LeaveToysAtShop(player:Player)
     UIManagerModule.UpdateToysAmount(CountToysInShop(player))
 end
 
+function CollectAToyPassively(player:Player, tier, rarity, toy)
+    local index = (tier - 1) * 3 + rarity
+
+    if(localPlayerStorage[player].toysInShop[index] == nil) then
+        localPlayerStorage[player].toysInShop[index] = 1
+    else
+        localPlayerStorage[player].toysInShop[index] += 1
+    end
+
+    if UtilsModule.CheckIfLocalPlayer(player) ~= true then return end
+    UIManagerModule.UpdateToysAmount(CountToysInShop(player))
+end
+
 function SellRandomToy(player:Player)
     local toyTypeKey = GetRandomToyFromShop(player)
 
@@ -65,14 +78,13 @@ function SellRandomToy(player:Player)
 
     UpdateCoins(player, ToysModule.GetToyPrice(toyTypeKey))
     print("Sold toy type:", toyTypeKey)
-    print("Coins:", localPlayerStorage[player].coins)
 
-    print("Toys in shop:")
-    for k, v in pairs(localPlayerStorage[player].toysInShop) do
-        if(v ~= 0) then
-            print(k, v)
-        end
-    end
+    -- print("Toys in shop:")
+    -- for k, v in pairs(localPlayerStorage[player].toysInShop) do
+    --     if(v ~= 0) then
+    --         print(k, v)
+    --     end
+    -- end
 
     if UtilsModule.CheckIfLocalPlayer(player) ~= true then return end
     UIManagerModule.UpdateToysAmount(CountToysInShop(player))
