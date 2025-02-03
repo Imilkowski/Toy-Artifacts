@@ -10406,6 +10406,7 @@ MonoBehaviour:
   _uiOutput: 0
   _uiOutputSettings:
     rid: -2
+  m_upgradesType: Excavation Sites
   references:
     version: 2
     RefIds:
@@ -22211,20 +22212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69a3353924c01e1a3290f04714d716e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Scene>k__BackingField: {fileID: 0}
-  <IsStarted>k__BackingField: 0
-  _networkId: 0
-  _script: {fileID: 0}
-  _properties: []
-  _uiOutput: 2
-  _uiOutputSettings:
-    rid: -2
-  _running: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!1001 &1323673309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23268,7 +23255,7 @@ MonoBehaviour:
   _uiOutputSettings:
     rid: -2
   m_tier: 2
-  m_targetActivePoints: 3
+  m_targetActivePoints: 2
   references:
     version: 2
     RefIds:
@@ -24417,7 +24404,7 @@ MonoBehaviour:
   _uiOutputSettings:
     rid: -2
   m_tier: 1
-  m_targetActivePoints: 3
+  m_targetActivePoints: 2
   references:
     version: 2
     RefIds:

@@ -2,7 +2,6 @@
 
 local UIManagerModule = require("UIManagerModule")
 local UpgradesModule = require("UpgradesModule")
-local SaveModule = require("SaveModule")
 
 --!SerializeField
 local closeIcon : Texture = nil
@@ -33,8 +32,10 @@ function SetIcons()
     _CloseIcon.image = closeIcon
 end
 
-function CreateUpgradesList()
-    local upgrades = UpgradesModule.GetUpgrades()
+function CreateUpgradesList(upgradeType)
+    local upgrades = UpgradesModule.GetUpgrades(client.localPlayer, upgradeType)
+
+    if(upgrades == nil) then return end
 
     _UpgradesList:Clear()
 
@@ -62,7 +63,7 @@ function CreateUpgradesList()
         _upgradeInfo:Add(_upgradeButton)
 
         local _buttonLabel = UILabel.new()
-        _buttonLabel:AddToClassList("label")
+        _buttonLabel:AddToClassList("coin-label")
         _buttonLabel:SetPrelocalizedText("Buy")
         _upgradeButton:Add(_buttonLabel)
 
@@ -79,6 +80,13 @@ function CreateUpgradesList()
         _coinLabel:AddToClassList("coin-label")
         _coinLabel:SetPrelocalizedText(tostring(upgrades[i].price))--
         _priceContainer:Add(_coinLabel)
+
+        -- Register a callback for when the button is pressed
+        _upgradeButton:RegisterPressCallback(function()
+            UpgradesModule.BuyAnUpgrade(client.localPlayer, upgradeType, upgrades[i].upgradeId)
+            UIManagerModule.SwitchUpgrades()
+            UIManagerModule.SwitchUpgrades(upgradeType)
+        end, true, true, true)
     end
 end
 

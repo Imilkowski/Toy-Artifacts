@@ -14,7 +14,8 @@ function TrackPlayers(game)
           toysCollected = {},
           toysInShop = {},
           toysRegister = {},
-          shopSellingRate = 3.0
+          shopSellingRate = 3.0,
+          upgrades = {}
         }
     end)
 
@@ -137,4 +138,8 @@ end
 
 function GetPlayerCoins(player:Player)
     return localPlayerStorage[player].coins
+end
+
+function GetPlayerUpgrades(player:Player)
+    return localPlayerStorage[player].upgrades
 end

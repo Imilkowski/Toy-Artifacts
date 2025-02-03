@@ -31,7 +31,7 @@
             <hr:UILabel class="description-label"/>
 
             <hr:UIButton class="upgrade-button">
-              <hr:UILabel class="label"/>
+              <hr:UILabel class="coin-label"/>
               <VisualElement class="price-container">
                 <Image class="coin-icon"/>
                 <hr:UILabel class="coin-label"/>
