@@ -6,6 +6,8 @@ local SaveModule = require("SaveModule")
 
 --!SerializeField
 local repairCost: number = 0
+--!SerializeField
+local upgradeId: string = ""
 
 --!SerializeField
 local middlePart: GameObject = nil
@@ -22,6 +24,8 @@ function self:OnTriggerEnter(collider: Collider)
 end
 
 function RepairBridge()
+    SaveModule.IncreasePlayerUpgradeLevel(upgradeId)
+
     middlePart:SetActive(true)
     blocker:SetActive(false)
     sign:SetActive(false)

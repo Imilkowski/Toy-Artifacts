@@ -36724,8 +36724,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6576938136347600880, guid: 99aa6750d4031544bb3263b286b5e313,
         type: 3}
+      propertyPath: m_upgradeId
+      value: bridge-II
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576938136347600880, guid: 99aa6750d4031544bb3263b286b5e313,
+        type: 3}
       propertyPath: m_repairCost
-      value: 10
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6610691806942211987, guid: 99aa6750d4031544bb3263b286b5e313,
         type: 3}

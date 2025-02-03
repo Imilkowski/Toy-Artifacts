@@ -13,6 +13,7 @@
     --...
 
 local SaveModule = require("SaveModule")
+local UpgradesModule = require("UpgradesModule")
 
 ToyRarity = {}
 ToyRarity.__index = ToyRarity
@@ -98,7 +99,7 @@ end
 
 function GetRandomRarity()
     local rarityIndex = 1
-    local chance = Random.Range(0, 1)
+    local chance = Random.Range(0, 1) + UpgradesModule.GetUpgradeValue("es-dc")
 
     if(chance < 0.6) then return 1
     elseif(chance < 0.9) then return 2

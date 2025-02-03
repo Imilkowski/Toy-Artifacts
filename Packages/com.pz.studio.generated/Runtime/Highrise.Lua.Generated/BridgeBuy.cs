@@ -26,6 +26,7 @@ namespace Highrise.Lua.Generated
         public override string ScriptGUID => s_scriptGUID;
 
         [SerializeField] public System.Double m_repairCost = 0;
+        [SerializeField] public System.String m_upgradeId = "";
         [SerializeField] public UnityEngine.GameObject m_middlePart = default;
         [SerializeField] public UnityEngine.GameObject m_blocker = default;
         [SerializeField] public UnityEngine.GameObject m_sign = default;
@@ -38,9 +39,10 @@ namespace Highrise.Lua.Generated
             return new SerializedPropertyValue[]
             {
                 CreateSerializedProperty(_script.GetPropertyAt(0), m_repairCost),
-                CreateSerializedProperty(_script.GetPropertyAt(1), m_middlePart),
-                CreateSerializedProperty(_script.GetPropertyAt(2), m_blocker),
-                CreateSerializedProperty(_script.GetPropertyAt(3), m_sign),
+                CreateSerializedProperty(_script.GetPropertyAt(1), m_upgradeId),
+                CreateSerializedProperty(_script.GetPropertyAt(2), m_middlePart),
+                CreateSerializedProperty(_script.GetPropertyAt(3), m_blocker),
+                CreateSerializedProperty(_script.GetPropertyAt(4), m_sign),
             };
         }
     }

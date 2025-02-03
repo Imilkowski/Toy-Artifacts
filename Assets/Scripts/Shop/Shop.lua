@@ -1,6 +1,7 @@
 --!Type(Client)
 
 local SaveModule = require("SaveModule")
+local UpgradesModule = require("UpgradesModule")
 
 --!SerializeField
 local tablesParent:Transform = nil
@@ -23,7 +24,7 @@ function self:Update()
 
     timePassed += Time.deltaTime
 
-    if(timePassed >= SaveModule.GetShopSellingRate(assignedPlayer)) then
+    if(timePassed >= UpgradesModule.GetUpgradeValue("b-ssr")) then
         timePassed = 0
         SellAToy()
     end

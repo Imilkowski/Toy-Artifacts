@@ -4,6 +4,7 @@ local UIManagerModule = require("UIManagerModule")
 local SaveModule = require("SaveModule")
 local UtilsModule = require("UtilsModule")
 local ToysModule = require("ToysModule")
+local UpgradesModule = require("UpgradesModule")
 
 --!SerializeField
 local sellingRateIcon : Texture = nil
@@ -59,7 +60,7 @@ function SetToysAmount(amount)
 end
 
 function SetSellingRate(sellingRate)
-    sellingRate = SaveModule.GetShopSellingRate(client.localPlayer)
+    sellingRate = UpgradesModule.GetUpgradeValue("b-ssr")
     _SellingRateLabel:SetPrelocalizedText(tostring("Selling rate: " .. UtilsModule.RoundNumber(1/sellingRate) .. "/s"))
 end
 

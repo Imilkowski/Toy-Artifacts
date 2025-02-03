@@ -3,6 +3,7 @@
 local UtilsModule = require("UtilsModule")
 local ToysModule = require("ToysModule")
 local UIManagerModule = require("UIManagerModule")
+local UpgradesModule = require("UpgradesModule")
 
 localPlayerStorage = {}
 
@@ -14,7 +15,6 @@ function TrackPlayers(game)
           toysCollected = {},
           toysInShop = {},
           toysRegister = {},
-          shopSellingRate = 3.0,
           upgrades = {}
         }
     end)
@@ -37,10 +37,10 @@ function CollectAToy(player:Player, tier, rarity, toy)
         localPlayerStorage[player].toysCollected[index] += 1
     end
     
-    print("Toys collected:")
-    for k, v in pairs(localPlayerStorage[player].toysCollected) do
-        print(k, v)
-    end
+    -- print("Toys collected:")
+    -- for k, v in pairs(localPlayerStorage[player].toysCollected) do
+    --     print(k, v)
+    -- end
 end
 
 function LeaveToysAtShop(player:Player)
@@ -56,10 +56,6 @@ function LeaveToysAtShop(player:Player)
 
     if UtilsModule.CheckIfLocalPlayer(player) ~= true then return end
     UIManagerModule.UpdateToysAmount(CountToysInShop(player))
-end
-
-function GetShopSellingRate(player:Player)
-    return localPlayerStorage[player].shopSellingRate
 end
 
 function SellRandomToy(player:Player)
@@ -150,4 +146,6 @@ function IncreasePlayerUpgradeLevel(player:Player, upgradeId)
     else
         localPlayerStorage[player].upgrades[upgradeId] += 1
     end
+
+    UpgradesModule.UpdateUpgradeLevel(player, upgradeId, localPlayerStorage[player].upgrades[upgradeId])
 end
