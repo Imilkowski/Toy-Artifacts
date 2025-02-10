@@ -21,9 +21,11 @@
         <Image class="icon" name="_ShopIcon" />
       </hr:UIButton>
 
+      <!--
       <hr:UIButton class="button-container" name="_UpgradesButton">
         <Image class="icon" name="_UpgradesIcon" />
       </hr:UIButton>
+      -->
 
     </VisualElement>
   </hr:UILuaView>

@@ -6955,7 +6955,7 @@ PrefabInstance:
     - target: {fileID: 5352807557548367866, guid: 8faf145f9c0903b4da84c37a21827f87,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5352807557548367866, guid: 8faf145f9c0903b4da84c37a21827f87,
         type: 3}
@@ -23060,10 +23060,10 @@ MonoBehaviour:
   _uiOutputSettings:
     rid: -2
   m_upgradeIcons:
-  - {fileID: 2800000, guid: f35b2fe143725ec489da1abd2e091047, type: 3}
-  - {fileID: 2800000, guid: da7a6bf9b33b7094bbdd70fe848d6239, type: 3}
-  - {fileID: 2800000, guid: c59337233bece1343a64304556d56747, type: 3}
-  - {fileID: 2800000, guid: a58018f8da972b84cbaa0988c04ce6e8, type: 3}
+  - {fileID: 2800000, guid: 996d20798927eb242828bb3544f04aab, type: 3}
+  - {fileID: 2800000, guid: f88e934b07c487f4692db557458d8e63, type: 3}
+  - {fileID: 2800000, guid: 782a4419380a0a04aaa0d3a40c47bee9, type: 3}
+  - {fileID: 2800000, guid: 0b47ee54a4322a448a2ac2f148c0a69c, type: 3}
   references:
     version: 2
     RefIds:

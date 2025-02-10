@@ -19,10 +19,10 @@ local _ShopIcon: Image  = nil
 --!Bind
 local _ShopButton : UIButton = nil
 
---!Bind
-local _UpgradesIcon: Image  = nil
---!Bind
-local _UpgradesButton : UIButton = nil
+-- --!Bind
+-- local _UpgradesIcon: Image  = nil
+-- --!Bind
+-- local _UpgradesButton : UIButton = nil
 
 function self:Awake()
     SetIcons();
@@ -32,7 +32,7 @@ end
 function SetIcons()
     _CoinIcon.image = coinIcon
     _ShopIcon.image = shopIcon
-    _UpgradesIcon.image = upgradesIcon
+    --_UpgradesIcon.image = upgradesIcon
 end
 
 function SetCoinsAmount(coinsAmount)
@@ -45,6 +45,6 @@ _ShopButton:RegisterPressCallback(function()
 end, true, true, true)
 
 -- Register a callback for when the button is pressed
-_UpgradesButton:RegisterPressCallback(function()
-    print("Upgrades Button clicked")
-end, true, true, true)
+-- _UpgradesButton:RegisterPressCallback(function()
+--     print("Upgrades Button clicked")
+-- end, true, true, true)
