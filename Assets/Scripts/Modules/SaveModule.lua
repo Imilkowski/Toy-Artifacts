@@ -77,7 +77,7 @@ function SellRandomToy(player:Player)
     if(toyTypeKey == nil) then return end
 
     UpdateCoins(player, ToysModule.GetToyPrice(toyTypeKey))
-    print("Sold toy type:", toyTypeKey)
+    --print("Sold toy type:", toyTypeKey)
 
     -- print("Toys in shop:")
     -- for k, v in pairs(localPlayerStorage[player].toysInShop) do
@@ -150,6 +150,10 @@ end
 
 function GetPlayerUpgrades(player:Player)
     return localPlayerStorage[player].upgrades
+end
+
+function GetPlayerUpgradeLevel(player:Player, upgradeId)
+    return localPlayerStorage[player].upgrades[upgradeId]
 end
 
 function IncreasePlayerUpgradeLevel(player:Player, upgradeId)

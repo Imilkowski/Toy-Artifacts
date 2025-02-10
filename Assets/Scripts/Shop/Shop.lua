@@ -43,7 +43,17 @@ function SellAToy()
 end
 
 function CollectAToyPassively()
-    local toy = ToysModule.DrawAToy(1, client.localPlayer.character, true)
+    local tierNum = 1
+
+    if(SaveModule.GetPlayerUpgradeLevel(client.localPlayer, "bridge-IV") == 1) then
+        tierNum = 4
+    elseif(SaveModule.GetPlayerUpgradeLevel(client.localPlayer, "bridge-III") == 1) then
+        tierNum = 3
+    elseif(SaveModule.GetPlayerUpgradeLevel(client.localPlayer, "bridge-II") == 1) then
+        tierNum = 2
+    end
+
+    local toy = ToysModule.DrawAToy(tierNum, client.localPlayer.character, true)
 end
 
 function UpdateTables()
