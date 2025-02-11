@@ -81,3 +81,7 @@ end
 function UpdateToysAmount(toysAmount)
     shopUI.SetToysAmount(toysAmount)
 end
+
+function SwitchTutorial()
+    print("Switch tutorial")
+end

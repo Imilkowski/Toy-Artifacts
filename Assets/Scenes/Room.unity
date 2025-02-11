@@ -5218,6 +5218,62 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 305551772}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &306820022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306820023}
+  - component: {fileID: 306820024}
+  m_Layer: 0
+  m_Name: Right HUD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &306820023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306820022}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2063701204}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &306820024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306820022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0978eb800d1a178153355d69d0373784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: b3a7eb55b7c51754e9ea5dbc6ae83751, type: 3}
+  _properties: []
+  _uiOutput: 3
+  _uiOutputSettings:
+    rid: -2
+  m_tutorialIcon: {fileID: 2800000, guid: bf3b3e5796cace54298caa9eff3002cf, type: 3}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1001 &307657039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22335,50 +22391,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1309811309}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1313540044
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1313540045}
-  - component: {fileID: 1313540046}
-  m_Layer: 0
-  m_Name: UI_Test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1313540045
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1313540044}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2063701204}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1313540046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1313540044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b69a3353924c01e1a3290f04714d716e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1323673309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24638,7 +24650,7 @@ MonoBehaviour:
     rid: -2
   m_coinIcon: {fileID: 2800000, guid: df2d21485109aa747b88454b0bbc84ea, type: 3}
   m_shopIcon: {fileID: 2800000, guid: 7a2e05a0963134c43afe1ea033cee6b6, type: 3}
-  m_upgradesIcon: {fileID: 2800000, guid: c0685c591fb0dc048a8e474efdefb89b, type: 3}
+  m_tutorialIcon: {fileID: 2800000, guid: bf3b3e5796cace54298caa9eff3002cf, type: 3}
   references:
     version: 2
     RefIds:
@@ -34210,8 +34222,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1313540045}
   - {fileID: 1433507399}
+  - {fileID: 306820023}
   - {fileID: 1999914935}
   - {fileID: 1465526075}
   - {fileID: 639335532}
@@ -34236,6 +34248,7 @@ MonoBehaviour:
   _uiOutputSettings:
     rid: -2
   m_leftHUD: {fileID: 1433507400}
+  m_rightHUD: {fileID: 0}
   m_shopUI: {fileID: 1999914936}
   m_bridgePopUpUI: {fileID: 1465526076}
   m_upgradesUI: {fileID: 639335533}

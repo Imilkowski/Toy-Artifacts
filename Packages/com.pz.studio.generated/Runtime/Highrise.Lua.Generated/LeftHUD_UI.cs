@@ -27,7 +27,7 @@ namespace Highrise.Lua.Generated
 
         [SerializeField] public UnityEngine.Texture m_coinIcon = default;
         [SerializeField] public UnityEngine.Texture m_shopIcon = default;
-        [SerializeField] public UnityEngine.Texture m_upgradesIcon = default;
+        [SerializeField] public UnityEngine.Texture m_tutorialIcon = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -38,11 +38,13 @@ namespace Highrise.Lua.Generated
             {
                 CreateSerializedProperty(_script.GetPropertyAt(0), m_coinIcon),
                 CreateSerializedProperty(_script.GetPropertyAt(1), m_shopIcon),
-                CreateSerializedProperty(_script.GetPropertyAt(2), m_upgradesIcon),
+                CreateSerializedProperty(_script.GetPropertyAt(2), m_tutorialIcon),
                 CreateSerializedProperty(_script.GetPropertyAt(3), null),
                 CreateSerializedProperty(_script.GetPropertyAt(4), null),
                 CreateSerializedProperty(_script.GetPropertyAt(5), null),
                 CreateSerializedProperty(_script.GetPropertyAt(6), null),
+                CreateSerializedProperty(_script.GetPropertyAt(7), null),
+                CreateSerializedProperty(_script.GetPropertyAt(8), null),
             };
         }
     }

@@ -21,6 +21,10 @@
         <Image class="icon" name="_ShopIcon" />
       </hr:UIButton>
 
+      <hr:UIButton class="button-container" name="_TutorialButton">
+        <Image class="icon" name="_TutorialIcon" />
+      </hr:UIButton>
+
       <!--
       <hr:UIButton class="button-container" name="_UpgradesButton">
         <Image class="icon" name="_UpgradesIcon" />
