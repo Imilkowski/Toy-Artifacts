@@ -60,7 +60,7 @@ end
 
 -- Register a callback for when the button is pressed
 _CloseButton:RegisterPressCallback(function()
-    UIManagerModule.SwitchBridgePopUp()
+    UIManagerModule.SwitchBridgePopUpOff()
 end, true, true, true)
 
 -- Register a callback for when the button is pressed
@@ -70,7 +70,7 @@ _RepairButton:RegisterPressCallback(function()
     if(coinsCollected >= repairCost) then
         SaveModule.UpdateCoins(client.localPlayer, -repairCost)
         bridgeBuy.RepairBridge(client.localPlayer)
-        UIManagerModule.SwitchBridgePopUp()
+        UIManagerModule.SwitchBridgePopUpOff()
     else 
         print("Not enough coins")
     end

@@ -129,11 +129,11 @@ function GetUpgradeIcon(upgradeId)
 end
 
 function BuyAnUpgrade(player:Player, upgradeType, upgradeId, price)
-    print("Buy an upgrade", upgradeType, upgradeId)
-
     local coinsCollected = SaveModule.GetPlayerCoins(player)
 
     if(coinsCollected >= price) then
+        print("Buy an upgrade", upgradeType, upgradeId)
+        
         SaveModule.UpdateCoins(player, -price)
         SaveModule.IncreasePlayerUpgradeLevel(player, upgradeId)
     else 

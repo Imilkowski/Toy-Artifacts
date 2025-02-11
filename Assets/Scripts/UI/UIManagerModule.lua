@@ -11,39 +11,58 @@ local upgradesUI : Upgrades_UI = nil
 
 function self:Start()
     local status, result = pcall(function()
-        SwitchShop()
-        SwitchBridgePopUp()
-        SwitchUpgrades()
+        SwitchUI(self.gameObject)
     end)
     
     if not status then end
 end
 
-function SwitchShop()
-    shopUI.gameObject:SetActive(not shopUI.gameObject.activeSelf)
+function SwitchUI(go:GameObject)
+    if(shopUI.gameObject == go) then
+        shopUI.gameObject:SetActive(true)
+    else
+        shopUI.gameObject:SetActive(false)
+    end
 
+    if(bridgePopUpUI.gameObject == go) then
+        bridgePopUpUI.gameObject:SetActive(true)
+    else
+        bridgePopUpUI.gameObject:SetActive(false)
+    end
+
+    if(upgradesUI.gameObject == go) then
+        upgradesUI.gameObject:SetActive(true)
+    else
+        upgradesUI.gameObject:SetActive(false)
+    end
+end
+
+function SwitchShop()
     if(shopUI.gameObject.activeSelf) then
+        SwitchUI(self.gameObject)
+    else
+        SwitchUI(shopUI.gameObject)
         UpdateSellingRate()
         ShopCreateToysList()
     end
 end
 
-function SwitchBridgePopUp()
-    bridgePopUpUI.gameObject:SetActive(not bridgePopUpUI.gameObject.activeSelf)
+function SwitchBridgePopUpOff()
+    SwitchUI(self.gameObject)
 end
 
 function SwitchBridgePopUp(bridgeBuy:BridgeBuy, repairCost)
-    bridgePopUpUI.gameObject:SetActive(not bridgePopUpUI.gameObject.activeSelf)
+    SwitchUI(bridgePopUpUI.gameObject)
     bridgePopUpUI.ConnectBridgeBuy(bridgeBuy)
     bridgePopUpUI.SetCost(repairCost)
 end
 
-function SwitchUpgrades()
-    upgradesUI.gameObject:SetActive(not upgradesUI.gameObject.activeSelf)
+function SwitchUpgradesOff()
+    SwitchUI(self.gameObject)
 end
 
 function SwitchUpgrades(upgradeType)
-    upgradesUI.gameObject:SetActive(not upgradesUI.gameObject.activeSelf)
+    SwitchUI(upgradesUI.gameObject)
     upgradesUI.CreateUpgradesList(upgradeType)
 end
 

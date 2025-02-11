@@ -85,7 +85,7 @@ function CreateUpgradesList(upgradeType)
         -- Register a callback for when the button is pressed
         _upgradeButton:RegisterPressCallback(function()
             UpgradesModule.BuyAnUpgrade(client.localPlayer, upgradeType, upgrades[i].upgradeId, upgrades[i].price)
-            UIManagerModule.SwitchUpgrades()
+            UIManagerModule.SwitchUpgradesOff()
             UIManagerModule.SwitchUpgrades(upgradeType)
         end, true, true, true)
     end
@@ -93,5 +93,5 @@ end
 
 -- Register a callback for when the button is pressed
 _CloseButton:RegisterPressCallback(function()
-    UIManagerModule.SwitchUpgrades()
+    UIManagerModule.SwitchUpgradesOff()
 end, true, true, true)
