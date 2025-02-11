@@ -8,6 +8,8 @@ local shopUI : Shop_UI = nil
 local bridgePopUpUI : BridgePopUp_UI = nil
 --!SerializeField
 local upgradesUI : Upgrades_UI = nil
+--!SerializeField
+local tutorialUI : Tutorial_UI = nil
 
 function self:Start()
     local status, result = pcall(function()
@@ -34,6 +36,12 @@ function SwitchUI(go:GameObject)
         upgradesUI.gameObject:SetActive(true)
     else
         upgradesUI.gameObject:SetActive(false)
+    end
+
+    if(tutorialUI.gameObject == go) then
+        tutorialUI.gameObject:SetActive(true)
+    else
+        tutorialUI.gameObject:SetActive(false)
     end
 end
 
@@ -66,6 +74,18 @@ function SwitchUpgrades(upgradeType)
     upgradesUI.CreateUpgradesList(upgradeType)
 end
 
+function SwitchTutorialOff()
+    SwitchUI(self.gameObject)
+end
+
+function SwitchTutorial()
+    if(tutorialUI.gameObject.activeSelf) then
+        SwitchUI(self.gameObject)
+    else
+        SwitchUI(tutorialUI.gameObject)
+    end
+end
+
 function UpdateCoinsAmount(coinsAmount)
     leftHUD.SetCoinsAmount(coinsAmount)
 end
@@ -82,6 +102,6 @@ function UpdateToysAmount(toysAmount)
     shopUI.SetToysAmount(toysAmount)
 end
 
-function SwitchTutorial()
-    print("Switch tutorial")
+function StartTutorialFromBeginning()
+    tutorialUI.StartTutorial()
 end

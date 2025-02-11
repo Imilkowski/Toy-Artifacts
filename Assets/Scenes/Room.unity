@@ -5262,12 +5262,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0978eb800d1a178153355d69d0373784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Scene>k__BackingField: {fileID: 0}
+  <IsStarted>k__BackingField: 0
   _networkId: 0
   _script: {fileID: -974389366465450183, guid: b3a7eb55b7c51754e9ea5dbc6ae83751, type: 3}
   _properties: []
   _uiOutput: 3
   _uiOutputSettings:
     rid: -2
+  _running: 0
   m_tutorialIcon: {fileID: 2800000, guid: bf3b3e5796cace54298caa9eff3002cf, type: 3}
   references:
     version: 2
@@ -15446,6 +15449,70 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 934570726}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &937599329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 937599330}
+  - component: {fileID: 937599331}
+  m_Layer: 0
+  m_Name: Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &937599330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937599329}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2063701204}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &937599331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937599329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea97b04fcaad2201937753ed32af7ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: 5048b09a707222d429a8533888707e1d, type: 3}
+  _properties: []
+  _uiOutput: 2
+  _uiOutputSettings:
+    rid: -2
+  m_closeIcon: {fileID: 2800000, guid: a0e005b7fe1b74d459b34e5a18363a85, type: 3}
+  m_nextIcon: {fileID: 2800000, guid: 0f755594d9b5ce14c8cb9f20fdddab7a, type: 3}
+  m_tutorialImages:
+  - {fileID: 2800000, guid: fd98d8a51682cae409a8b47e3caceb77, type: 3}
+  - {fileID: 2800000, guid: 2c79c21509826214198f45d2040ec6ce, type: 3}
+  m_tutorialDescriptions:
+  - Test tutorial description text. Don't mind me, I'm just for testing purpouse.
+    It was probably quicker than copying the lorem ipsum.
+  - ???
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1001 &938815880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34227,6 +34294,7 @@ Transform:
   - {fileID: 1999914935}
   - {fileID: 1465526075}
   - {fileID: 639335532}
+  - {fileID: 937599330}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2063701205
@@ -34248,10 +34316,10 @@ MonoBehaviour:
   _uiOutputSettings:
     rid: -2
   m_leftHUD: {fileID: 1433507400}
-  m_rightHUD: {fileID: 0}
   m_shopUI: {fileID: 1999914936}
   m_bridgePopUpUI: {fileID: 1465526076}
   m_upgradesUI: {fileID: 639335533}
+  m_tutorialUI: {fileID: 937599331}
   references:
     version: 2
     RefIds:
