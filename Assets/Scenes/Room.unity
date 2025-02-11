@@ -5218,65 +5218,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 305551772}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &306820022
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 306820023}
-  - component: {fileID: 306820024}
-  m_Layer: 0
-  m_Name: Right HUD
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &306820023
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 306820022}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2063701204}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &306820024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 306820022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0978eb800d1a178153355d69d0373784, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Scene>k__BackingField: {fileID: 0}
-  <IsStarted>k__BackingField: 0
-  _networkId: 0
-  _script: {fileID: -974389366465450183, guid: b3a7eb55b7c51754e9ea5dbc6ae83751, type: 3}
-  _properties: []
-  _uiOutput: 3
-  _uiOutputSettings:
-    rid: -2
-  _running: 0
-  m_tutorialIcon: {fileID: 2800000, guid: bf3b3e5796cace54298caa9eff3002cf, type: 3}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!1001 &307657039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10710,6 +10651,61 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 682398728}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &688467144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 688467145}
+  - component: {fileID: 688467146}
+  m_Layer: 0
+  m_Name: Shops Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &688467145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688467144}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &688467146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688467144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2159a6205bd09ee1c02bdf68ff027eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: 9b86a6f5e10f9e347af4dfbd45dd7e3b, type: 3}
+  _properties: []
+  _uiOutput: 0
+  _uiOutputSettings:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1001 &689565241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34298,7 +34294,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1433507399}
-  - {fileID: 306820023}
   - {fileID: 1999914935}
   - {fileID: 1465526075}
   - {fileID: 639335532}
@@ -37002,5 +36997,6 @@ SceneRoots:
   - {fileID: 130185761}
   - {fileID: 2063701204}
   - {fileID: 1340690871}
+  - {fileID: 688467145}
   - {fileID: 1836077535}
   - {fileID: 857672195}
