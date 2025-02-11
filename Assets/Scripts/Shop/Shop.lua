@@ -73,7 +73,6 @@ function UpdateTables()
             local toy = tableToys:GetChild(j)
             
             for k, v in pairs(toysRegister) do
-                print(toy.name, k)
                 if(toy.name == k) then
                     toy.gameObject.SetActive(toy.gameObject, true)
                     break
