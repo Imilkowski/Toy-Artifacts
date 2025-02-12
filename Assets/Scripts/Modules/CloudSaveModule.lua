@@ -1,14 +1,25 @@
 --!Type(Module)
 
+local SaveModule = require("SaveModule")
+
 local saveCoinsEvent = Event.new("Coins Save")
 local saveToysCollectedEvent = Event.new("Toys Collected Save")
 local saveToysInShopEvent = Event.new("Toys In Shop Save")
 local saveToysRegisterEvent = Event.new("Toys Register Save")
 local saveUpgradesEvent = Event.new("Upgrades Save")
 
+local loadDataEvent = Event.new("Data Load")
+
+local loadCoinsEvent = Event.new("Coins Event")
+local loadToysCollectedEvent = Event.new("Toys Collected Event")
+local loadToysInShopEvent = Event.new("Toys In Shop Event")
+local loadToysRegisterEvent = Event.new("Toys Register Event")
+local loadUpgradesEvent = Event.new("Upgrades Event")
+
 -- Server Side
 
 function self:ServerAwake()
+    --Saving
     saveCoinsEvent:Connect(function(player: Player, coins:number)
         print(player.name .. " saved Coins to cloud")
 
@@ -58,10 +69,56 @@ function self:ServerAwake()
             end
         end)
     end)
+
+    --Loading
+    loadDataEvent:Connect(function(player: Player)
+        print(player.name .. " loaded Data from cloud")
+
+        Storage.GetPlayerValue(player, "Coins", function(coins)
+            loadCoinsEvent:FireClient(player, coins)
+        end)
+
+        Storage.GetPlayerValue(player, "Toys Collected", function(toysCollected)
+            loadToysCollectedEvent:FireClient(player, toysCollected)
+        end)
+
+        Storage.GetPlayerValue(player, "Toys In Shop", function(toysInShop)
+            loadToysInShopEvent:FireClient(player, toysInShop)
+        end)
+
+        Storage.GetPlayerValue(player, "Toys Register", function(toysRegister)
+            loadToysRegisterEvent:FireClient(player, toysRegister)
+        end)
+
+        Storage.GetPlayerValue(player, "Upgrades", function(upgrades)
+            loadUpgradesEvent:FireClient(player, upgrades)
+        end)
+    end)
 end
 
 -- Client Side
 
+function self:ClientAwake()
+    loadCoinsEvent:Connect(function(coins)
+        SaveModule.LoadValue(client.localPlayer, "coins", coins)
+    end)
+
+    loadToysCollectedEvent:Connect(function(toysCollected)
+        SaveModule.LoadValue(client.localPlayer, "toysCollected", toysCollected)
+    end)
+
+    loadToysInShopEvent:Connect(function(toysInShop)
+        SaveModule.LoadValue(client.localPlayer, "toysInShop", toysInShop)
+    end)
+
+    loadToysRegisterEvent:Connect(function(toysRegister)
+        SaveModule.LoadValue(client.localPlayer, "toysRegister", toysRegister)
+    end)
+
+    loadUpgradesEvent:Connect(function(upgrades)
+        SaveModule.LoadValue(client.localPlayer, "upgrades", upgrades)
+    end)
+end
 
 --Saving
 
@@ -83,4 +140,10 @@ end
 
 function SaveUpgradesToCloud(upgrades)
     saveUpgradesEvent:FireServer(upgrades)
+end
+
+--Loading
+
+function LoadDataFromCloud()
+    loadDataEvent:FireServer()
 end

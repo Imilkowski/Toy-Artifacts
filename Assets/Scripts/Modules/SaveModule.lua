@@ -37,8 +37,6 @@ end
 function self:ClientAwake()
     TrackPlayers(client)
 
-    LoadFromCloud()
-
     Timer.Every(2.1, function()
         if(localPlayerStorage[client.localPlayer].valueChanges["coins"]) then
             CloudSaveModule.SaveCoinsToCloud(localPlayerStorage[client.localPlayer].coins)
@@ -64,8 +62,34 @@ function self:ClientAwake()
     end)
 end
 
+function self:ClientStart()
+    LoadFromCloud()
+end
+
 function LoadFromCloud()
-    
+    CloudSaveModule.LoadDataFromCloud()
+end
+
+function LoadValue(player:Player, valueKey, value)
+    if(valueKey == "coins") then
+        UpdateCoins(player, value)
+    end
+
+    if(valueKey == "toysCollected") then
+        localPlayerStorage[player].toysCollected = value
+    end
+
+    if(valueKey == "toysInShop") then
+        localPlayerStorage[player].toysInShop = value
+    end
+
+    if(valueKey == "toysRegister") then
+        localPlayerStorage[player].toysRegister = value
+    end
+
+    if(valueKey == "upgrades") then
+        localPlayerStorage[player].upgrades = value
+    end
 end
 
 function ValueUpdated(player:Player, valueKey)
