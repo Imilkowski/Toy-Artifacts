@@ -1,5 +1,6 @@
 --!Type(Module)
 
+local CloudSaveModule = require("CloudSaveModule")
 local UtilsModule = require("UtilsModule")
 local ToysModule = require("ToysModule")
 local UIManagerModule = require("UIManagerModule")
@@ -11,7 +12,7 @@ function TrackPlayers(game)
     game.PlayerConnected:Connect(function(player)
         localPlayerStorage[player] = {
           player = player,
-          coins = 0,
+          coins = 10000,
           toysCollected = {},
           toysInShop = {},
           toysRegister = {},
@@ -27,6 +28,14 @@ end
 
 function self:ClientAwake()
     TrackPlayers(client)
+
+    Timer.Every(5, function() 
+        --CloudSaveModule.SaveCoinsToCloud(localPlayerStorage[client.localPlayer].coins)
+        --CloudSaveModule.SaveToysCollectedToCloud(localPlayerStorage[client.localPlayer].toysCollected)
+        --CloudSaveModule.SaveToysInShopToCloud(localPlayerStorage[client.localPlayer].toysInShop)
+        --CloudSaveModule.SaveToysRegisterToCloud(localPlayerStorage[client.localPlayer].toysRegister)
+        --CloudSaveModule.SaveUpgradesToCloud(localPlayerStorage[client.localPlayer].upgrades)
+    end)
 end
 
 function CollectAToy(player:Player, tier, rarity, toy)

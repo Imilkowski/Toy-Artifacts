@@ -7,7 +7,6 @@
 -- Server Side
 
 function self:ServerAwake()
-
     server.PlayerConnected:Connect(function(player)
         print(player.name .. " connected to the server")
     end)

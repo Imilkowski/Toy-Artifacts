@@ -18,11 +18,11 @@ using Highrise.Lua;
 
 namespace Highrise.Lua.Generated
 {
-    [AddComponentMenu("Lua/CloudSaveManager")]
-    [LuaRegisterType(0x5b85b0e817d0085a, typeof(LuaBehaviour))]
-    public class CloudSaveManager : LuaBehaviourThunk
+    [AddComponentMenu("Lua/CloudSaveModule")]
+    [LuaRegisterType(0x1d51c72e21e265d7, typeof(LuaBehaviour))]
+    public class CloudSaveModule : LuaBehaviourThunk
     {
-        private const string s_scriptGUID = "99c1a063658caea498b2ab6e33cf2a2a";
+        private const string s_scriptGUID = "15bb5cfc3359e1a4c8de58401f82f988";
         public override string ScriptGUID => s_scriptGUID;
 
 
