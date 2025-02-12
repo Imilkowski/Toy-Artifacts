@@ -12,11 +12,19 @@ function TrackPlayers(game)
     game.PlayerConnected:Connect(function(player)
         localPlayerStorage[player] = {
           player = player,
-          coins = 10000,
+          coins = 0,
           toysCollected = {},
           toysInShop = {},
           toysRegister = {},
-          upgrades = {}
+          upgrades = {},
+
+          valueChanges = {
+            coins = false,
+            toysCollected = false,
+            toysInShop = false,
+            toysRegister = false,
+            upgrades = false
+          }
         }
     end)
 
@@ -29,13 +37,43 @@ end
 function self:ClientAwake()
     TrackPlayers(client)
 
-    Timer.Every(5, function() 
-        --CloudSaveModule.SaveCoinsToCloud(localPlayerStorage[client.localPlayer].coins)
-        --CloudSaveModule.SaveToysCollectedToCloud(localPlayerStorage[client.localPlayer].toysCollected)
-        --CloudSaveModule.SaveToysInShopToCloud(localPlayerStorage[client.localPlayer].toysInShop)
-        --CloudSaveModule.SaveToysRegisterToCloud(localPlayerStorage[client.localPlayer].toysRegister)
-        --CloudSaveModule.SaveUpgradesToCloud(localPlayerStorage[client.localPlayer].upgrades)
+    LoadFromCloud()
+
+    Timer.Every(2.1, function()
+        if(localPlayerStorage[client.localPlayer].valueChanges["coins"]) then
+            CloudSaveModule.SaveCoinsToCloud(localPlayerStorage[client.localPlayer].coins)
+            ValueSaved(client.localPlayer, "coins")
+        end
+
+        if(localPlayerStorage[client.localPlayer].valueChanges["toysCollected"]) then
+            CloudSaveModule.SaveToysCollectedToCloud(localPlayerStorage[client.localPlayer].toysCollected)
+            ValueSaved(client.localPlayer, "toysCollected")
+        end
     end)
+
+    Timer.Every(6, function()
+        if(localPlayerStorage[client.localPlayer].valueChanges["toysInShop"]) then
+            CloudSaveModule.SaveToysInShopToCloud(localPlayerStorage[client.localPlayer].toysInShop)
+            ValueSaved(client.localPlayer, "toysInShop")
+        end
+
+        if(localPlayerStorage[client.localPlayer].valueChanges["toysRegister"]) then
+            CloudSaveModule.SaveToysRegisterToCloud(localPlayerStorage[client.localPlayer].toysRegister)
+            ValueSaved(client.localPlayer, "toysRegister")
+        end
+    end)
+end
+
+function LoadFromCloud()
+    
+end
+
+function ValueUpdated(player:Player, valueKey)
+    localPlayerStorage[player].valueChanges[valueKey] = true
+end
+
+function ValueSaved(player:Player, valueKey)
+    localPlayerStorage[player].valueChanges[valueKey] = false
 end
 
 function CollectAToy(player:Player, tier, rarity, toy)
@@ -45,6 +83,8 @@ function CollectAToy(player:Player, tier, rarity, toy)
     else
         localPlayerStorage[player].toysCollected[index] += 1
     end
+
+    ValueUpdated(player, "toysCollected")
     
     -- print("Toys collected:")
     -- for k, v in pairs(localPlayerStorage[player].toysCollected) do
@@ -63,6 +103,10 @@ function LeaveToysAtShop(player:Player)
 
     table.clear(localPlayerStorage[player].toysCollected)
 
+    --save to cloud immidiately
+    CloudSaveModule.SaveToysInShopToCloud(localPlayerStorage[player].toysInShop)
+    CloudSaveModule.SaveToysCollectedToCloud(localPlayerStorage[player].toysCollected)
+
     if UtilsModule.CheckIfLocalPlayer(player) ~= true then return end
     UIManagerModule.UpdateToysAmount(CountToysInShop(player))
 end
@@ -75,6 +119,8 @@ function CollectAToyPassively(player:Player, tier, rarity, toy)
     else
         localPlayerStorage[player].toysInShop[index] += 1
     end
+
+    ValueUpdated(player, "toysInShop")
 
     if UtilsModule.CheckIfLocalPlayer(player) ~= true then return end
     UIManagerModule.UpdateToysAmount(CountToysInShop(player))
@@ -122,6 +168,9 @@ function GetRandomToyFromShop(player:Player)
         local chosenKey = keys[randomIndex]
 
         localPlayerStorage[player].toysInShop[chosenKey] -= 1
+
+        ValueUpdated(player, "toysInShop")
+
         return chosenKey
     end
 
@@ -135,6 +184,8 @@ function AddToyToRegister(player:Player, toy:string)
         localPlayerStorage[player].toysRegister[toy] += 1
     end
 
+    ValueUpdated(player, "toysRegister")
+
     -- print("Toys Register:")
     -- for k, v in pairs(localPlayerStorage[player].toysRegister) do
     --     print(k, v)
@@ -147,6 +198,8 @@ end
 
 function UpdateCoins(player:Player, coinsChange)
     localPlayerStorage[player].coins += coinsChange
+
+    ValueUpdated(player, "coins")
 
     if UtilsModule.CheckIfLocalPlayer(player) ~= true then return end
 
@@ -171,6 +224,10 @@ function IncreasePlayerUpgradeLevel(player:Player, upgradeId)
     else
         localPlayerStorage[player].upgrades[upgradeId] += 1
     end
+
+    --save to cloud immidiately
+    CloudSaveModule.SaveUpgradesToCloud(localPlayerStorage[player].upgrades)
+    CloudSaveModule.SaveCoinsToCloud(localPlayerStorage[player].coins)
 
     UpgradesModule.UpdateUpgradeLevel(player, upgradeId, localPlayerStorage[player].upgrades[upgradeId])
 end
