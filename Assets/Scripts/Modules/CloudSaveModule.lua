@@ -7,6 +7,7 @@ local saveToysCollectedEvent = Event.new("Toys Collected Save")
 local saveToysInShopEvent = Event.new("Toys In Shop Save")
 local saveToysRegisterEvent = Event.new("Toys Register Save")
 local saveUpgradesEvent = Event.new("Upgrades Save")
+local saveTutorialShownEvent = Event.new("Tutorial Shown Save")
 
 local loadDataEvent = Event.new("Data Load")
 
@@ -15,13 +16,14 @@ local loadToysCollectedEvent = Event.new("Toys Collected Event")
 local loadToysInShopEvent = Event.new("Toys In Shop Event")
 local loadToysRegisterEvent = Event.new("Toys Register Event")
 local loadUpgradesEvent = Event.new("Upgrades Event")
+local loadTutorialShownEvent = Event.new("Tutorial Shown Event")
 
 -- Server Side
 
 function self:ServerAwake()
     --Saving
     saveCoinsEvent:Connect(function(player: Player, coins:number)
-        print(player.name .. " saved Coins to cloud")
+        --print(player.name .. " saved Coins to cloud")
 
         Storage.SetPlayerValue(player, "Coins", coins, function(errorCode)
             if(errorCode == not nil) then
@@ -31,7 +33,7 @@ function self:ServerAwake()
     end)
 
     saveToysCollectedEvent:Connect(function(player: Player, toysCollected)
-        print(player.name .. " saved Toys Collected to cloud")
+        --print(player.name .. " saved Toys Collected to cloud")
 
         Storage.SetPlayerValue(player, "Toys Collected", toysCollected, function(errorCode)
             if(errorCode == not nil) then
@@ -41,7 +43,7 @@ function self:ServerAwake()
     end)
 
     saveToysInShopEvent:Connect(function(player: Player, toysInShop)
-        print(player.name .. " saved Toys In Shop to cloud")
+        --print(player.name .. " saved Toys In Shop to cloud")
 
         Storage.SetPlayerValue(player, "Toys In Shop", toysInShop, function(errorCode)
             if(errorCode == not nil) then
@@ -51,7 +53,7 @@ function self:ServerAwake()
     end)
 
     saveToysRegisterEvent:Connect(function(player: Player, toysRegister)
-        print(player.name .. " saved Toys Register to cloud")
+        --print(player.name .. " saved Toys Register to cloud")
 
         Storage.SetPlayerValue(player, "Toys Register", toysRegister, function(errorCode)
             if(errorCode == not nil) then
@@ -61,9 +63,19 @@ function self:ServerAwake()
     end)
 
     saveUpgradesEvent:Connect(function(player: Player, upgrades)
-        print(player.name .. " saved Upgrades to cloud")
+        --print(player.name .. " saved Upgrades to cloud")
 
         Storage.SetPlayerValue(player, "Upgrades", upgrades, function(errorCode)
+            if(errorCode == not nil) then
+                print(`The error code was {StorageError[errorCode]}`)
+            end
+        end)
+    end)
+
+    saveTutorialShownEvent:Connect(function(player: Player, tutorialShowed)
+        --print(player.name .. " saved Tutorial Shown to cloud")
+
+        Storage.SetPlayerValue(player, "Tutorial Shown", tutorialShowed, function(errorCode)
             if(errorCode == not nil) then
                 print(`The error code was {StorageError[errorCode]}`)
             end
@@ -93,6 +105,10 @@ function self:ServerAwake()
         Storage.GetPlayerValue(player, "Upgrades", function(upgrades)
             loadUpgradesEvent:FireClient(player, upgrades)
         end)
+
+        Storage.GetPlayerValue(player, "Tutorial Shown", function(tutorialShown)
+            loadTutorialShownEvent:FireClient(player, tutorialShown)
+        end)
     end)
 end
 
@@ -118,6 +134,10 @@ function self:ClientAwake()
     loadUpgradesEvent:Connect(function(upgrades)
         SaveModule.LoadValue(client.localPlayer, "upgrades", upgrades)
     end)
+
+    loadTutorialShownEvent:Connect(function(tutorialShown)
+        SaveModule.LoadValue(client.localPlayer, "tutorialShown", tutorialShown)
+    end)
 end
 
 --Saving
@@ -140,6 +160,10 @@ end
 
 function SaveUpgradesToCloud(upgrades)
     saveUpgradesEvent:FireServer(upgrades)
+end
+
+function SaveTutorialShownToCloud(tutorialShown)
+    saveTutorialShownEvent:FireServer(tutorialShown)
 end
 
 --Loading

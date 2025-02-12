@@ -38,26 +38,26 @@ function self:ClientAwake()
     TrackPlayers(client)
 
     Timer.Every(2.1, function()
-        if(localPlayerStorage[client.localPlayer].valueChanges["coins"]) then
-            CloudSaveModule.SaveCoinsToCloud(localPlayerStorage[client.localPlayer].coins)
-            ValueSaved(client.localPlayer, "coins")
-        end
-
         if(localPlayerStorage[client.localPlayer].valueChanges["toysCollected"]) then
             CloudSaveModule.SaveToysCollectedToCloud(localPlayerStorage[client.localPlayer].toysCollected)
             ValueSaved(client.localPlayer, "toysCollected")
-        end
-    end)
-
-    Timer.Every(6, function()
-        if(localPlayerStorage[client.localPlayer].valueChanges["toysInShop"]) then
-            CloudSaveModule.SaveToysInShopToCloud(localPlayerStorage[client.localPlayer].toysInShop)
-            ValueSaved(client.localPlayer, "toysInShop")
         end
 
         if(localPlayerStorage[client.localPlayer].valueChanges["toysRegister"]) then
             CloudSaveModule.SaveToysRegisterToCloud(localPlayerStorage[client.localPlayer].toysRegister)
             ValueSaved(client.localPlayer, "toysRegister")
+        end
+    end)
+
+    Timer.Every(6, function()
+        if(localPlayerStorage[client.localPlayer].valueChanges["coins"]) then
+            CloudSaveModule.SaveCoinsToCloud(localPlayerStorage[client.localPlayer].coins)
+            ValueSaved(client.localPlayer, "coins")
+        end
+
+        if(localPlayerStorage[client.localPlayer].valueChanges["toysInShop"]) then
+            CloudSaveModule.SaveToysInShopToCloud(localPlayerStorage[client.localPlayer].toysInShop)
+            ValueSaved(client.localPlayer, "toysInShop")
         end
     end)
 end
@@ -71,6 +71,16 @@ function LoadFromCloud()
 end
 
 function LoadValue(player:Player, valueKey, value)
+    if(valueKey == "tutorialShown") then
+        if(value == nil) then
+            print("Show tutorial")
+            UIManagerModule.SwitchTutorial()
+            CloudSaveModule.SaveTutorialShownToCloud(true)
+        end
+    end
+
+    if(value == nil) then return end
+
     if(valueKey == "coins") then
         UpdateCoins(player, value)
     end
@@ -89,6 +99,7 @@ function LoadValue(player:Player, valueKey, value)
 
     if(valueKey == "upgrades") then
         localPlayerStorage[player].upgrades = value
+        LoadUpgradeLevels()
     end
 end
 
@@ -254,4 +265,11 @@ function IncreasePlayerUpgradeLevel(player:Player, upgradeId)
     CloudSaveModule.SaveCoinsToCloud(localPlayerStorage[player].coins)
 
     UpgradesModule.UpdateUpgradeLevel(player, upgradeId, localPlayerStorage[player].upgrades[upgradeId])
+end
+
+function LoadUpgradeLevels()
+    player = client.localPlayer
+    for k, v in pairs(localPlayerStorage[player].upgrades) do
+        UpgradesModule.UpdateUpgradeLevel(player, k, v)
+    end
 end
