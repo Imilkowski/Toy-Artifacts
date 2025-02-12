@@ -10,10 +10,10 @@ function self:OnTriggerEnter(collider: Collider)
     local playerCharacter = collider.gameObject:GetComponent(Character)
     if UtilsModule.CheckIfLocalPlayer(playerCharacter.player) ~= true then return end
 
+    if(SaveModule.GetPlayerShopId(playerCharacter.player) ~= shopScript.GetShopId()) then return end
+
     SaveModule.LeaveToysAtShop(playerCharacter.player)
 
-    --TEMP
-    shopScript.SetPlayer(playerCharacter.player)
     print(playerCharacter.player.name, "left toys at the shop")
 
     shopScript.UpdateTables()

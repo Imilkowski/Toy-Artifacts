@@ -12,6 +12,7 @@ function TrackPlayers(game)
     game.PlayerConnected:Connect(function(player)
         localPlayerStorage[player] = {
           player = player,
+          shopId = -1,
           coins = 0,
           toysCollected = {},
           toysInShop = {},
@@ -272,4 +273,12 @@ function LoadUpgradeLevels()
     for k, v in pairs(localPlayerStorage[player].upgrades) do
         UpgradesModule.UpdateUpgradeLevel(player, k, v)
     end
+end
+
+function SetPlayerShopId(player:Player, shopId)
+    localPlayerStorage[player].shopId = shopId
+end
+
+function GetPlayerShopId(player:Player)
+    return localPlayerStorage[player].shopId
 end

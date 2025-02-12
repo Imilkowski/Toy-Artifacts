@@ -5,20 +5,27 @@ local UpgradesModule = require("UpgradesModule")
 local ToysModule = require("ToysModule")
 
 --!SerializeField
+local shopId:number = 0
+--!SerializeField
 local tablesParent:Transform = nil
 
 assignedPlayer = nil
 local sellTimePassed = 0.0
 local collectToyTimePassed = 0.0
 
---TEMP
-function SetPlayer(player:Player)
-    assignedPlayer = player
-    print("Assigned player set to", player.name, "- TESTING")
-end
-
 function self:Start()
     UpdateTables()
+
+    if(SaveModule.GetPlayerShopId(client.localPlayer) ~= shopId) then
+        self.gameObject:SetActive(false)
+        return 
+    end
+
+    SetPlayer(client.localPlayer)
+    
+    Timer.After(1, function() 
+        UpdateTables()
+    end)
 end
 
 function self:Update()
@@ -36,6 +43,11 @@ function self:Update()
         collectToyTimePassed = 0
         CollectAToyPassively()
     end
+end
+
+function SetPlayer(player:Player)
+    assignedPlayer = player
+    print("Assigned " .. player.name)
 end
 
 function SellAToy()
@@ -58,6 +70,8 @@ end
 
 function UpdateTables()
     local toysRegister
+
+    print("Update tables")
 
     if(assignedPlayer == nil) then
         ClearTables()
@@ -94,4 +108,8 @@ function ClearTables()
             toy.gameObject.SetActive(toy.gameObject, false)
         end
     end
+end
+
+function GetShopId()
+    return shopId
 end

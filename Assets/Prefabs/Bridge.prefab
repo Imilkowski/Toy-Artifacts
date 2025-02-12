@@ -121,6 +121,7 @@ MonoBehaviour:
   _uiOutputSettings:
     rid: -2
   m_repairCost: 0
+  m_upgradeId: 
   m_middlePart: {fileID: 1629231238741988801}
   m_blocker: {fileID: 926986931959060586}
   m_sign: {fileID: 5833909195250890025}
@@ -144,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6229752612597903148
 Transform:
   m_ObjectHideFlags: 0

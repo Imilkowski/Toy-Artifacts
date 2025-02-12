@@ -39,6 +39,8 @@ function Repair()
 end
 
 function self:Start()
+    middlePart:SetActive(false)
+    
     loadTimer = Timer.Every(1, function() 
         loadTimerCount +=1
         if(loadTimerCount >= 10) then loadTimer:Stop() end
