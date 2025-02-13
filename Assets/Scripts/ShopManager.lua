@@ -4,6 +4,8 @@ local SaveModule = require("SaveModule")
 
 local assignPlayerToShopEvent = Event.new("Assign Player to a Shop") --Server
 local returnShopAssignmentsEvent = Event.new("Return Shop Assignments") --Client
+local updateAllToyRegistersEvent = Event.new("Update All Toy Registers") --Server
+local updateToyRegistersEvent = Event.new("Update Toy Registers") --Client
 
 local shopsAssigned = {false, false, false, false, false, false} --Server
 local shopsPlayers = {} --Server
@@ -38,6 +40,10 @@ function self:ServerAwake()
         print("Couldn't find a free shop for a player " .. player.name)
         returnShopAssignmentsEvent:FireAllClients(shopsPlayers)
     end)
+
+    updateAllToyRegistersEvent:Connect(function(player: Player, toysRegister)
+        updateToyRegistersEvent:FireAllClients(player, toysRegister)
+    end)
 end
 
 function UnAssignPlayer(player: Player)
@@ -61,5 +67,20 @@ function self:ClientStart()
         end
     end)
 
+    updateToyRegistersEvent:Connect(function(player: Player, toysRegister)
+        for i, shop in ipairs(shops) do
+            if(shop.assignedPlayer == player) then
+                shop.UpdateTables(toysRegister)
+                return
+            end
+        end
+    end)
+
     assignPlayerToShopEvent:FireServer()
+end
+
+function OnToysLeftAtShop(toysRegister)
+    print(client.localPlayer, "left toys at the shop")
+
+    updateAllToyRegistersEvent:FireServer(toysRegister)
 end

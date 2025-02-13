@@ -231,6 +231,10 @@ function GetToyFromRegister(player:Player, toy:string)
     return localPlayerStorage[player].toysRegister[toy]
 end
 
+function GetToyRegister(player:Player)
+    return localPlayerStorage[player].toysRegister
+end
+
 function UpdateCoins(player:Player, coinsChange)
     localPlayerStorage[player].coins += coinsChange
 

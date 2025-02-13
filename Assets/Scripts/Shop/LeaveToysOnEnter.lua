@@ -2,6 +2,7 @@
 
 local UtilsModule = require("UtilsModule")
 local SaveModule = require("SaveModule")
+local ShopManager = require("ShopManager")
 
 --!SerializeField
 local shopScript:Shop = nil
@@ -14,7 +15,9 @@ function self:OnTriggerEnter(collider: Collider)
 
     SaveModule.LeaveToysAtShop(playerCharacter.player)
 
-    print(playerCharacter.player.name, "left toys at the shop")
+    Timer.After(0.5, function() 
+        ShopManager.OnToysLeftAtShop(SaveModule.GetToyRegister(playerCharacter.player))
+    end)
 
-    shopScript.UpdateTables()
+    --shopScript.UpdateTables()
 end

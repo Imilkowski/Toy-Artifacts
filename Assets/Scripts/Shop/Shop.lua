@@ -14,7 +14,7 @@ local sellTimePassed = 0.0
 local collectToyTimePassed = 0.0
 
 function self:Start()
-    UpdateTables()
+    UpdateTables(nil)
 end
 
 function AssignPlayer(playerToAssign)
@@ -28,7 +28,7 @@ function AssignPlayer(playerToAssign)
     SetPlayer(playerToAssign)
     
     Timer.After(1, function() 
-        UpdateTables()
+        UpdateTables(nil)
     end)
 end
 
@@ -72,15 +72,15 @@ function CollectAToyPassively()
     local toy = ToysModule.DrawAToy(tierNum, client.localPlayer.character, true)
 end
 
-function UpdateTables()
-    local toysRegister
-
+function UpdateTables(toysRegister)
     if(assignedPlayer == nil) then
         ClearTables()
         return
     end
 
-    toysRegister = SaveModule.localPlayerStorage[assignedPlayer].toysRegister
+    if(toysRegister == nil) then 
+        toysRegister = SaveModule.localPlayerStorage[assignedPlayer].toysRegister
+    end
 
     for i = 0, tablesParent.childCount - 1 do
         local tableToys = tablesParent:GetChild(i):GetChild(0)
