@@ -17,13 +17,15 @@ function self:Start()
     UpdateTables()
 end
 
-function AssignPlayer()
-    if(SaveModule.GetPlayerShopId(client.localPlayer) ~= shopId) then
+function AssignPlayer(playerToAssign)
+    if(playerToAssign == nil) then
         self.gameObject:SetActive(false)
-        return 
+        return
     end
 
-    SetPlayer(client.localPlayer)
+    self.gameObject:SetActive(true)
+
+    SetPlayer(playerToAssign)
     
     Timer.After(1, function() 
         UpdateTables()

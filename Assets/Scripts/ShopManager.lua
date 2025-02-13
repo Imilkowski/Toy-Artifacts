@@ -3,9 +3,10 @@
 local SaveModule = require("SaveModule")
 
 local assignPlayerToShopEvent = Event.new("Assign Player to a Shop") --Server
-local returnShopIdEvent = Event.new("Return Shop Id") --Client
+local returnShopAssignmentsEvent = Event.new("Return Shop Assignments") --Client
 
 local shopsAssigned = {false, false, false, false, false, false} --Server
+local shopsPlayers = {} --Server
 
 --!SerializeField
 local shops : {Shop} = {} --Client
@@ -19,32 +20,44 @@ function self:ServerAwake()
 
     server.PlayerDisconnected:Connect(function(player)
         print(player.name .. " disconnected from the server")
+
+        UnAssignPlayer(player)
     end)
 
     assignPlayerToShopEvent:Connect(function(player: Player)
         for i, v in ipairs(shopsAssigned) do
-            --print(i, tostring(v))
             if(v == false) then
                 shopsAssigned[i] = true
-                returnShopIdEvent:FireClient(player, i)
+                shopsPlayers[i] = player
+
+                returnShopAssignmentsEvent:FireAllClients(shopsPlayers)
                 return
             end
         end
 
         print("Couldn't find a free shop for a player " .. player.name)
-        returnShopIdEvent:FireClient(player, -1)
+        returnShopAssignmentsEvent:FireAllClients(shopsPlayers)
     end)
+end
+
+function UnAssignPlayer(player: Player)
+    for k, p in pairs(shopsPlayers) do
+        if(p == player) then
+            shopsAssigned[k] = false
+            shopsPlayers[k] = nil
+
+            returnShopAssignmentsEvent:FireAllClients(shopsPlayers)
+            return
+        end
+    end
 end
 
 -- Client Side
 
 function self:ClientStart()
-    returnShopIdEvent:Connect(function(shopId)
-        print(client.localPlayer.name .. " given a shopId: " .. shopId)
-        SaveModule.SetPlayerShopId(client.localPlayer, shopId)
-        
+    returnShopAssignmentsEvent:Connect(function(shopsPlayers)
         for i, shop in ipairs(shops) do
-            shop.AssignPlayer()
+            shop.AssignPlayer(shopsPlayers[i])
         end
     end)
 
