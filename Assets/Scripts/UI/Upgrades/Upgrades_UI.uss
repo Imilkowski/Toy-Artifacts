@@ -120,6 +120,10 @@
 
     font-size: 20px;
     -unity-text-align: middle-center;
+
+    overflow: hidden;
+    white-space: normal;
+    -unity-text-overflow-position: end;
 }
 
 .price-container {
