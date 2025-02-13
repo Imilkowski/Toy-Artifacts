@@ -17,7 +17,7 @@ function self:Start()
     UpdateTables(nil)
 end
 
-function AssignPlayer(playerToAssign)
+function AssignPlayer(playerToAssign, toysRegister)
     if(playerToAssign == nil) then
         self.gameObject:SetActive(false)
         return
@@ -28,7 +28,7 @@ function AssignPlayer(playerToAssign)
     SetPlayer(playerToAssign)
     
     Timer.After(1, function() 
-        UpdateTables(nil)
+        UpdateTables(toysRegister)
     end)
 end
 

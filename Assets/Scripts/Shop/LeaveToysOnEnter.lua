@@ -11,7 +11,10 @@ function self:OnTriggerEnter(collider: Collider)
     local playerCharacter = collider.gameObject:GetComponent(Character)
     if UtilsModule.CheckIfLocalPlayer(playerCharacter.player) ~= true then return end
 
-    if(playerCharacter.player ~= shopScript.assignedPlayer) then return end
+    if(playerCharacter.player ~= shopScript.assignedPlayer) then 
+        ShopManager.UpdatePlayerShop(shopScript.assignedPlayer)
+        return 
+    end
 
     SaveModule.LeaveToysAtShop(playerCharacter.player)
 
