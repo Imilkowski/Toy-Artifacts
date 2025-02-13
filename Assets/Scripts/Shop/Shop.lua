@@ -8,6 +8,8 @@ local ToysModule = require("ToysModule")
 local shopId:number = 0
 --!SerializeField
 local tablesParent:Transform = nil
+--!SerializeField
+local playerIndicator:GameObject = nil
 
 assignedPlayer = nil
 local sellTimePassed = 0.0
@@ -24,6 +26,12 @@ function AssignPlayer(playerToAssign, toysRegister)
     end
 
     self.gameObject:SetActive(true)
+    
+    if(playerToAssign == client.localPlayer) then
+        playerIndicator:SetActive(true)
+    else
+        playerIndicator:SetActive(false)
+    end
 
     SetPlayer(playerToAssign)
     

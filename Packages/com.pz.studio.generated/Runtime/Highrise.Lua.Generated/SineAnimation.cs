@@ -27,7 +27,9 @@ namespace Highrise.Lua.Generated
 
         [SerializeField] public UnityEngine.Transform m_targetTransform = default;
         [SerializeField] public System.Double m_speed = 1;
+        [SerializeField] public System.Double m_amplitude = 1;
         [SerializeField] public System.Boolean m_randomTimeOffset = true;
+        [SerializeField] public System.Boolean m_positionAnimation = false;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -38,7 +40,9 @@ namespace Highrise.Lua.Generated
             {
                 CreateSerializedProperty(_script.GetPropertyAt(0), m_targetTransform),
                 CreateSerializedProperty(_script.GetPropertyAt(1), m_speed),
-                CreateSerializedProperty(_script.GetPropertyAt(2), m_randomTimeOffset),
+                CreateSerializedProperty(_script.GetPropertyAt(2), m_amplitude),
+                CreateSerializedProperty(_script.GetPropertyAt(3), m_randomTimeOffset),
+                CreateSerializedProperty(_script.GetPropertyAt(4), m_positionAnimation),
             };
         }
     }

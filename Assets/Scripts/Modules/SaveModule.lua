@@ -27,11 +27,6 @@ function TrackPlayers(game)
           }
         }
     end)
-
-    -- scene.PlayerLeft:Connect(function(player)
-    --     localPlayersStorage[player] = nil
-    --     print(player.name, "has left")
-    -- end)
 end
 
 function self:ClientAwake()
