@@ -15,7 +15,9 @@ local collectToyTimePassed = 0.0
 
 function self:Start()
     UpdateTables()
+end
 
+function AssignPlayer()
     if(SaveModule.GetPlayerShopId(client.localPlayer) ~= shopId) then
         self.gameObject:SetActive(false)
         return 
@@ -47,7 +49,7 @@ end
 
 function SetPlayer(player:Player)
     assignedPlayer = player
-    print("Assigned " .. player.name)
+    --print("Assigned " .. player.name)
 end
 
 function SellAToy()
@@ -70,8 +72,6 @@ end
 
 function UpdateTables()
     local toysRegister
-
-    print("Update tables")
 
     if(assignedPlayer == nil) then
         ClearTables()

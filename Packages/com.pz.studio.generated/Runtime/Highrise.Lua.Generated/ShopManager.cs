@@ -25,6 +25,8 @@ namespace Highrise.Lua.Generated
         private const string s_scriptGUID = "9b86a6f5e10f9e347af4dfbd45dd7e3b";
         public override string ScriptGUID => s_scriptGUID;
 
+        [LuaScriptPropertyAttribute("3de5b2981b284b4488f9f3928c048d91")]
+        [SerializeField] public System.Collections.Generic.List<UnityEngine.Object> m_shops = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -33,6 +35,7 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
+                CreateSerializedProperty(_script.GetPropertyAt(0), m_shops),
             };
         }
     }
