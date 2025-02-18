@@ -15552,7 +15552,8 @@ MonoBehaviour:
     from the coresponding island.
   - After collecting some toys come back to your shop to leave the toys in the storage.
     The shop will start selling them over time.
-  - Buy upgrades from NPCs.
+  - Buy upgrades from NPCs. For example selling rate helps you sell toys faster and
+    passive toys collecting will grant you new toys over time.
   - You've got more than one island to explore. Each new island has new toys that
     are worth more. The rarity of toys also count in their price.
   - Check your collection of discovered toys in the shop panel and collect them all!

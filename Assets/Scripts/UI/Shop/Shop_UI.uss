@@ -114,12 +114,12 @@
 
 .icon {
     background-color: rgba(0, 0, 0, 0);
-    height: 48px;
-    width: 48px;
+    height: 36px;
+    width: 36px;
 }
 
 .sub-label {
-    font-size: 24px;
+    font-size: 20px;
     left: 8px;
     
     overflow: hidden;
