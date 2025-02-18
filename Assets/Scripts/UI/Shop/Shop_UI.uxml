@@ -34,6 +34,20 @@
 
       </VisualElement>
 
+      <VisualElement class="content-separator"></VisualElement>
+
+      <VisualElement class="tiers-container">
+
+        <hr:UIButton class="tier-container" name="_TierIButton">
+          <hr:UILabel class="sub-label" name="_TierILabel"/>
+        </hr:UIButton>
+
+        <hr:UIButton class="tier-container" name="_TierIIButton">
+          <hr:UILabel class="sub-label" name="_TierIILabel"/>
+        </hr:UIButton>
+
+      </VisualElement>
+
       <VisualElement class="toys-container" name="_ToysList"></VisualElement>
 
     </VisualElement>

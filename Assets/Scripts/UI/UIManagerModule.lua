@@ -51,7 +51,7 @@ function SwitchShop()
     else
         SwitchUI(shopUI.gameObject)
         UpdateSellingRate()
-        ShopCreateToysList()
+        UpdateToysList()
     end
 end
 
@@ -95,7 +95,11 @@ function UpdateSellingRate()
 end
 
 function ShopCreateToysList()
-    shopUI.CreateToysList()
+    shopUI.CreateToysList(0)
+end
+
+function UpdateToysList()
+    shopUI.UpdateToysList()
 end
 
 function UpdateToysAmount(toysAmount)

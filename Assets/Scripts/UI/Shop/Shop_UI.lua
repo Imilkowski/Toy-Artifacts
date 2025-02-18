@@ -34,15 +34,38 @@ local _ToysLabel: UILabel = nil
 --!Bind
 local _ToysList: VisualElement = nil
 
+--!Bind
+local _TierIButton: UIButton = nil
+--!Bind
+local _TierIIButton: UIButton = nil
+
+--!Bind
+local _TierILabel: UILabel = nil
+--!Bind
+local _TierIILabel: UILabel = nil
+
+local currentTier = 0
+
 function self:Awake()
     SetTitleText("Your Shop")
     SetIcons()
     SetToysAmount(0)
+    SetTierLabels()
 end
 
 -- Register a callback for when the button is pressed
 _CloseButton:RegisterPressCallback(function()
     UIManagerModule.SwitchShop()
+end, true, true, true)
+
+-- Register a callback for when the button is pressed
+_TierIButton:RegisterPressCallback(function()
+    CreateToysList(0)
+end, true, true, true)
+
+-- Register a callback for when the button is pressed
+_TierIIButton:RegisterPressCallback(function()
+    CreateToysList(1)
 end, true, true, true)
 
 function SetTitleText(text)
@@ -64,48 +87,64 @@ function SetSellingRate(sellingRate)
     _SellingRateLabel:SetPrelocalizedText(tostring("Selling rate: " .. UtilsModule.RoundNumber(1/sellingRate) .. "/s"))
 end
 
-function CreateToysList()
+function SetTierLabels()
+    _TierILabel:SetPrelocalizedText("I")
+    _TierIILabel:SetPrelocalizedText("II")
+end
+
+function UpdateToysList()
+    CreateToysList(currentTier)
+end
+
+function CreateToysList(t)
+    currentTier = t
+
     _ToysList:Clear()
-
     local toyIcons = ToysModule.GetToyIcons()
+    local toyIconsUndiscovered = ToysModule.GetToyIconsUndiscovered()
+    CreateToysListStructure(t, toyIcons, toyIconsUndiscovered)
+end
 
-    local tiersNum = ToysModule.GetNumberOfTiers()
-    for t = 0, tiersNum - 1 do 
-        for r = 0, 2 do 
-            for toy = 1, 3 do 
-                local i = t * 9 + r * 3 + toy
+function CreateToysListStructure(t, toyIcons, toyIconsUndiscovered)
+    for r = 0, 2 do 
+        for toy = 1, 3 do 
+            local i = t * 9 + r * 3 + toy
 
-                local collected = SaveModule.GetToyFromRegister(client.localPlayer, toyIcons[i].name)
-                
-                local _toyElement = VisualElement.new()
+            local collected = SaveModule.GetToyFromRegister(client.localPlayer, toyIcons[i].name)
+            
+            local _toyElement = VisualElement.new()
 
-                if(collected == nil) then
-                    _toyElement:AddToClassList("toy-container")
-                else
-                    _toyElement:AddToClassList("toy-container-collected")
-                end
-
-                local _toyRarty = VisualElement.new()
-
-                if(r == 0)then
-                    _toyRarty:AddToClassList("toy-rarity-common")
-                elseif(r == 1) then
-                    _toyRarty:AddToClassList("toy-rarity-rare")
-                else
-                    _toyRarty:AddToClassList("toy-rarity-epic")
-                end
-
-                local _toyIcon = Image.new()
-                _toyIcon:AddToClassList("toy-icon")
-                _toyIcon.image = toyIcons[i]
-
-                --print(toyIcons[i].name)
-
-                _toyElement:Add(_toyIcon)
-                _toyElement:Add(_toyRarty)
-                
-                _ToysList:Add(_toyElement)
+            if(collected == nil) then
+                _toyElement:AddToClassList("toy-container")
+            else
+                _toyElement:AddToClassList("toy-container-collected")
             end
+
+            local _toyRarty = VisualElement.new()
+
+            if(r == 0)then
+                _toyRarty:AddToClassList("toy-rarity-common")
+            elseif(r == 1) then
+                _toyRarty:AddToClassList("toy-rarity-rare")
+            else
+                _toyRarty:AddToClassList("toy-rarity-epic")
+            end
+
+            local _toyIcon = Image.new()
+            _toyIcon:AddToClassList("toy-icon")
+
+            if(collected == nil) then
+                _toyIcon.image = toyIconsUndiscovered[i]
+            else
+                _toyIcon.image = toyIcons[i]
+            end
+
+            --print(toyIcons[i].name)
+
+            _toyElement:Add(_toyIcon)
+            _toyElement:Add(_toyRarty)
+            
+            _ToysList:Add(_toyElement)
         end
     end
 end

@@ -23193,6 +23193,25 @@ MonoBehaviour:
   - {fileID: 2800000, guid: a87a3de01eb52cb4ea93060e1482677d, type: 3}
   - {fileID: 2800000, guid: 722a94454166f224192541292fa02832, type: 3}
   - {fileID: 2800000, guid: fe354a20f046b6348aa6578d873e8b6c, type: 3}
+  m_toysIconsUndiscovered:
+  - {fileID: 2800000, guid: 243c4cfe77006c541abd6789a20e4e7e, type: 3}
+  - {fileID: 2800000, guid: 89b566be7ed47ac4a88f68691071858c, type: 3}
+  - {fileID: 2800000, guid: d894bbf9df445c24aa2bd2f451f754fb, type: 3}
+  - {fileID: 2800000, guid: 995176d5eaf31344a8d5ecd63db08e98, type: 3}
+  - {fileID: 2800000, guid: 7f809f41b62bbe44b85d7f0a98d1741e, type: 3}
+  - {fileID: 2800000, guid: d133be4ae4bfba54798ff79edb18107c, type: 3}
+  - {fileID: 2800000, guid: 3e8ebd5918086fa46915de855d90ddbc, type: 3}
+  - {fileID: 2800000, guid: 632f3395bc50a6c4da824bbafba68ba4, type: 3}
+  - {fileID: 2800000, guid: 1a77a9a218f80c445b26da5f71d55603, type: 3}
+  - {fileID: 2800000, guid: 0dd40c6e8c820484e8e03f0dbc453ec6, type: 3}
+  - {fileID: 2800000, guid: 77bd6085d5b52d844949c28754bb167e, type: 3}
+  - {fileID: 2800000, guid: 0588ad5d4dcd00347ad4cac5a2218538, type: 3}
+  - {fileID: 2800000, guid: 99bfaf79657c3c3438c251079153a7a5, type: 3}
+  - {fileID: 2800000, guid: 3292064c5e4b34f41bf0de11e3f5da82, type: 3}
+  - {fileID: 2800000, guid: f75acc066d9bc6f46a8ff2bab44e3300, type: 3}
+  - {fileID: 2800000, guid: 703995450cb27964ea3fe0029b9dfd27, type: 3}
+  - {fileID: 2800000, guid: f5fcfb254f2326d4cb6460215b691859, type: 3}
+  - {fileID: 2800000, guid: 70d0dddc06dad4c4a8810978bb440367, type: 3}
   m_toyPrices:
   - 3
   - 6

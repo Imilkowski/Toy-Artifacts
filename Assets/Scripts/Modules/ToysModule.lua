@@ -35,7 +35,8 @@ local _toyModels = {}
 
 --!SerializeField
 local toysIcons: { Texture } = {}
--- local _toyIcons = {}
+--!SerializeField
+local toysIconsUndiscovered: { Texture } = {}
 
 --!SerializeField
 local toyPrices: { number } = {}
@@ -117,6 +118,10 @@ end
 
 function GetToyIcons()
     return toysIcons
+end
+
+function GetToyIconsUndiscovered()
+    return toysIconsUndiscovered
 end
 
 function GetNumberOfTiers()

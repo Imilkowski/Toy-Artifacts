@@ -27,6 +27,7 @@ namespace Highrise.Lua.Generated
 
         [SerializeField] public System.Collections.Generic.List<UnityEngine.GameObject> m_toyModels = default;
         [SerializeField] public System.Collections.Generic.List<UnityEngine.Texture> m_toysIcons = default;
+        [SerializeField] public System.Collections.Generic.List<UnityEngine.Texture> m_toysIconsUndiscovered = default;
         [SerializeField] public System.Collections.Generic.List<System.Double> m_toyPrices = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
@@ -38,7 +39,8 @@ namespace Highrise.Lua.Generated
             {
                 CreateSerializedProperty(_script.GetPropertyAt(0), m_toyModels),
                 CreateSerializedProperty(_script.GetPropertyAt(1), m_toysIcons),
-                CreateSerializedProperty(_script.GetPropertyAt(2), m_toyPrices),
+                CreateSerializedProperty(_script.GetPropertyAt(2), m_toysIconsUndiscovered),
+                CreateSerializedProperty(_script.GetPropertyAt(3), m_toyPrices),
             };
         }
     }

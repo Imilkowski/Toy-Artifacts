@@ -75,6 +75,15 @@
     justify-content: center;
 }
 
+.tiers-container {
+    height: 64px;
+    width: 100%;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .toys-container {
     height: 800px;
     width: 90%;
@@ -88,6 +97,14 @@
 }
 
 .stat-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 50%;
+}
+
+.tier-container {
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -118,7 +135,7 @@
     height: 96px;
     width: 96px;
 
-    opacity: 0.05;
+    opacity: 0.35;
 }
 
 .toy-container-collected {
