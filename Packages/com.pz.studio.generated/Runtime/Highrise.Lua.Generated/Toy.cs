@@ -25,6 +25,7 @@ namespace Highrise.Lua.Generated
         private const string s_scriptGUID = "cf8d19345c2c60e4c8e458fe054ebd2e";
         public override string ScriptGUID => s_scriptGUID;
 
+        [SerializeField] public System.Collections.Generic.List<UnityEngine.AudioClip> m_diggingSounds = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -33,6 +34,7 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
+                CreateSerializedProperty(_script.GetPropertyAt(0), m_diggingSounds),
             };
         }
     }

@@ -69,7 +69,7 @@ function Dig(diggingPoint:DiggingPoint, playerCharacter:Character, diggingPositi
     SaveModule.AddToyToRegister(playerCharacter.player, toy.name)
 
     local spawnedToy = Object.Instantiate(toy).gameObject
-    spawnedToy:GetComponent(Toy).DigUp(diggingPosition)
+    spawnedToy:GetComponent(Toy).DigUp(diggingPosition, rarity)
 
     UIManagerModule.ShowCollectedToy(toyName, rarity)
 end
