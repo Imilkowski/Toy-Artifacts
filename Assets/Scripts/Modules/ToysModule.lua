@@ -99,7 +99,7 @@ function DrawAToy(tier, playerCharacter:Character, passive)
         SaveModule.CollectAToy(playerCharacter.player, tier, rarity, toy)
     end
 
-    return _toyModels[toy]
+    return _toyModels[toy], toy
 end
 
 function GetRandomRarity()
@@ -118,6 +118,14 @@ end
 
 function GetToyIcons()
     return toysIcons
+end
+
+function GetToyIcon(toyName)
+    for i, v in ipairs(toysIcons) do
+        if(v.name == toyName) then
+            return v
+        end
+    end
 end
 
 function GetToyIconsUndiscovered()

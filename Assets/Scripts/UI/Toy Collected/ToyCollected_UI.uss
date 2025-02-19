@@ -1,0 +1,17 @@
+.toy-collected_-u-i {
+    -unity-font-definition: var(--font-regular);
+}
+
+.hud-container {
+    width: 100%;
+}
+
+.toy-container {
+    align-items: center;
+}
+
+.toy {
+    background-color: rgba(0, 0, 0, 0);
+    height: 192px;
+    width: 192px;
+}

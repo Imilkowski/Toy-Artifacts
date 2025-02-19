@@ -4,6 +4,7 @@ local UtilsModule = require("UtilsModule")
 local ToysModule = require("ToysModule")
 local SaveModule = require("SaveModule")
 local UpgradesModule = require("UpgradesModule")
+local UIManagerModule = require("UIManagerModule")
 
 --!SerializeField
 local tier:number = 0
@@ -63,10 +64,12 @@ function Dig(diggingPoint:DiggingPoint, playerCharacter:Character, diggingPositi
     UtilsModule.RemoveByValue(activePointsIndexes, diggingPoint.index);
 
     SetupActivePoints()
-    local toy = ToysModule.DrawAToy(tier, playerCharacter, false)
+    local toy, toyName = ToysModule.DrawAToy(tier, playerCharacter, false)
 
     SaveModule.AddToyToRegister(playerCharacter.player, toy.name)
 
     local spawnedToy = Object.Instantiate(toy).gameObject
     spawnedToy:GetComponent(Toy).DigUp(diggingPosition)
+
+    UIManagerModule.ShowCollectedToy(toyName)
 end

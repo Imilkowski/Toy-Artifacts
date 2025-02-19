@@ -10,10 +10,13 @@ local bridgePopUpUI : BridgePopUp_UI = nil
 local upgradesUI : Upgrades_UI = nil
 --!SerializeField
 local tutorialUI : Tutorial_UI = nil
+--!SerializeField
+local toyCollectedUI : ToyCollected_UI = nil
 
 function self:Start()
     local status, result = pcall(function()
         SwitchUI(self.gameObject)
+        toyCollectedUI.gameObject:SetActive(false)
     end)
     
     if not status then end
@@ -108,4 +111,9 @@ end
 
 function StartTutorialFromBeginning()
     tutorialUI.StartTutorial()
+end
+
+function ShowCollectedToy(toyName)
+    toyCollectedUI.ShowAToy(toyName)
+    toyCollectedUI.gameObject:SetActive(true)
 end
