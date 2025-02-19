@@ -3140,7 +3140,11 @@ MonoBehaviour:
   _uiOutput: 3
   _uiOutputSettings:
     rid: -2
-  m_showTime: 2
+  m_shineTexture:
+  - {fileID: 2800000, guid: d98c01fc5911804428238cf191f5e418, type: 3}
+  - {fileID: 2800000, guid: 040beb2570ef4b44f9992cb943ec32af, type: 3}
+  - {fileID: 2800000, guid: 6e192ff2da157994c95ae54930029c6e, type: 3}
+  m_showTime: 3
   references:
     version: 2
     RefIds:

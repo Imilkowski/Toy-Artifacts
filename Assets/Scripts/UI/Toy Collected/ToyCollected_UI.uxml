@@ -9,9 +9,10 @@
 
   <hr:UILuaView class="toy-collected_-u-i" picking-mode="Ignore">
 
-    <VisualElement class="hud-container">
-      <VisualElement class="toy-container">
-        <Image class="toy" name="_ToyIcon" />
+    <VisualElement class="hud-container" picking-mode="Ignore">
+      <VisualElement class="toy-container" picking-mode="Ignore">
+        <Image class="shine" name="_ShineEffect" picking-mode="Ignore"/>
+        <Image class="toy" name="_ToyIcon" picking-mode="Ignore"/>
       </VisualElement>
     </VisualElement>
 

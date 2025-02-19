@@ -99,7 +99,7 @@ function DrawAToy(tier, playerCharacter:Character, passive)
         SaveModule.CollectAToy(playerCharacter.player, tier, rarity, toy)
     end
 
-    return _toyModels[toy], toy
+    return _toyModels[toy], toy, rarity
 end
 
 function GetRandomRarity()

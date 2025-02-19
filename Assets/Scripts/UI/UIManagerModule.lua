@@ -113,7 +113,7 @@ function StartTutorialFromBeginning()
     tutorialUI.StartTutorial()
 end
 
-function ShowCollectedToy(toyName)
-    toyCollectedUI.ShowAToy(toyName)
+function ShowCollectedToy(toyName, rarity)
+    toyCollectedUI.ShowAToy(toyName, rarity)
     toyCollectedUI.gameObject:SetActive(true)
 end

@@ -64,12 +64,12 @@ function Dig(diggingPoint:DiggingPoint, playerCharacter:Character, diggingPositi
     UtilsModule.RemoveByValue(activePointsIndexes, diggingPoint.index);
 
     SetupActivePoints()
-    local toy, toyName = ToysModule.DrawAToy(tier, playerCharacter, false)
+    local toy, toyName, rarity = ToysModule.DrawAToy(tier, playerCharacter, false)
 
     SaveModule.AddToyToRegister(playerCharacter.player, toy.name)
 
     local spawnedToy = Object.Instantiate(toy).gameObject
     spawnedToy:GetComponent(Toy).DigUp(diggingPosition)
 
-    UIManagerModule.ShowCollectedToy(toyName)
+    UIManagerModule.ShowCollectedToy(toyName, rarity)
 end

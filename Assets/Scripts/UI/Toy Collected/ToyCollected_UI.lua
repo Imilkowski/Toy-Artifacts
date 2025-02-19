@@ -5,14 +5,21 @@ local ToysModule = require("ToysModule")
 
 --!Bind
 local _ToyIcon: Image  = nil
+--!Bind
+local _ShineEffect: Image  = nil
+
+--!SerializeField
+local shineTexture: { Texture } = nil
 
 --!SerializeField
 local showTime: number = 0
 
 local disappearTime = 0
 
-function ShowAToy(toyName)
+function ShowAToy(toyName, rarity)
     _ToyIcon.image = ToysModule.GetToyIcon(toyName)
+    _ShineEffect.image = shineTexture[rarity]
+
     disappearTime = showTime
 end
 
@@ -22,6 +29,4 @@ function self:Update()
     else
         disappearTime -= Time.deltaTime
     end
-
-    print(disappearTime)
 end
