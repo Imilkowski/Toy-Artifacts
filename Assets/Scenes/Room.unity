@@ -15605,6 +15605,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: fd98d8a51682cae409a8b47e3caceb77, type: 3}
   - {fileID: 2800000, guid: 8ecdbf0813b0edd4aac646f624302f84, type: 3}
   - {fileID: 2800000, guid: 2c79c21509826214198f45d2040ec6ce, type: 3}
+  - {fileID: 2800000, guid: 9bd6407f21a61e14ea10c4ac4258f60c, type: 3}
   - {fileID: 2800000, guid: b2aefac5ec68faa4191ed46804ef4346, type: 3}
   - {fileID: 2800000, guid: 9e27a0d612126a14c80f6ae4ece31dd2, type: 3}
   m_tutorialDescriptions:
@@ -15614,6 +15615,8 @@ MonoBehaviour:
     The shop will start selling them over time.
   - Buy upgrades from NPCs. For example selling rate helps you sell toys faster and
     passive toys collecting will grant you new toys over time.
+  - Strategize what upgrades you buy to maximize the potential of your shop and let
+    NPCs do some work for you!
   - You've got more than one island to explore. Each new island has new toys that
     are worth more. The rarity of toys also count in their price.
   - Check your collection of discovered toys in the shop panel and collect them all!

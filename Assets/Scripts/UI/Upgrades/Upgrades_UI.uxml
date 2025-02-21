@@ -14,11 +14,11 @@
 
         <hr:UILabel class="title" name="_TitleLabel"/>
 
-        <hr:UIButton class="close-button-container" name="_CloseButton">
-          <Image class="close-button-icon" name="_CloseIcon" />
-        </hr:UIButton>
-
       </VisualElement>
+
+      <hr:UIButton class="close-button-container" name="_CloseButton">
+        <Image class="close-button-icon" name="_CloseIcon" />
+      </hr:UIButton>
 
       <VisualElement class="content-separator"></VisualElement>
 

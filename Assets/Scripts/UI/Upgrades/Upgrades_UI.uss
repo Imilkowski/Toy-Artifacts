@@ -33,14 +33,21 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    align-self: center;
 
-    height: 64px;
-    width: 100%;
+    height: 80px;
+    width: 60%;
 }
 
 .title {
     -unity-font-style: bold;
     font-size: 32px;
+
+    -unity-text-align: middle-center;
+
+    overflow: hidden;
+    white-space: normal;
+    -unity-text-overflow-position: end;
 }
 
 .close-button-container {
