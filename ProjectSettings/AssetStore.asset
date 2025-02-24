@@ -1111,3 +1111,14 @@ MonoBehaviour:
     - 8a297b2b636ecd845ac576ed59bf3471
     - c3ead373ebb550e41a728c24a801e227
     IsBundle: 0
+  - Guid: 78b0c5c253c5ec2408d9ddf2a07fc4d3
+    StoreId: 679e97008c5edb92c22337d6
+    Name: True Billboarding for RTSCamera
+    ThumbnailUrl: https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/6761f149a8efd664e85455fb/679e97008c5edb92c22337d6/4c37e075e.jpeg
+    AdditionalImageUrls:
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/6761f149a8efd664e85455fb/679e97008c5edb92c22337d6/194c39c25d0_0.jpeg
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/6761f149a8efd664e85455fb/679e97008c5edb92c22337d6/194c39c77d8_0.jpeg
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/6761f149a8efd664e85455fb/679e97008c5edb92c22337d6/194c39c8b60_0.jpeg
+    AdditionalAssetGUIDs:
+    - b7515d2e38a80594f8ddf6a598b9d60b
+    IsBundle: 0
