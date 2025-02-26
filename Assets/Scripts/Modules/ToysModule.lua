@@ -85,7 +85,7 @@ function InitializeToyTables()
     -- end
 end
 
-function DrawAToy(tier, playerCharacter:Character, passive)
+function DrawAToy(tier, playerCharacter:Character)
     local rarity = GetRandomRarity()
     local toysTable = tiers[tier][rarity].toys
     local toyIndex = math.random(1, #toysTable)
@@ -93,13 +93,20 @@ function DrawAToy(tier, playerCharacter:Character, passive)
 
     --print("Tier:", tier, "Rarity:", rarity, "-", toy)
     
-    if(passive) then 
-        SaveModule.CollectAToyPassively(playerCharacter.player, tier, rarity, toy)
-    else
-        SaveModule.CollectAToy(playerCharacter.player, tier, rarity, toy)
-    end
+    SaveModule.CollectAToy(playerCharacter.player, tier, rarity, toy)
 
     return _toyModels[toy], toy, rarity
+end
+
+function DrawAToyPassively(tier, playerCharacter:Character)
+    local rarity = 1
+    local toysTable = tiers[tier][rarity].toys
+    local toyIndex = math.random(1, #toysTable)
+    local toy = toysTable[toyIndex]
+
+    SaveModule.CollectAToyPassively(playerCharacter.player, tier, rarity, toy)
+
+    return _toyModels[toy]
 end
 
 function GetRandomRarity()

@@ -64,7 +64,7 @@ function Dig(diggingPoint:DiggingPoint, playerCharacter:Character, diggingPositi
     UtilsModule.RemoveByValue(activePointsIndexes, diggingPoint.index);
 
     SetupActivePoints()
-    local toy, toyName, rarity = ToysModule.DrawAToy(tier, playerCharacter, false)
+    local toy, toyName, rarity = ToysModule.DrawAToy(tier, playerCharacter)
 
     SaveModule.AddToyToRegister(playerCharacter.player, toy.name)
 

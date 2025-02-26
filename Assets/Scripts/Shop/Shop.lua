@@ -77,7 +77,7 @@ function CollectAToyPassively()
         tierNum = 2
     end
 
-    local toy = ToysModule.DrawAToy(tierNum, client.localPlayer.character, true)
+    local toy = ToysModule.DrawAToyPassively(tierNum, client.localPlayer.character)
 end
 
 function UpdateTables(toysRegister)
