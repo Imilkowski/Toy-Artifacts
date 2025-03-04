@@ -86,7 +86,7 @@ function InitializeToyTables()
 end
 
 function DrawAToy(tier, playerCharacter:Character)
-    local rarity = GetRandomRarity()
+    local rarity = GetRandomRarity(tier)
     local toysTable = tiers[tier][rarity].toys
     local toyIndex = math.random(1, #toysTable)
     local toy = toysTable[toyIndex]
@@ -109,13 +109,13 @@ function DrawAToyPassively(tier, playerCharacter:Character)
     return _toyModels[toy]
 end
 
-function GetRandomRarity()
+function GetRandomRarity(tier)
     local rarityIndex = 1
     local chance = Random.Range(0, 1)
     local upgradeModifier = UpgradesModule.GetUpgradeValue("es-dc")
 
-    if(chance <= 0.01 * upgradeModifier) then return 3
-    elseif(chance <= 0.1 * upgradeModifier) then return 2
+    if(chance <= 0.01 * upgradeModifier - (0.01 * tier)) then return 3
+    elseif(chance <= 0.1 * upgradeModifier - (0.1 * tier)) then return 2
     else return 1 end
 end
 
