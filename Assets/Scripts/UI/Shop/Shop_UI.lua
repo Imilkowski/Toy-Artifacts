@@ -38,11 +38,15 @@ local _ToysList: VisualElement = nil
 local _TierIButton: UIButton = nil
 --!Bind
 local _TierIIButton: UIButton = nil
+--!Bind
+local _TierIIIButton: UIButton = nil
 
 --!Bind
 local _TierILabel: UILabel = nil
 --!Bind
 local _TierIILabel: UILabel = nil
+--!Bind
+local _TierIIILabel: UILabel = nil
 
 local currentTier = 0
 
@@ -68,6 +72,10 @@ _TierIIButton:RegisterPressCallback(function()
     CreateToysList(1)
 end, true, true, true)
 
+_TierIIIButton:RegisterPressCallback(function()
+    CreateToysList(2)
+end, true, true, true)
+
 function SetTitleText(text)
     _TitleLabel:SetPrelocalizedText(text)
 end
@@ -90,6 +98,7 @@ end
 function SetTierLabels()
     _TierILabel:SetPrelocalizedText("I")
     _TierIILabel:SetPrelocalizedText("II")
+    _TierIIILabel:SetPrelocalizedText("III")
 end
 
 function UpdateToysList()

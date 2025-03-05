@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7193162431529595457}
   - component: {fileID: 4915617795310438027}
   - component: {fileID: 1096564627065419751}
-  - component: {fileID: 3882115481496120563}
+  - component: {fileID: 1688647160313816275}
   m_Layer: 0
   m_Name: rubik`sCube
   m_TagString: Untagged
@@ -112,14 +112,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &3882115481496120563
-MeshCollider:
+--- !u!65 &1688647160313816275
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6861009899627669342}
-  m_Material: {fileID: 13400000, guid: 3dd9c0175bbab174d81c738fc6cf1279, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -130,10 +130,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5485362731064184583, guid: d63bdeb91ae261f40972f3a4026d9af6, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.056438357, y: 0.05643836, z: 0.056438357}
+  m_Center: {x: 0, y: 0.028219176, z: -1.0025466e-16}
 --- !u!1 &8567246826740481205
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +161,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6087992084383317476}

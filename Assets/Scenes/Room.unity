@@ -29378,6 +29378,15 @@ MonoBehaviour:
   - {fileID: 6705004653067458499, guid: 5f0596e8ef3303843b8a3be990c651bb, type: 3}
   - {fileID: 3379387601007500950, guid: c363486fc0464a34486ac505d3ad7d5d, type: 3}
   - {fileID: 7383827342369672500, guid: 122687c721ca02d4bb5632dd3d7a2259, type: 3}
+  - {fileID: 3711451383773785355, guid: d697316cc1deb8d40ac7633a8ddb8937, type: 3}
+  - {fileID: 6185875296012425093, guid: 14dc567ca4031a1478000a8ac45aca4c, type: 3}
+  - {fileID: 8567246826740481205, guid: 64fcafd7fba3b724c854a3cb67861a5c, type: 3}
+  - {fileID: 3659488782977574978, guid: 0f45be50107a04343b5f7eecd78e75be, type: 3}
+  - {fileID: 2999742060711124685, guid: 93ff3226b15c8e64da48227384d04af7, type: 3}
+  - {fileID: 854131139979050359, guid: c598d9139d516c44594c6eb7e47980c2, type: 3}
+  - {fileID: 1045061493150858400, guid: 6ea563f2b5b1cc54494c365c5c33f352, type: 3}
+  - {fileID: 6263275395321835617, guid: fc6da13e786549c48b764c4afa199028, type: 3}
+  - {fileID: 3666309067155883118, guid: d3a16608af7c7114e8ec069a73ba0187, type: 3}
   m_toysIcons:
   - {fileID: 2800000, guid: c59337233bece1343a64304556d56747, type: 3}
   - {fileID: 2800000, guid: f35b2fe143725ec489da1abd2e091047, type: 3}
@@ -29397,6 +29406,15 @@ MonoBehaviour:
   - {fileID: 2800000, guid: a87a3de01eb52cb4ea93060e1482677d, type: 3}
   - {fileID: 2800000, guid: 722a94454166f224192541292fa02832, type: 3}
   - {fileID: 2800000, guid: fe354a20f046b6348aa6578d873e8b6c, type: 3}
+  - {fileID: 2800000, guid: 10cd6ea144b681b41844834ec786c14a, type: 3}
+  - {fileID: 2800000, guid: b67f8f8fad2c80f4085bd71dbb3f2384, type: 3}
+  - {fileID: 2800000, guid: 6f317bd40915e2045a5daddd80500308, type: 3}
+  - {fileID: 2800000, guid: e932204eda1e06047b2fc8c2ff3e18ac, type: 3}
+  - {fileID: 2800000, guid: c537593a27915e644ad6fe0943129cf7, type: 3}
+  - {fileID: 2800000, guid: 823d284fb767e8649819a9e76ad02037, type: 3}
+  - {fileID: 2800000, guid: 799884668853a014a8bb33cc46d17982, type: 3}
+  - {fileID: 2800000, guid: 303b8547b2480b2469299bb5ae785bb6, type: 3}
+  - {fileID: 2800000, guid: 35a2decfb8a0e224e87230630e1c3612, type: 3}
   m_toysIconsUndiscovered:
   - {fileID: 2800000, guid: 243c4cfe77006c541abd6789a20e4e7e, type: 3}
   - {fileID: 2800000, guid: 89b566be7ed47ac4a88f68691071858c, type: 3}
@@ -29416,6 +29434,15 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 703995450cb27964ea3fe0029b9dfd27, type: 3}
   - {fileID: 2800000, guid: f5fcfb254f2326d4cb6460215b691859, type: 3}
   - {fileID: 2800000, guid: 70d0dddc06dad4c4a8810978bb440367, type: 3}
+  - {fileID: 2800000, guid: aaec16678e83ec2498ea086751d244d5, type: 3}
+  - {fileID: 2800000, guid: 65cb04f5e7f6fd04c9a871cd51ae15ea, type: 3}
+  - {fileID: 2800000, guid: 06898bc9290596545985fdc29b38dd8f, type: 3}
+  - {fileID: 2800000, guid: 14c4a3875df505b4eadc35751151eb8d, type: 3}
+  - {fileID: 2800000, guid: d64ee3e0d98ab1d4c82a26bfd61b9318, type: 3}
+  - {fileID: 2800000, guid: 992947f79a2b9474b936039f9b71c59c, type: 3}
+  - {fileID: 2800000, guid: 9f5d9dbc81245b14b9900137a2194346, type: 3}
+  - {fileID: 2800000, guid: 17f85c635111df846bf735dc2a1c8449, type: 3}
+  - {fileID: 2800000, guid: 2a009356c66613444953a9d1c44b5075, type: 3}
   m_toyPrices:
   - 3
   - 6
@@ -29423,6 +29450,9 @@ MonoBehaviour:
   - 6
   - 12
   - 36
+  - 12
+  - 24
+  - 72
   references:
     version: 2
     RefIds:

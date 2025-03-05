@@ -47,26 +47,27 @@ function InitializeUpgradesTables()
     table.insert(es_diggingPoints, Upgrade.new("es-dp", 2, "Digging points number (3 -> 4)", 4, 1, 75))
     table.insert(es_diggingPoints, Upgrade.new("es-dp", 3, "Digging points number (4 -> 5)", 5, 1, 225))
     table.insert(es_diggingPoints, Upgrade.new("es-dp", 4, "Digging points number (5 -> 6)", 6, 1, 675))
-    table.insert(es_diggingPoints, Upgrade.new("es-dp", 5, "Digging points number (6 -> 7)", 7, 1, 1350))
+    table.insert(es_diggingPoints, Upgrade.new("es-dp", 5, "Digging points number (6 -> 7)", 7, 1, 2025))
+    table.insert(es_diggingPoints, Upgrade.new("es-dp", 6, "Digging points number (7 -> 8)", 8, 1, 4050))
 
     upgradesValues["es-psi"] = 100000
     table.insert(es_passiveItems, Upgrade.new("es-psi", 1, "Passively collected toys over 10s (0 -> 1)", 10, 2, 25))
     table.insert(es_passiveItems, Upgrade.new("es-psi", 2, "Passively collected toys over 10s (1 -> 2)", 5, 2, 75))
     table.insert(es_passiveItems, Upgrade.new("es-psi", 3, "Passively collected toys over 10s (2 -> 3)", 3.33, 2, 225))
     table.insert(es_passiveItems, Upgrade.new("es-psi", 4, "Passively collected toys over 10s (3 -> 4)", 2.5, 2, 675))
-    table.insert(es_passiveItems, Upgrade.new("es-psi", 5, "Passively collected toys over 10s (4 -> 5)", 2, 2, 1350))
-    table.insert(es_passiveItems, Upgrade.new("es-psi", 6, "Passively collected toys over 10s (5 -> 6)", 1.66, 2, 2700))
-    table.insert(es_passiveItems, Upgrade.new("es-psi", 7, "Passively collected toys over 10s (6 -> 7)", 1.43, 2, 5400))
-    table.insert(es_passiveItems, Upgrade.new("es-psi", 8, "Passively collected toys over 10s (7 -> 8)", 1.25, 2, 8100))
+    table.insert(es_passiveItems, Upgrade.new("es-psi", 5, "Passively collected toys over 10s (4 -> 5)", 2, 2, 2025))
+    table.insert(es_passiveItems, Upgrade.new("es-psi", 6, "Passively collected toys over 10s (5 -> 6)", 1.66, 2, 3040))
+    table.insert(es_passiveItems, Upgrade.new("es-psi", 7, "Passively collected toys over 10s (6 -> 7)", 1.43, 2, 4560))
+    table.insert(es_passiveItems, Upgrade.new("es-psi", 8, "Passively collected toys over 10s (7 -> 8)", 1.25, 2, 6840))
 
     upgradesValues["es-dc"] = 0
     table.insert(es_diggingChance, Upgrade.new("es-dc", 1, "Finding rare toys chance (+0% -> +50%)", 1.5, 3, 75))
     table.insert(es_diggingChance, Upgrade.new("es-dc", 2, "Finding rare toys chance (+50% -> +100%)", 2, 3, 225))
     table.insert(es_diggingChance, Upgrade.new("es-dc", 3, "Finding rare toys chance (+100% -> +200%)", 3, 3, 675))
-    table.insert(es_diggingChance, Upgrade.new("es-dc", 4, "Finding rare toys chance (+200% -> +300%)", 4, 3, 1350))
-    table.insert(es_diggingChance, Upgrade.new("es-dc", 5, "Finding rare toys chance (+300% -> +400%)", 5, 3, 2700))
-    table.insert(es_diggingChance, Upgrade.new("es-dc", 6, "Finding rare toys chance (+400% -> +500%)", 6, 3, 4050))
-    table.insert(es_diggingChance, Upgrade.new("es-dc", 7, "Finding rare toys chance (+500% -> +600%)", 7, 3, 6075))
+    table.insert(es_diggingChance, Upgrade.new("es-dc", 4, "Finding rare toys chance (+200% -> +300%)", 4, 3, 2025))
+    table.insert(es_diggingChance, Upgrade.new("es-dc", 5, "Finding rare toys chance (+300% -> +400%)", 5, 3, 3040))
+    table.insert(es_diggingChance, Upgrade.new("es-dc", 6, "Finding rare toys chance (+400% -> +500%)", 6, 3, 4560))
+    table.insert(es_diggingChance, Upgrade.new("es-dc", 7, "Finding rare toys chance (+500% -> +600%)", 7, 3, 6840))
 
     --Business
     upgradesValues["b-ssr"] = 3

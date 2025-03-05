@@ -74,6 +74,13 @@ function InitializeToyTables()
     table.insert(tierII, ToyRarity.new("Epic", {"Police Car", "Rocket", "Tank"}))
     table.insert(tiers, tierII)
 
+    -- Tier III
+    local tierIII = {}
+    table.insert(tierIII, ToyRarity.new("Common", {"Dice", "Pyramid", "Rubiks Cube"}))
+    table.insert(tierIII, ToyRarity.new("Rare", {"Octopus Happy", "Robot", "Skateboard"}))
+    table.insert(tierIII, ToyRarity.new("Epic", {"Octopus Sad", "Cactus Toy", "Bike"}))
+    table.insert(tiers, tierIII)
+
     -- for n, tier in ipairs(tiers) do
     --     print("Tier", n)
     --     for i, r in ipairs(tier) do

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1880300685312833835}
   - component: {fileID: 4466687695836302817}
   - component: {fileID: 5316075083208668756}
-  - component: {fileID: 2468969191166057716}
+  - component: {fileID: 5395248254336903265}
   m_Layer: 0
   m_Name: bike
   m_TagString: Untagged
@@ -112,14 +112,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &2468969191166057716
-MeshCollider:
+--- !u!65 &5395248254336903265
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2809156255342521396}
-  m_Material: {fileID: 13400000, guid: 3dd9c0175bbab174d81c738fc6cf1279, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -130,10 +130,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1887513277584399653, guid: 0a6e4b1936373974abff20f0ddf2f490, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.3668672, y: 0.48829657, z: 0.60855955}
+  m_Center: {x: 0.0000003427267, y: 0.2386044, z: 0.007049501}
 --- !u!1 &3666309067155883118
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +161,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3294365636518590094}
