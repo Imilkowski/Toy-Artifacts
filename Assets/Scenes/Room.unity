@@ -29867,7 +29867,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: f88e934b07c487f4692db557458d8e63, type: 3}
   - {fileID: 2800000, guid: 782a4419380a0a04aaa0d3a40c47bee9, type: 3}
   - {fileID: 2800000, guid: 0b47ee54a4322a448a2ac2f148c0a69c, type: 3}
-  - {fileID: 2800000, guid: c0685c591fb0dc048a8e474efdefb89b, type: 3}
+  - {fileID: 2800000, guid: 2a201ea603d6bd34e946e043db7156ea, type: 3}
   m_teleportsManager: {fileID: 656808734}
   references:
     version: 2
