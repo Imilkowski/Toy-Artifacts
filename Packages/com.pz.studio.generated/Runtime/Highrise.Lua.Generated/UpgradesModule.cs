@@ -26,6 +26,8 @@ namespace Highrise.Lua.Generated
         public override string ScriptGUID => s_scriptGUID;
 
         [SerializeField] public System.Collections.Generic.List<UnityEngine.Texture> m_upgradeIcons = default;
+        [LuaScriptPropertyAttribute("442a0e5211fe7f34c9772f063dbc3129")]
+        [SerializeField] public UnityEngine.Object m_teleportsManager = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -35,6 +37,7 @@ namespace Highrise.Lua.Generated
             return new SerializedPropertyValue[]
             {
                 CreateSerializedProperty(_script.GetPropertyAt(0), m_upgradeIcons),
+                CreateSerializedProperty(_script.GetPropertyAt(1), m_teleportsManager),
             };
         }
     }
