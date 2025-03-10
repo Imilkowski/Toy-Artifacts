@@ -13,6 +13,11 @@ local tutorialUI : Tutorial_UI = nil
 --!SerializeField
 local toyCollectedUI : ToyCollected_UI = nil
 
+--!SerializeField
+local editShopButtonUI : EditShopButton_UI = nil
+--!SerializeField
+local editShopUI : EditShop_UI = nil
+
 function self:Start()
     local status, result = pcall(function()
         SwitchUI(self.gameObject)
@@ -45,6 +50,18 @@ function SwitchUI(go:GameObject)
         tutorialUI.gameObject:SetActive(true)
     else
         tutorialUI.gameObject:SetActive(false)
+    end
+
+    if(editShopButtonUI.gameObject == go) then
+        editShopButtonUI.gameObject:SetActive(true)
+    else
+        editShopButtonUI.gameObject:SetActive(false)
+    end
+
+    if(editShopUI.gameObject == go) then
+        editShopUI.gameObject:SetActive(true)
+    else
+        editShopUI.gameObject:SetActive(false)
     end
 end
 
@@ -116,4 +133,20 @@ end
 function ShowCollectedToy(toyName, rarity)
     toyCollectedUI.ShowAToy(toyName, rarity)
     toyCollectedUI.gameObject:SetActive(true)
+end
+
+function SwitchEditShopButton(show)
+    if(show) then
+        SwitchUI(editShopButtonUI.gameObject)
+    else
+        SwitchUI(self.gameObject)
+    end
+end
+
+function SwitchShopButton(show)
+    if(show) then
+        SwitchUI(editShopUI.gameObject)
+    else
+        SwitchUI(self.gameObject)
+    end
 end
