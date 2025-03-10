@@ -7,6 +7,9 @@ local SaveModule = require("SaveModule")
 --!SerializeField
 local shopScript:Shop = nil
 
+--!SerializeField
+local decorationTiles:GameObject = nil
+
 function self:OnTriggerEnter(collider: Collider)
     local playerCharacter = collider.gameObject:GetComponent(Character)
     if UtilsModule.CheckIfLocalPlayer(playerCharacter.player) ~= true then return end
@@ -21,4 +24,8 @@ function self:OnTriggerExit(collider: Collider)
     if(playerCharacter.player ~= shopScript.assignedPlayer) then return end
 
     UIManagerModule.SwitchEditShopButton(false)
+end
+
+function ActivateEditMode(activate)
+    decorationTiles:SetActive(activate)
 end

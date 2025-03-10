@@ -27,6 +27,7 @@ namespace Highrise.Lua.Generated
 
         [LuaScriptPropertyAttribute("3de5b2981b284b4488f9f3928c048d91")]
         [SerializeField] public UnityEngine.Object m_shopScript = default;
+        [SerializeField] public UnityEngine.GameObject m_decorationTiles = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -36,6 +37,7 @@ namespace Highrise.Lua.Generated
             return new SerializedPropertyValue[]
             {
                 CreateSerializedProperty(_script.GetPropertyAt(0), m_shopScript),
+                CreateSerializedProperty(_script.GetPropertyAt(1), m_decorationTiles),
             };
         }
     }

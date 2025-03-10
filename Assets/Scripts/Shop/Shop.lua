@@ -1,5 +1,6 @@
 --!Type(Client)
 
+local UtilsModule = require("UtilsModule")
 local SaveModule = require("SaveModule")
 local UpgradesModule = require("UpgradesModule")
 local ToysModule = require("ToysModule")
@@ -10,6 +11,8 @@ local shopId:number = 0
 local tablesParent:Transform = nil
 --!SerializeField
 local playerIndicator:GameObject = nil
+--!SerializeField
+local editShopScript:EditShop = nil
 
 assignedPlayer = nil
 local sellTimePassed = 0.0
@@ -38,13 +41,16 @@ function AssignPlayer(playerToAssign, toysRegister)
     Timer.After(1, function() 
         UpdateTables(toysRegister)
     end)
+
+    Timer.Every(0.05, function() sellTimePassed += 0.05 end)
+    Timer.Every(0.05, function() collectToyTimePassed += 0.05 end)
 end
 
 function self:Update()
     if(assignedPlayer == nil) then return end
 
-    sellTimePassed += Time.deltaTime
-    collectToyTimePassed += Time.deltaTime
+    -- sellTimePassed += Time.deltaTime
+    -- collectToyTimePassed += Time.deltaTime
 
     if(sellTimePassed >= UpgradesModule.GetUpgradeValue("b-ssr")) then
         sellTimePassed = 0
@@ -59,7 +65,10 @@ end
 
 function SetPlayer(player:Player)
     assignedPlayer = player
-    --print("Assigned " .. player.name)
+
+    if(player == client.localPlayer) then
+        UtilsModule.localShop = self
+    end
 end
 
 function SellAToy()
@@ -122,4 +131,8 @@ end
 
 function GetShopId()
     return shopId
+end
+
+function GetEditShopScript()
+    return editShopScript
 end

@@ -1,5 +1,6 @@
 --!Type(UI)
 
+local UtilsModule = require("UtilsModule")
 local UIManagerModule = require("UIManagerModule")
 
 --!Bind
@@ -19,4 +20,7 @@ end
 -- Register a callback for when the button is pressed
 _EditButton:RegisterPressCallback(function()
     UIManagerModule.SwitchShopButton(true)
+
+    local editShop = UtilsModule.localShop.GetEditShopScript()
+    editShop.ActivateEditMode(true)
 end, true, true, true)

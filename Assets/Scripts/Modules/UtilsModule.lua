@@ -1,5 +1,7 @@
 --!Type(Module)
 
+local localShop: Shop = nil
+
 function CheckIfLocalPlayer(player:Player)
     if client.localPlayer ~= player then return false end
     

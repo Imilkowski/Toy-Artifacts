@@ -1,5 +1,6 @@
 --!Type(UI)
 
+local UtilsModule = require("UtilsModule")
 local UIManagerModule = require("UIManagerModule")
 
 --!Bind
@@ -41,4 +42,7 @@ end, true, true, true)
 -- Register a callback for when the button is pressed
 _CancelButtonLabel:RegisterPressCallback(function()
     UIManagerModule.SwitchEditShopButton(true)
+
+    local editShop = UtilsModule.localShop.GetEditShopScript()
+    editShop.ActivateEditMode(false)
 end, true, true, true)
