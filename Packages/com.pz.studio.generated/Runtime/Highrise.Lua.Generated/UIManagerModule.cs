@@ -43,6 +43,8 @@ namespace Highrise.Lua.Generated
         [SerializeField] public UnityEngine.Object m_editShopUI = default;
         [LuaScriptPropertyAttribute("be0fc91170a97b546b20ecd1e9e57e15")]
         [SerializeField] public UnityEngine.Object m_ownedDecorationsUI = default;
+        [LuaScriptPropertyAttribute("7fc55d8bfe6711f44a06a6abc1eb8468")]
+        [SerializeField] public UnityEngine.Object m_placeDecorationUI = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -60,6 +62,7 @@ namespace Highrise.Lua.Generated
                 CreateSerializedProperty(_script.GetPropertyAt(6), m_editShopButtonUI),
                 CreateSerializedProperty(_script.GetPropertyAt(7), m_editShopUI),
                 CreateSerializedProperty(_script.GetPropertyAt(8), m_ownedDecorationsUI),
+                CreateSerializedProperty(_script.GetPropertyAt(9), m_placeDecorationUI),
             };
         }
     }

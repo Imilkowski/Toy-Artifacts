@@ -36008,6 +36008,7 @@ Transform:
   - {fileID: 555948851}
   - {fileID: 327575543}
   - {fileID: 1429436588}
+  - {fileID: 1991685244}
   m_Father: {fileID: 2063701204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1624317713
@@ -43626,6 +43627,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1988306107}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1991685243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1991685244}
+  - component: {fileID: 1991685245}
+  m_Layer: 0
+  m_Name: Place Decoration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1991685244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991685243}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1620418013}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1991685245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991685243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51a5d5e44b81121f0d9a67e7b3484bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: 7fc55d8bfe6711f44a06a6abc1eb8468, type: 3}
+  _properties: []
+  _uiOutput: 2
+  _uiOutputSettings:
+    rid: -2
+  m_rotateLeftIcon: {fileID: 2800000, guid: aa8c6e35c60e87545941daef4ff189fa, type: 3}
+  m_rotateRightIcon: {fileID: 2800000, guid: 2dd44cbe7f2af2843b1bb2e5a1bc5912, type: 3}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1001 &1992413935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44930,6 +44988,7 @@ MonoBehaviour:
   m_editShopButtonUI: {fileID: 555948852}
   m_editShopUI: {fileID: 327575544}
   m_ownedDecorationsUI: {fileID: 1429436589}
+  m_placeDecorationUI: {fileID: 1991685245}
   references:
     version: 2
     RefIds:

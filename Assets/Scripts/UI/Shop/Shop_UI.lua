@@ -129,14 +129,14 @@ function CreateToysListStructure(t, toyIcons, toyIconsUndiscovered)
                 _toyElement:AddToClassList("toy-container-collected")
             end
 
-            local _toyRarty = VisualElement.new()
+            local _toyRarity = VisualElement.new()
 
             if(r == 0)then
-                _toyRarty:AddToClassList("toy-rarity-common")
+                _toyRarity:AddToClassList("toy-rarity-common")
             elseif(r == 1) then
-                _toyRarty:AddToClassList("toy-rarity-rare")
+                _toyRarity:AddToClassList("toy-rarity-rare")
             else
-                _toyRarty:AddToClassList("toy-rarity-epic")
+                _toyRarity:AddToClassList("toy-rarity-epic")
             end
 
             local _toyIcon = Image.new()
@@ -151,7 +151,7 @@ function CreateToysListStructure(t, toyIcons, toyIconsUndiscovered)
             --print(toyIcons[i].name)
 
             _toyElement:Add(_toyIcon)
-            _toyElement:Add(_toyRarty)
+            _toyElement:Add(_toyRarity)
             
             _ToysList:Add(_toyElement)
         end

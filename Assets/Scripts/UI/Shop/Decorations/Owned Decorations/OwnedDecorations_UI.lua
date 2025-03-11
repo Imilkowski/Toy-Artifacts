@@ -34,17 +34,33 @@ end
 function CreateDecorationsList()
     _DecorationsList:Clear()
     local decorationsOwned = SaveModule.GetDecorationsOwned(client.localPlayer)
-    CreateDecorationsListStructure(decorationsOwned)
+    local decorationsIcons = DecorationsModule.GetDecorationIcons()
+    CreateDecorationsListStructure(decorationsOwned, decorationsIcons)
 end
 
-function CreateDecorationsListStructure(decorationsOwned)
+function CreateDecorationsListStructure(decorationsOwned, decorationsIcons)
     for k, v in pairs(decorationsOwned) do
-        print(k, v)
+        local _decorationElement = VisualElement.new()
+        _decorationElement:AddToClassList("decoration-container")
+
+        local _decorationIcon = Image.new()
+        _decorationIcon.image = decorationsIcons[k]
+        _decorationIcon:AddToClassList("decoration-icon")
+
+        local _count = Label.new()
+        _count.text = v
+        _count:AddToClassList("decoration-count")
+
+        _decorationElement:Add(_decorationIcon)
+        _decorationElement:Add(_count)
+        _DecorationsList:Add(_decorationElement)
+
+        -- Register a callback for when the button is pressed
+        _decorationElement:RegisterPressCallback(function()
+            UIManagerModule.SwitchPlaceDecoration()
+        end, true, true, true)
     end
 end
-
--- local editShop = UtilsModule.localShop.GetEditShopScript()
--- editShop.ActivateEditMode(true)
 
 -- Register a callback for when the button is pressed
 _CloseButton:RegisterPressCallback(function()

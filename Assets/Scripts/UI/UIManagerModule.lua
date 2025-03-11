@@ -1,5 +1,7 @@
 --!Type(Module)
 
+local DecorationsModule = require("DecorationsModule")
+
 --!SerializeField
 local leftHUD : LeftHUD_UI = nil
 --!SerializeField
@@ -19,6 +21,8 @@ local editShopButtonUI : EditShopButton_UI = nil
 local editShopUI : EditShop_UI = nil
 --!SerializeField
 local ownedDecorationsUI : OwnedDecorations_UI = nil
+--!SerializeField
+local placeDecorationUI : PlaceDecoration_UI = nil
 
 function self:Start()
     local status, result = pcall(function()
@@ -70,6 +74,12 @@ function SwitchUI(go:GameObject)
         ownedDecorationsUI.gameObject:SetActive(true)
     else
         ownedDecorationsUI.gameObject:SetActive(false)
+    end
+
+    if(placeDecorationUI.gameObject == go) then
+        placeDecorationUI.gameObject:SetActive(true)
+    else
+        placeDecorationUI.gameObject:SetActive(false)
     end
 end
 
@@ -170,4 +180,9 @@ end
 
 function UpdateDecorationsOwned()
     ownedDecorationsUI.CreateDecorationsList()
+end
+
+function SwitchPlaceDecoration()
+    SwitchUI(placeDecorationUI.gameObject)
+    DecorationsModule.StartDecorating()
 end

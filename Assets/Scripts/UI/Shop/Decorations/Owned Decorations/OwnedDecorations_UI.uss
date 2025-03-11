@@ -77,3 +77,32 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.decoration-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    height: 96px;
+    width: 96px;
+
+    margin: 8px;
+    border-radius: 16px;
+
+    background-color: rgb(149, 167, 209);
+}
+
+.decoration-icon {
+    height: 80%;
+    width: 80%;
+}
+
+.decoration-count {
+    position: absolute;
+
+    font-size: 20px;
+    right: 0px;
+    bottom: 0px;
+
+    color: rgb(255, 255, 255);
+}
