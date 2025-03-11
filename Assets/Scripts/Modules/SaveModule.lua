@@ -17,13 +17,15 @@ function TrackPlayers(game)
           toysInShop = {},
           toysRegister = {},
           upgrades = {},
+          decorations = {},
 
           valueChanges = {
             coins = false,
             toysCollected = false,
             toysInShop = false,
             toysRegister = false,
-            upgrades = false
+            upgrades = false,
+            decorations = false
           }
         }
     end)
@@ -59,6 +61,9 @@ end
 
 function self:ClientStart()
     LoadFromCloud()
+
+    localPlayerStorage[client.localPlayer].decorations[1] = 3
+    localPlayerStorage[client.localPlayer].decorations[2] = 1
 end
 
 function LoadFromCloud()
@@ -271,4 +276,8 @@ function LoadUpgradeLevels()
     for k, v in pairs(localPlayerStorage[player].upgrades) do
         UpgradesModule.UpdateUpgradeLevel(player, k, v)
     end
+end
+
+function GetDecorationsOwned(player:Player)
+    return localPlayerStorage[player].decorations
 end

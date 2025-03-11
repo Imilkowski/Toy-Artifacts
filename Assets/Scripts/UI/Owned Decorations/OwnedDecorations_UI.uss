@@ -1,0 +1,79 @@
+.owned-decorations_-u-i {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    bottom: 0;
+
+    padding: 10px;
+
+    -unity-font-definition: var(--font-regular);
+}
+
+.title-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    height: 96px;
+    width: 100%;
+}
+
+.title {
+    -unity-font-style: bold;
+    font-size: 32px;
+}
+
+.content-separator {
+    height: 16px;
+}
+
+.panel-container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    height: 100%;
+    width: 100%;
+    border-radius: 16px;
+
+    background-color: rgb(128, 145, 184);
+}
+
+.close-button-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 48px;
+
+    right: 16px;
+    top: 16px;
+
+    position: absolute
+}
+
+.close-button-icon {
+    background-color: rgba(0, 0, 0, 0);
+    height: 32px;
+    width: 32px;
+}
+
+.decorations-container {
+    height: 800px;
+    width: 90%;
+    margin-top: 32px;
+
+    flex-direction: row;
+    align-items: flex-start;
+    align-self: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}

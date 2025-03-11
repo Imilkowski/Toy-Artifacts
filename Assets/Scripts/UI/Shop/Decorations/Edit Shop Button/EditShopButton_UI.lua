@@ -19,8 +19,5 @@ end
 
 -- Register a callback for when the button is pressed
 _EditButton:RegisterPressCallback(function()
-    UIManagerModule.SwitchShopButton(true)
-
-    local editShop = UtilsModule.localShop.GetEditShopScript()
-    editShop.ActivateEditMode(true)
+    UIManagerModule.SwitchEditShop(true)
 end, true, true, true)

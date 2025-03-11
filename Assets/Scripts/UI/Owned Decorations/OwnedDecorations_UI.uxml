@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="UnityEngine.UIElements"
+    xmlns:hr="Highrise.UI"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd"
+>
+
+  <hr:UILuaView class="owned-decorations_-u-i">
+    <VisualElement class="panel-container">
+
+      <VisualElement class="title-container">
+
+        <hr:UILabel class="title" name="_TitleLabel"/>
+
+        <hr:UIButton class="close-button-container" name="_CloseButton">
+          <Image class="close-button-icon" name="_CloseIcon" />
+        </hr:UIButton>
+
+      </VisualElement>
+
+      <VisualElement class="decorations-container" name="_DecorationsList"></VisualElement>
+
+    </VisualElement>
+  </hr:UILuaView>
+
+</UXML>

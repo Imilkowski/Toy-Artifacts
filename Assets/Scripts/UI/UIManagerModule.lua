@@ -17,6 +17,8 @@ local toyCollectedUI : ToyCollected_UI = nil
 local editShopButtonUI : EditShopButton_UI = nil
 --!SerializeField
 local editShopUI : EditShop_UI = nil
+--!SerializeField
+local ownedDecorationsUI : OwnedDecorations_UI = nil
 
 function self:Start()
     local status, result = pcall(function()
@@ -62,6 +64,12 @@ function SwitchUI(go:GameObject)
         editShopUI.gameObject:SetActive(true)
     else
         editShopUI.gameObject:SetActive(false)
+    end
+
+    if(ownedDecorationsUI.gameObject == go) then
+        ownedDecorationsUI.gameObject:SetActive(true)
+    else
+        ownedDecorationsUI.gameObject:SetActive(false)
     end
 end
 
@@ -143,10 +151,23 @@ function SwitchEditShopButton(show)
     end
 end
 
-function SwitchShopButton(show)
+function SwitchEditShop(show)
     if(show) then
         SwitchUI(editShopUI.gameObject)
     else
         SwitchUI(self.gameObject)
     end
+end
+
+function SwitchDecorationsOwned()
+    if(ownedDecorationsUI.gameObject.activeSelf) then
+        SwitchUI(self.gameObject)
+    else
+        SwitchUI(ownedDecorationsUI.gameObject)
+        UpdateDecorationsOwned()
+    end
+end
+
+function UpdateDecorationsOwned()
+    ownedDecorationsUI.CreateDecorationsList()
 end

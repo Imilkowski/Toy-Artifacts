@@ -28,21 +28,17 @@ function SetLabels()
 end
 
 -- Register a callback for when the button is pressed
-_FurnitureButtonLabel:RegisterPressCallback(function()
-    print("Add Furniture")
-    --Show furniture list
+_FurnitureButton:RegisterPressCallback(function()
+    UIManagerModule.SwitchDecorationsOwned()
 end, true, true, true)
 
 -- Register a callback for when the button is pressed
-_RemoveFurnitureButtonLabel:RegisterPressCallback(function()
+_RemoveFurnitureButton:RegisterPressCallback(function()
     print("Remove Furniture")
     --Activate remove furniture mode
 end, true, true, true)
 
 -- Register a callback for when the button is pressed
-_CancelButtonLabel:RegisterPressCallback(function()
+_CancelButton:RegisterPressCallback(function()
     UIManagerModule.SwitchEditShopButton(true)
-
-    local editShop = UtilsModule.localShop.GetEditShopScript()
-    editShop.ActivateEditMode(false)
 end, true, true, true)
