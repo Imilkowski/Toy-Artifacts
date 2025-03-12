@@ -1,6 +1,7 @@
 --!Type(UI)
 
 local UIManagerModule = require("UIManagerModule")
+local DecorationsModule = require("DecorationsModule")
 
 --!SerializeField
 local rotateLeftIcon : Texture = nil
@@ -44,20 +45,22 @@ end
 
 -- Register a callback for when the button is pressed
 _RotateLeftButton:RegisterPressCallback(function()
-    print("Rotate left")
+    DecorationsModule.RotateDecoration(false)
 end, true, true, true)
 
 -- Register a callback for when the button is pressed
 _RotateRightButton:RegisterPressCallback(function()
-    print("Rotate right")
+    DecorationsModule.RotateDecoration(true)
 end, true, true, true)
 
 -- Register a callback for when the button is pressed
 _CancelButton:RegisterPressCallback(function()
-    UIManagerModule.SwitchDecorationsOwned()
+    DecorationsModule.CancelDecoration()
+    UIManagerModule.SwitchEditShop(true)
 end, true, true, true)
 
 -- Register a callback for when the button is pressed
 _AcceptButton:RegisterPressCallback(function()
+    DecorationsModule.AcceptDecoration()
     UIManagerModule.SwitchEditShop(true)
 end, true, true, true)

@@ -25,6 +25,10 @@ function self:OnTriggerExit(collider: Collider)
     UIManagerModule.SwitchEditShopButton(false)
 end
 
+function self:Start()
+    ActivateEditMode(false)
+end
+
 function GetTileByPos(pos)
     for i = 0, decorationTiles.transform.childCount - 1 do
         local tile = decorationTiles.transform:GetChild(i)
@@ -32,7 +36,6 @@ function GetTileByPos(pos)
 
         local tilePos:Vector2 = decorationTile.GetTilePosition()
         if(pos == tilePos) then
-            print("Found tile")
             return tile
         end
     end
@@ -41,7 +44,12 @@ function GetTileByPos(pos)
 end
 
 function ActivateEditMode(activate)
-    decorationTiles:SetActive(activate)
+    for i = 0, decorationTiles.transform.childCount - 1 do
+        local tile = decorationTiles.transform:GetChild(i)
+        local decorationTile = tile:GetComponent(DecorationTile)
+
+        decorationTile.SetEnabled(activate)
+    end
 end
 
 function PlaceDecoration(decorationId, model, pos)

@@ -33,5 +33,29 @@ function TileTapped(pos)
     local editShop = UtilsModule.localShop.GetEditShopScript()
     decorationPlaced, decorationObject = editShop.PlaceDecoration(chosenDecoration, decorationModels[chosenDecoration], pos)
 
-    print(decorationObject.name)
+    if(decorationPlaced) then
+        editShop.ActivateEditMode(false)
+    end
+end
+
+function RotateDecoration(right)
+    if(decorationObject == nil) then return end
+
+    if(right) then
+        decorationObject.transform:Rotate(Vector3.up, 45)
+    else
+        decorationObject.transform:Rotate(Vector3.up, -45)
+    end
+end
+
+function AcceptDecoration()
+
+end
+
+function CancelDecoration()
+    local editShop = UtilsModule.localShop.GetEditShopScript()
+    editShop.ActivateEditMode(false)
+
+    if(decorationObject == nil) then return end
+    GameObject.Destroy(decorationObject)
 end
