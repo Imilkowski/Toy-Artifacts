@@ -2,6 +2,7 @@
 
 local UtilsModule = require("UtilsModule")
 local UIManagerModule = require("UIManagerModule")
+local DecorationsModule = require("DecorationsModule")
 
 --!Bind
 local _FurnitureButton : UIButton = nil
@@ -22,8 +23,8 @@ function self:Awake()
 end
 
 function SetLabels()
-    _FurnitureButtonLabel:SetPrelocalizedText("Place Furniture")
-    _RemoveFurnitureButtonLabel:SetPrelocalizedText("Remove Furniture")
+    _FurnitureButtonLabel:SetPrelocalizedText("Place Decorations")
+    _RemoveFurnitureButtonLabel:SetPrelocalizedText("Remove Decorations")
     _CancelButtonLabel:SetPrelocalizedText("Cancel")
 end
 
@@ -34,8 +35,8 @@ end, true, true, true)
 
 -- Register a callback for when the button is pressed
 _RemoveFurnitureButton:RegisterPressCallback(function()
-    print("Remove Furniture")
-    --Activate remove furniture mode
+    UIManagerModule.SwitchRemoveDecorations()
+    DecorationsModule.StartDecorating("remove")
 end, true, true, true)
 
 -- Register a callback for when the button is pressed

@@ -58,6 +58,7 @@ function CreateDecorationsListStructure(decorationsOwned, decorationsIcons)
         -- Register a callback for when the button is pressed
         _decorationElement:RegisterPressCallback(function()
             UIManagerModule.SwitchPlaceDecoration()
+            DecorationsModule.StartDecorating("place")
             DecorationsModule.SetChosenDecoration(k)
         end, true, true, true)
     end

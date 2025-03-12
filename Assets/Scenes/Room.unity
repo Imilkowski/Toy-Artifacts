@@ -16147,6 +16147,61 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 746337711}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &748716590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 748716591}
+  - component: {fileID: 748716592}
+  m_Layer: 0
+  m_Name: Remove Decorations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &748716591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748716590}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1620418013}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &748716592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748716590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944c6bdbfa33fe91b0d6d89ce0f11cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: 2e936b0e40ecfe440a09d8495a2e1c39, type: 3}
+  _properties: []
+  _uiOutput: 2
+  _uiOutputSettings:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1001 &749705290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36009,6 +36064,7 @@ Transform:
   - {fileID: 327575543}
   - {fileID: 1429436588}
   - {fileID: 1991685244}
+  - {fileID: 748716591}
   m_Father: {fileID: 2063701204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1624317713
@@ -44989,6 +45045,7 @@ MonoBehaviour:
   m_editShopUI: {fileID: 327575544}
   m_ownedDecorationsUI: {fileID: 1429436589}
   m_placeDecorationUI: {fileID: 1991685245}
+  m_removeDecorationsUI: {fileID: 748716592}
   references:
     version: 2
     RefIds:

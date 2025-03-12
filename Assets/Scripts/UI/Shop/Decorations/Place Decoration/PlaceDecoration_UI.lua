@@ -30,7 +30,7 @@ local _AcceptButtonLabel: UILabel = nil
 
 function self:Awake()
     SetIcons()
-    SetTierLabels()
+    SetLabels()
 end
 
 function SetIcons()
@@ -38,7 +38,7 @@ function SetIcons()
     _RotateRightIcon.image = rotateRightIcon
 end
 
-function SetTierLabels()
+function SetLabels()
     _CancelButtonLabel:SetPrelocalizedText("Cancel")
     _AcceptButtonLabel:SetPrelocalizedText("Accept")
 end

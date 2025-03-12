@@ -23,6 +23,8 @@ local editShopUI : EditShop_UI = nil
 local ownedDecorationsUI : OwnedDecorations_UI = nil
 --!SerializeField
 local placeDecorationUI : PlaceDecoration_UI = nil
+--!SerializeField
+local removeDecorationsUI : RemoveDecorations_UI = nil
 
 function self:Start()
     local status, result = pcall(function()
@@ -80,6 +82,12 @@ function SwitchUI(go:GameObject)
         placeDecorationUI.gameObject:SetActive(true)
     else
         placeDecorationUI.gameObject:SetActive(false)
+    end
+
+    if(removeDecorationsUI.gameObject == go) then
+        removeDecorationsUI.gameObject:SetActive(true)
+    else
+        removeDecorationsUI.gameObject:SetActive(false)
     end
 end
 
@@ -184,5 +192,8 @@ end
 
 function SwitchPlaceDecoration()
     SwitchUI(placeDecorationUI.gameObject)
-    DecorationsModule.StartDecorating()
+end
+
+function SwitchRemoveDecorations()
+    SwitchUI(removeDecorationsUI.gameObject)
 end

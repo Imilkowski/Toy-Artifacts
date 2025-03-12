@@ -2,9 +2,12 @@
 
 local UtilsModule = require("UtilsModule")
 local UIManagerModule = require("UIManagerModule")
+local DecorationsModule = require("DecorationsModule")
 
 --!SerializeField
 local shopScript:Shop = nil
+
+local hiddenDecorations: { GameObject } = {}
 
 --!SerializeField
 local decorationTiles:GameObject = nil
@@ -50,6 +53,10 @@ function ActivateEditMode(activate)
 
         decorationTile.SetEnabled(activate)
     end
+
+    if(not activate) then
+        DecorationsModule.SetMode("none")
+    end
 end
 
 function PlaceDecoration(decorationId, model, pos)
@@ -64,4 +71,30 @@ function PlaceDecoration(decorationId, model, pos)
     spawnedDecoration.transform.position = correspondingTile.transform.position
 
     return true, spawnedDecoration
+end
+
+function HideDecoration(pos)
+    local correspondingTile = GetTileByPos(pos)
+    if(correspondingTile.childCount == 0) then return end
+
+    local decoration = correspondingTile:GetChild(0).gameObject
+
+    table.insert(hiddenDecorations, decoration)
+    decoration:SetActive(false)
+end
+
+function UnhideDecorations()
+    for i, k in ipairs(hiddenDecorations) do
+        hiddenDecorations[i]:SetActive(true)
+    end
+
+    hiddenDecorations = {}
+end
+
+function RemoveHiddenDecorations()
+    for i, k in ipairs(hiddenDecorations) do
+        GameObject.Destroy(hiddenDecorations[i])
+    end
+
+    hiddenDecorations = {}
 end

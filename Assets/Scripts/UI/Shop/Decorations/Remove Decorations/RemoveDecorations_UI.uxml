@@ -7,16 +7,8 @@
     xsi:noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd"
 >
 
-  <hr:UILuaView class="place-decoration_-u-i"  picking-mode="Ignore">
+  <hr:UILuaView class="remove-decorations_-u-i"  picking-mode="Ignore">
     <VisualElement class="buttons-container">
-
-      <hr:UIButton class="rotate-button" name="_RotateLeftButton">
-        <Image class="icon" name="_RotateLeftIcon"/>
-      </hr:UIButton>
-
-      <hr:UIButton class="rotate-button" name="_RotateRightButton">
-        <Image class="icon" name="_RotateRightIcon"/>
-      </hr:UIButton>
 
       <hr:UIButton class="option-button" name="_CancelButton">
         <hr:UILabel class="sub-label" name="_CancelButtonLabel"/>
