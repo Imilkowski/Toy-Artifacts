@@ -2,7 +2,6 @@
 
 local UtilsModule = require("UtilsModule")
 local UIManagerModule = require("UIManagerModule")
-local SaveModule = require("SaveModule")
 
 --!SerializeField
 local shopScript:Shop = nil
@@ -26,6 +25,35 @@ function self:OnTriggerExit(collider: Collider)
     UIManagerModule.SwitchEditShopButton(false)
 end
 
+function GetTileByPos(pos)
+    for i = 0, decorationTiles.transform.childCount - 1 do
+        local tile = decorationTiles.transform:GetChild(i)
+        local decorationTile = tile:GetComponent(DecorationTile)
+
+        local tilePos:Vector2 = decorationTile.GetTilePosition()
+        if(pos == tilePos) then
+            print("Found tile")
+            return tile
+        end
+    end
+    
+    return nil
+end
+
 function ActivateEditMode(activate)
     decorationTiles:SetActive(activate)
+end
+
+function PlaceDecoration(decorationId, model, pos)
+    local correspondingTile = GetTileByPos(pos)
+
+    if(correspondingTile == nil) then return false end
+    if(correspondingTile.transform.childCount > 0) then return false end
+
+    local spawnedDecoration:GameObject = Object.Instantiate(model).gameObject
+
+    spawnedDecoration.transform.parent = correspondingTile.transform
+    spawnedDecoration.transform.position = correspondingTile.transform.position
+
+    return true, spawnedDecoration
 end
