@@ -62,9 +62,9 @@ end
 function self:ClientStart()
     LoadFromCloud()
 
-    localPlayerStorage[client.localPlayer].decorations[1] = 3
-    localPlayerStorage[client.localPlayer].decorations[2] = 1
-    localPlayerStorage[client.localPlayer].decorations[3] = 2
+    for i = 1, 9 do
+        localPlayerStorage[client.localPlayer].decorations[i] = 10
+    end
 end
 
 function LoadFromCloud()
