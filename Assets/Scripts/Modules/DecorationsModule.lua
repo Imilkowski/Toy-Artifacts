@@ -1,6 +1,7 @@
 --!Type(Module)
 
 local UtilsModule = require("UtilsModule")
+local SaveModule = require("SaveModule")
 
 --!SerializeField
 local decorationModels: { GameObject } = {}
@@ -70,10 +71,11 @@ function RotateDecoration(right)
 end
 
 function AcceptDecoration()
+    SaveModule.UpdateDecoration(client.localPlayer, chosenDecoration, -1)
+
     chosenDecoration = 0
     decorationPlaced = false
     decorationObject = nil
-    --do something here
     SetMode("none")
 end
 
@@ -90,7 +92,11 @@ function AcceptDecorationRemoval()
     local editShop = UtilsModule.localShop.GetEditShopScript()
     editShop.ActivateEditMode(false)
 
-    editShop.RemoveHiddenDecorations()
+    local removedDecorations = editShop.RemoveHiddenDecorations()
+    for k, v in pairs(removedDecorations) do
+        SaveModule.UpdateDecoration(client.localPlayer, k, v)
+    end
+
     SetMode("none")
 end
 

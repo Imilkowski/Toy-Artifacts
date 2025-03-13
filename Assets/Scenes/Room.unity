@@ -2318,8 +2318,8 @@ MonoBehaviour:
   - {fileID: 1308133354460717531, guid: 2335c275b9a1147418735f27c3f3333c, type: 3}
   m_decorationIcons:
   - {fileID: 2800000, guid: a58018f8da972b84cbaa0988c04ce6e8, type: 3}
-  - {fileID: 2800000, guid: a58018f8da972b84cbaa0988c04ce6e8, type: 3}
-  - {fileID: 2800000, guid: a58018f8da972b84cbaa0988c04ce6e8, type: 3}
+  - {fileID: 2800000, guid: d9c48b4d392ffd146a1f146fb2eb49d0, type: 3}
+  - {fileID: 2800000, guid: 303b8547b2480b2469299bb5ae785bb6, type: 3}
   references:
     version: 2
     RefIds:

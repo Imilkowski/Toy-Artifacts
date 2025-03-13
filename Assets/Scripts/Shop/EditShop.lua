@@ -76,6 +76,7 @@ function HideDecoration(pos)
     if(correspondingTile.childCount == 0) then return end
 
     local decoration = correspondingTile:GetChild(0).gameObject
+    if(not decoration.activeSelf) then return end
 
     table.insert(hiddenDecorations, decoration)
     decoration:SetActive(false)
@@ -90,9 +91,20 @@ function UnhideDecorations()
 end
 
 function RemoveHiddenDecorations()
+    local removedDecorationIds = {}
     for i, k in ipairs(hiddenDecorations) do
+        local decorationId = hiddenDecorations[i]:GetComponent(Decoration).GetDecorationId()
+
+        if(removedDecorationIds[decorationId] == nil) then
+            removedDecorationIds[decorationId] = 1
+        else
+            removedDecorationIds[decorationId] += 1
+        end
+        
         GameObject.Destroy(hiddenDecorations[i])
     end
 
     hiddenDecorations = {}
+
+    return removedDecorationIds
 end

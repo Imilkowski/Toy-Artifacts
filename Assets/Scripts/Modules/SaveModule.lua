@@ -64,6 +64,7 @@ function self:ClientStart()
 
     localPlayerStorage[client.localPlayer].decorations[1] = 3
     localPlayerStorage[client.localPlayer].decorations[2] = 1
+    localPlayerStorage[client.localPlayer].decorations[3] = 2
 end
 
 function LoadFromCloud()
@@ -280,4 +281,18 @@ end
 
 function GetDecorationsOwned(player:Player)
     return localPlayerStorage[player].decorations
+end
+
+function UpdateDecoration(player:Player, decorationId, valueChange)
+    --print("Decoration ID:", decorationId, ", value:", valueChange)
+
+    if(localPlayerStorage[player].decorations[decorationId] == nil) then
+        localPlayerStorage[player].decorations[decorationId] = valueChange
+    else
+        localPlayerStorage[player].decorations[decorationId] += valueChange
+    end
+
+    if(localPlayerStorage[player].decorations[decorationId] < 1) then
+        localPlayerStorage[player].decorations[decorationId] = nil
+    end
 end
