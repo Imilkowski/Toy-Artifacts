@@ -11,7 +11,7 @@ local decorationMode = "none"
 
 local chosenDecoration = 0
 local decorationPlaced = false
-local decorationObject:GameObject = nil
+local decorationObject = nil
 
 function SetMode(mode)
     decorationMode = mode
@@ -70,7 +70,11 @@ function RotateDecoration(right)
 end
 
 function AcceptDecoration()
+    chosenDecoration = 0
+    decorationPlaced = false
+    decorationObject = nil
     --do something here
+    SetMode("none")
 end
 
 function CancelDecoration()
@@ -79,6 +83,7 @@ function CancelDecoration()
 
     if(decorationObject == nil) then return end
     GameObject.Destroy(decorationObject)
+    SetMode("none")
 end
 
 function AcceptDecorationRemoval()
@@ -86,6 +91,7 @@ function AcceptDecorationRemoval()
     editShop.ActivateEditMode(false)
 
     editShop.RemoveHiddenDecorations()
+    SetMode("none")
 end
 
 function CancelDecorationRemoval()
@@ -93,4 +99,27 @@ function CancelDecorationRemoval()
     editShop.ActivateEditMode(false)
 
     editShop.UnhideDecorations()
+    SetMode("none")
+end
+
+function OnDecorationModeExit()
+    if(decorationMode == "place") then
+        chosenDecoration = 0
+        decorationPlaced = false
+
+        if(decorationObject ~= nil) then
+            GameObject.Destroy(decorationObject)
+        end
+
+        print("Place exit")
+    end
+
+    if(decorationMode == "remove") then
+        local editShop = UtilsModule.localShop.GetEditShopScript()
+        editShop.UnhideDecorations()
+
+        print("Remove exit")
+    end
+
+    SetMode("none")
 end

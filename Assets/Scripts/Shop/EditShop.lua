@@ -26,6 +26,8 @@ function self:OnTriggerExit(collider: Collider)
     if(playerCharacter.player ~= shopScript.assignedPlayer) then return end
 
     UIManagerModule.SwitchEditShopButton(false)
+    DecorationsModule.OnDecorationModeExit()
+    ActivateEditMode(false)
 end
 
 function self:Start()
@@ -52,10 +54,6 @@ function ActivateEditMode(activate)
         local decorationTile = tile:GetComponent(DecorationTile)
 
         decorationTile.SetEnabled(activate)
-    end
-
-    if(not activate) then
-        DecorationsModule.SetMode("none")
     end
 end
 
