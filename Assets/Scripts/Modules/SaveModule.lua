@@ -17,7 +17,8 @@ function TrackPlayers(game)
           toysInShop = {},
           toysRegister = {},
           upgrades = {},
-          decorations = {},
+          decorationsOwned = {},
+          decorationsPlaced = {},
 
           valueChanges = {
             coins = false,
@@ -25,7 +26,8 @@ function TrackPlayers(game)
             toysInShop = false,
             toysRegister = false,
             upgrades = false,
-            decorations = false
+            decorationsOwned = false,
+            decorationsPlaced = false
           }
         }
     end)
@@ -56,15 +58,21 @@ function self:ClientAwake()
             CloudSaveModule.SaveToysInShopToCloud(localPlayerStorage[client.localPlayer].toysInShop)
             ValueSaved(client.localPlayer, "toysInShop")
         end
+
+        if(localPlayerStorage[client.localPlayer].valueChanges["decorationsOwned"]) then
+            CloudSaveModule.SaveDecorationsOwnedToCloud(localPlayerStorage[client.localPlayer].decorationsOwned)
+            ValueSaved(client.localPlayer, "decorationsOwned")
+        end
+
+        if(localPlayerStorage[client.localPlayer].valueChanges["decorationsPlaced"]) then
+            CloudSaveModule.SaveDecorationsPlacedToCloud(localPlayerStorage[client.localPlayer].decorationsPlaced)
+            ValueSaved(client.localPlayer, "decorationsPlaced")
+        end
     end)
 end
 
 function self:ClientStart()
     LoadFromCloud()
-
-    for i = 1, 9 do
-        localPlayerStorage[client.localPlayer].decorations[i] = 10
-    end
 end
 
 function LoadFromCloud()
@@ -101,6 +109,14 @@ function LoadValue(player:Player, valueKey, value)
     if(valueKey == "upgrades") then
         localPlayerStorage[player].upgrades = value
         LoadUpgradeLevels()
+    end
+
+    if(valueKey == "decorationsOwned") then
+        localPlayerStorage[player].decorationsOwned = value
+    end
+
+    if(valueKey == "decorationsPlaced") then
+        localPlayerStorage[player].decorationsPlaced = value
     end
 end
 
@@ -280,19 +296,38 @@ function LoadUpgradeLevels()
 end
 
 function GetDecorationsOwned(player:Player)
-    return localPlayerStorage[player].decorations
+    return localPlayerStorage[player].decorationsOwned
 end
 
 function UpdateDecoration(player:Player, decorationId, valueChange)
     --print("Decoration ID:", decorationId, ", value:", valueChange)
 
-    if(localPlayerStorage[player].decorations[decorationId] == nil) then
-        localPlayerStorage[player].decorations[decorationId] = valueChange
+    if(localPlayerStorage[player].decorationsOwned[decorationId] == nil) then
+        localPlayerStorage[player].decorationsOwned[decorationId] = valueChange
     else
-        localPlayerStorage[player].decorations[decorationId] += valueChange
+        localPlayerStorage[player].decorationsOwned[decorationId] += valueChange
     end
 
-    if(localPlayerStorage[player].decorations[decorationId] < 1) then
-        localPlayerStorage[player].decorations[decorationId] = nil
+    if(localPlayerStorage[player].decorationsOwned[decorationId] < 1) then
+        localPlayerStorage[player].decorationsOwned[decorationId] = nil
     end
+
+    ValueUpdated(player, "decorationsOwned")
+end
+
+function AddDecorationPlaced(player:Player, decorationId, pos)
+    localPlayerStorage[player].decorationsPlaced[pos] = decorationId
+
+    -- print("---")
+    -- for k, v in pairs(localPlayerStorage[player].decorationsPlaced) do
+    --     print("Pos:", k.x, k.y, "Decoration ID:", v)
+    -- end
+
+    ValueUpdated(player, "decorationsPlaced")
+end
+
+function RemoveDecorationPlaced(player:Player, pos)
+    localPlayerStorage[player].decorationsPlaced[pos] = nil
+
+    ValueUpdated(player, "decorationsPlaced")
 end

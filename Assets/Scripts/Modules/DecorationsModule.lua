@@ -70,8 +70,19 @@ function RotateDecoration(right)
     end
 end
 
+function GetDecorationPos(decoration:GameObject)
+    local decorationTile = decoration.transform.parent:GetComponent(DecorationTile)
+    return decorationTile.GetTilePosition()
+end
+
 function AcceptDecoration()
+    if(decorationPlaced == false) then
+        CancelDecoration()
+        return
+    end
+    
     SaveModule.UpdateDecoration(client.localPlayer, chosenDecoration, -1)
+    SaveModule.AddDecorationPlaced(client.localPlayer, chosenDecoration, GetDecorationPos(decorationObject))
 
     chosenDecoration = 0
     decorationPlaced = false
@@ -94,7 +105,6 @@ function AcceptDecorationRemoval()
 
     local removedDecorations = editShop.RemoveHiddenDecorations()
     for k, v in pairs(removedDecorations) do
-        print(k)
         SaveModule.UpdateDecoration(client.localPlayer, k, v)
     end
 
@@ -129,4 +139,8 @@ function OnDecorationModeExit()
     end
 
     SetMode("none")
+end
+
+function RemoveDecorationPlaced(decoration:GameObject)
+    SaveModule.RemoveDecorationPlaced(client.localPlayer, GetDecorationPos(decoration))
 end

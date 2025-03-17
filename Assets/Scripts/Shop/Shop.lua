@@ -40,6 +40,7 @@ function AssignPlayer(playerToAssign, toysRegister)
     
     Timer.After(1, function() 
         UpdateTables(toysRegister)
+        UpdateDecorations()
     end)
 
     Timer.Every(0.05, function() sellTimePassed += 0.05 end)
@@ -135,4 +136,12 @@ end
 
 function GetEditShopScript()
     return editShopScript
+end
+
+function UpdateDecorations()
+    decorationsPlaced = SaveModule.localPlayerStorage[assignedPlayer].decorationsPlaced
+
+    for k, v in pairs(decorationsPlaced) do
+        editShopScript.LoadDecoration(k, v)
+    end
 end

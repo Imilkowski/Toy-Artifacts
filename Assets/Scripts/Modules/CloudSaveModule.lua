@@ -8,15 +8,19 @@ local saveToysInShopEvent = Event.new("Toys In Shop Save")
 local saveToysRegisterEvent = Event.new("Toys Register Save")
 local saveUpgradesEvent = Event.new("Upgrades Save")
 local saveTutorialShownEvent = Event.new("Tutorial Shown Save")
+local saveDecorationsOwnedEvent = Event.new("Decorations Owned Save")
+local saveDecorationsPlacedEvent = Event.new("Decorations Placed Save")
 
 local loadDataEvent = Event.new("Data Load")
 
-local loadCoinsEvent = Event.new("Coins Event")
-local loadToysCollectedEvent = Event.new("Toys Collected Event")
-local loadToysInShopEvent = Event.new("Toys In Shop Event")
-local loadToysRegisterEvent = Event.new("Toys Register Event")
-local loadUpgradesEvent = Event.new("Upgrades Event")
-local loadTutorialShownEvent = Event.new("Tutorial Shown Event")
+local loadCoinsEvent = Event.new("Coins Load")
+local loadToysCollectedEvent = Event.new("Toys Collected Load")
+local loadToysInShopEvent = Event.new("Toys In Shop Load")
+local loadToysRegisterEvent = Event.new("Toys Register Load")
+local loadUpgradesEvent = Event.new("Upgrades Load")
+local loadTutorialShownEvent = Event.new("Tutorial Shown Load")
+local loadDecorationsOwnedEvent = Event.new("Decorations Owned Load")
+local loadDecorationsPlacedEvent = Event.new("Decorations Placed Load")
 
 -- Server Side
 
@@ -82,6 +86,26 @@ function self:ServerAwake()
         end)
     end)
 
+    saveDecorationsOwnedEvent:Connect(function(player: Player, decorationsOwned)
+        --print(player.name .. " saved Tutorial Shown to cloud")
+
+        Storage.SetPlayerValue(player, "Decorations Owned", decorationsOwned, function(errorCode)
+            if(errorCode == not nil) then
+                print(`The error code was {StorageError[errorCode]}`)
+            end
+        end)
+    end)
+
+    saveDecorationsPlacedEvent:Connect(function(player: Player, decorationsPlaced)
+        --print(player.name .. " saved Tutorial Shown to cloud")
+
+        Storage.SetPlayerValue(player, "Decorations Placed", decorationsPlaced, function(errorCode)
+            if(errorCode == not nil) then
+                print(`The error code was {StorageError[errorCode]}`)
+            end
+        end)
+    end)
+
     --Loading
     loadDataEvent:Connect(function(player: Player)
         print(player.name .. " loaded Data from cloud")
@@ -108,6 +132,14 @@ function self:ServerAwake()
 
         Storage.GetPlayerValue(player, "Tutorial Shown", function(tutorialShown)
             loadTutorialShownEvent:FireClient(player, tutorialShown)
+        end)
+
+        Storage.GetPlayerValue(player, "Decorations Owned", function(decorationsOwned)
+            loadDecorationsOwnedEvent:FireClient(player, decorationsOwned)
+        end)
+
+        Storage.GetPlayerValue(player, "Decorations Placed", function(decorationsPlaced)
+            loadDecorationsPlacedEvent:FireClient(player, decorationsPlaced)
         end)
     end)
 end
@@ -138,6 +170,14 @@ function self:ClientAwake()
     loadTutorialShownEvent:Connect(function(tutorialShown)
         SaveModule.LoadValue(client.localPlayer, "tutorialShown", tutorialShown)
     end)
+
+    loadDecorationsOwnedEvent:Connect(function(decorationsOwned)
+        SaveModule.LoadValue(client.localPlayer, "decorationsOwned", decorationsOwned)
+    end)
+
+    loadDecorationsPlacedEvent:Connect(function(decorationsPlaced)
+        SaveModule.LoadValue(client.localPlayer, "decorationsPlaced", decorationsPlaced)
+    end)
 end
 
 --Saving
@@ -164,6 +204,14 @@ end
 
 function SaveTutorialShownToCloud(tutorialShown)
     saveTutorialShownEvent:FireServer(tutorialShown)
+end
+
+function SaveDecorationsOwnedToCloud(decorationsOwned)
+    saveDecorationsOwnedEvent:FireServer(decorationsOwned)
+end
+
+function SaveDecorationsPlacedToCloud(decorationsPlaced)
+    saveDecorationsPlacedEvent:FireServer(decorationsPlaced)
 end
 
 --Loading

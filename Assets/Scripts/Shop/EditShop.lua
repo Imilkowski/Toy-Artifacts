@@ -94,6 +94,7 @@ function RemoveHiddenDecorations()
     local removedDecorationIds = {}
     for i, k in ipairs(hiddenDecorations) do
         local decorationId = hiddenDecorations[i]:GetComponent(Decoration).GetDecorationId()
+        DecorationsModule.RemoveDecorationPlaced(hiddenDecorations[i])
 
         if(removedDecorationIds[decorationId] == nil) then
             removedDecorationIds[decorationId] = 1
@@ -107,4 +108,8 @@ function RemoveHiddenDecorations()
     hiddenDecorations = {}
 
     return removedDecorationIds
+end
+
+function LoadDecoration(pos, decorationId)
+    --print(pos.x, pos.y, ",", decorationId)
 end
