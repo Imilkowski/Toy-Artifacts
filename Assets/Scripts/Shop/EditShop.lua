@@ -110,7 +110,7 @@ function RemoveHiddenDecorations()
     return removedDecorationIds
 end
 
-function LoadDecorations(decorationsPlaced)
+function LoadDecorations(decorationsPlaced, decorationsPlacedRotations)
     local destroyAndInstantiateOperations = 0
 
     -- iterate over all tiles
@@ -121,10 +121,15 @@ function LoadDecorations(decorationsPlaced)
 
         -- iterate over all decorations
         for pos, decorationId in pairs(decorationsPlaced) do
-
             if(tilePos == pos) then
-                destroyAndInstantiateOperations += LoadDecoration(tile, decorationId)
-                decorationsPlaced[pos] = nil
+                -- unfortunately iterate over all rotations
+                for pos2, rotation in pairs(decorationsPlacedRotations) do
+                    if(pos == pos2) then
+                        destroyAndInstantiateOperations += LoadDecoration(tile, decorationId, decorationsPlacedRotations[pos2])
+                        decorationsPlaced[pos] = nil
+                        decorationsPlacedRotations[pos2] = nil
+                    end
+                end
             end
         end
     end
@@ -132,7 +137,7 @@ function LoadDecorations(decorationsPlaced)
     print("Destroy And Instantiate Operations:", destroyAndInstantiateOperations)
 end
 
-function LoadDecoration(tile:Transform, decorationId)
+function LoadDecoration(tile:Transform, decorationId, decorationRotation)
     local operations = 0
 
     if(tile.childCount > 0) then
@@ -151,6 +156,7 @@ function LoadDecoration(tile:Transform, decorationId)
 
     spawnedDecoration.transform.parent = tile
     spawnedDecoration.transform.position = tile.position
+    spawnedDecoration.transform.rotation = Quaternion.Euler(0, decorationRotation, 0)
 
     return operations
 end

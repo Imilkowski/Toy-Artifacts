@@ -19,6 +19,6 @@ function self:OnTriggerEnter(collider: Collider)
     SaveModule.LeaveToysAtShop(playerCharacter.player)
 
     Timer.After(0.5, function() 
-        ShopManager.OnToysLeftAtShop(SaveModule.GetToyRegister(playerCharacter.player), SaveModule.GetDecorationsPlaced(playerCharacter.player))
+        ShopManager.OnToysLeftAtShop(SaveModule.GetToyRegister(playerCharacter.player), SaveModule.GetDecorationsPlaced(playerCharacter.player), SaveModule.GetDecorationsPlacedRotations(playerCharacter.player))
     end)
 end

@@ -10,6 +10,7 @@ local saveUpgradesEvent = Event.new("Upgrades Save")
 local saveTutorialShownEvent = Event.new("Tutorial Shown Save")
 local saveDecorationsOwnedEvent = Event.new("Decorations Owned Save")
 local saveDecorationsPlacedEvent = Event.new("Decorations Placed Save")
+local saveDecorationsPlacedRotationsEvent = Event.new("Decorations Placed Rotations Save")
 
 local loadDataEvent = Event.new("Data Load")
 
@@ -21,6 +22,7 @@ local loadUpgradesEvent = Event.new("Upgrades Load")
 local loadTutorialShownEvent = Event.new("Tutorial Shown Load")
 local loadDecorationsOwnedEvent = Event.new("Decorations Owned Load")
 local loadDecorationsPlacedEvent = Event.new("Decorations Placed Load")
+local loadDecorationsPlacedRotationsEvent = Event.new("Decorations Placed Rotations Load")
 
 -- Server Side
 
@@ -106,6 +108,16 @@ function self:ServerAwake()
         end)
     end)
 
+    saveDecorationsPlacedRotationsEvent:Connect(function(player: Player, decorationsPlacedRotations)
+        --print(player.name .. " saved Tutorial Shown to cloud")
+
+        Storage.SetPlayerValue(player, "Decorations Placed Rotations", decorationsPlacedRotations, function(errorCode)
+            if(errorCode == not nil) then
+                print(`The error code was {StorageError[errorCode]}`)
+            end
+        end)
+    end)
+
     --Loading
     loadDataEvent:Connect(function(player: Player)
         print(player.name .. " loaded Data from cloud")
@@ -140,6 +152,10 @@ function self:ServerAwake()
 
         Storage.GetPlayerValue(player, "Decorations Placed", function(decorationsPlaced)
             loadDecorationsPlacedEvent:FireClient(player, decorationsPlaced)
+        end)
+
+        Storage.GetPlayerValue(player, "Decorations Placed Rotations", function(decorationsPlacedRotations)
+            loadDecorationsPlacedRotationsEvent:FireClient(player, decorationsPlacedRotations)
         end)
     end)
 end
@@ -178,6 +194,10 @@ function self:ClientAwake()
     loadDecorationsPlacedEvent:Connect(function(decorationsPlaced)
         SaveModule.LoadValue(client.localPlayer, "decorationsPlaced", decorationsPlaced)
     end)
+
+    loadDecorationsPlacedRotationsEvent:Connect(function(decorationsPlacedRotations)
+        SaveModule.LoadValue(client.localPlayer, "decorationsPlacedRotations", decorationsPlacedRotations)
+    end)
 end
 
 --Saving
@@ -210,8 +230,9 @@ function SaveDecorationsOwnedToCloud(decorationsOwned)
     saveDecorationsOwnedEvent:FireServer(decorationsOwned)
 end
 
-function SaveDecorationsPlacedToCloud(decorationsPlaced)
+function SaveDecorationsPlacedToCloud(decorationsPlaced, decorationsPlacedRotations)
     saveDecorationsPlacedEvent:FireServer(decorationsPlaced)
+    saveDecorationsPlacedRotationsEvent:FireServer(decorationsPlacedRotations)
 end
 
 --Loading

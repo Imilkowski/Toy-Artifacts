@@ -19,6 +19,7 @@ function TrackPlayers(game)
           upgrades = {},
           decorationsOwned = {},
           decorationsPlaced = {},
+          decorationsPlacedRotations = {},
 
           valueChanges = {
             coins = false,
@@ -65,7 +66,7 @@ function self:ClientAwake()
         end
 
         if(localPlayerStorage[client.localPlayer].valueChanges["decorationsPlaced"]) then
-            CloudSaveModule.SaveDecorationsPlacedToCloud(localPlayerStorage[client.localPlayer].decorationsPlaced)
+            CloudSaveModule.SaveDecorationsPlacedToCloud(localPlayerStorage[client.localPlayer].decorationsPlaced, localPlayerStorage[client.localPlayer].decorationsPlacedRotations)
             ValueSaved(client.localPlayer, "decorationsPlaced")
         end
     end)
@@ -121,6 +122,10 @@ function LoadValue(player:Player, valueKey, value)
 
     if(valueKey == "decorationsPlaced") then
         localPlayerStorage[player].decorationsPlaced = value
+    end
+
+    if(valueKey == "decorationsPlacedRotations") then
+        localPlayerStorage[player].decorationsPlacedRotations = value
     end
 end
 
@@ -323,8 +328,9 @@ function GetDecorationsPlaced(player:Player)
     return localPlayerStorage[player].decorationsPlaced
 end
 
-function AddDecorationPlaced(player:Player, decorationId, pos)
+function AddDecorationPlaced(player:Player, decorationId, pos, rotation)
     localPlayerStorage[player].decorationsPlaced[pos] = decorationId
+    localPlayerStorage[player].decorationsPlacedRotations[pos] = rotation
 
     -- print("---")
     -- for k, v in pairs(localPlayerStorage[player].decorationsPlaced) do
@@ -338,4 +344,8 @@ function RemoveDecorationPlaced(player:Player, pos)
     localPlayerStorage[player].decorationsPlaced[pos] = nil
 
     ValueUpdated(player, "decorationsPlaced")
+end
+
+function GetDecorationsPlacedRotations(player:Player)
+    return localPlayerStorage[player].decorationsPlacedRotations
 end
