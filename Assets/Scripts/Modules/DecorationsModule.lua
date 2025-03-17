@@ -94,6 +94,7 @@ function AcceptDecorationRemoval()
 
     local removedDecorations = editShop.RemoveHiddenDecorations()
     for k, v in pairs(removedDecorations) do
+        print(k)
         SaveModule.UpdateDecoration(client.localPlayer, k, v)
     end
 

@@ -163,7 +163,7 @@ MonoBehaviour:
   _uiOutput: 0
   _uiOutputSettings:
     rid: -2
-  m_decorationId: 0
+  m_decorationId: 4
   references:
     version: 2
     RefIds:
