@@ -111,5 +111,5 @@ function RemoveHiddenDecorations()
 end
 
 function LoadDecoration(pos, decorationId)
-    --print(pos.x, pos.y, ",", decorationId)
+    print(pos.x, pos.y, ",", decorationId)
 end

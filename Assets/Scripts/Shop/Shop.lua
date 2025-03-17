@@ -22,7 +22,7 @@ function self:Start()
     UpdateTables(nil)
 end
 
-function AssignPlayer(playerToAssign, toysRegister)
+function AssignPlayer(playerToAssign, toysRegister, decorationsPlaced)
     if(playerToAssign == nil) then
         self.gameObject:SetActive(false)
         return
@@ -40,7 +40,7 @@ function AssignPlayer(playerToAssign, toysRegister)
     
     Timer.After(1, function() 
         UpdateTables(toysRegister)
-        UpdateDecorations()
+        UpdateDecorations(decorationsPlaced)
     end)
 
     Timer.Every(0.05, function() sellTimePassed += 0.05 end)
@@ -90,6 +90,11 @@ function CollectAToyPassively()
     local toy = ToysModule.DrawAToyPassively(tierNum, client.localPlayer.character)
 end
 
+function UpdateShop(toysRegister, decorationsPlaced)
+    UpdateTables(toysRegister)
+    UpdateDecorations(decorationsPlaced)
+end
+
 function UpdateTables(toysRegister)
     if(assignedPlayer == nil) then
         ClearTables()
@@ -118,6 +123,12 @@ function UpdateTables(toysRegister)
     end
 end
 
+function UpdateDecorations(decorationsPlaced)
+    for k, v in pairs(decorationsPlaced) do
+        editShopScript.LoadDecoration(k, v)
+    end
+end
+
 function ClearTables()
     for i = 0, tablesParent.childCount - 1 do
         local tableToys = tablesParent:GetChild(i):GetChild(0)
@@ -136,12 +147,4 @@ end
 
 function GetEditShopScript()
     return editShopScript
-end
-
-function UpdateDecorations()
-    decorationsPlaced = SaveModule.localPlayerStorage[assignedPlayer].decorationsPlaced
-
-    for k, v in pairs(decorationsPlaced) do
-        editShopScript.LoadDecoration(k, v)
-    end
 end

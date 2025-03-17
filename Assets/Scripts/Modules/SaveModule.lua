@@ -315,6 +315,10 @@ function UpdateDecoration(player:Player, decorationId, valueChange)
     ValueUpdated(player, "decorationsOwned")
 end
 
+function GetDecorationsPlaced(player:Player)
+    return localPlayerStorage[player].decorationsPlaced
+end
+
 function AddDecorationPlaced(player:Player, decorationId, pos)
     localPlayerStorage[player].decorationsPlaced[pos] = decorationId
 

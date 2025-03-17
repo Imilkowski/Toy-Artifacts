@@ -4,13 +4,14 @@ local SaveModule = require("SaveModule")
 
 local assignPlayerToShopEvent = Event.new("Assign Player to a Shop") --Server
 local returnShopAssignmentsEvent = Event.new("Return Shop Assignments") --Client
-local updateAllToyRegistersEvent = Event.new("Update All Toy Registers") --Server
-local updateToyRegistersEvent = Event.new("Update Toy Registers") --Client
+local updateAllShopsEvent = Event.new("Update All Shops") --Server
+local updateShopsEvent = Event.new("Update Shops") --Client
 local requestPlayerShopUpdateEvent = Event.new("Request Player Shop Update") --Server
 
 local shopsAssigned = {false, false, false, false, false, false} --Server
 local shopsPlayers = {} --Server
 local playersToyRegisters = {} --Server
+local playersDecorationsPlaced = {} --Server
 
 --!SerializeField
 local shops : {Shop} = {} --Client
@@ -28,31 +29,33 @@ function self:ServerAwake()
         UnAssignPlayer(player)
     end)
 
-    assignPlayerToShopEvent:Connect(function(player: Player, toysRegister)
+    assignPlayerToShopEvent:Connect(function(player: Player, toysRegister, decorationsPlaced)
         playersToyRegisters[player] = toysRegister
+        playersDecorationsPlaced[player] = decorationsPlaced
 
         for i, v in ipairs(shopsAssigned) do
             if(v == false) then
                 shopsAssigned[i] = true
                 shopsPlayers[i] = player
 
-                returnShopAssignmentsEvent:FireAllClients(shopsPlayers, player, toysRegister)
+                returnShopAssignmentsEvent:FireAllClients(shopsPlayers, player, toysRegister, decorationsPlaced)
                 return
             end
         end
 
         print("Couldn't find a free shop for a player " .. player.name)
-        returnShopAssignmentsEvent:FireAllClients(shopsPlayers, player, toysRegister)
+        returnShopAssignmentsEvent:FireAllClients(shopsPlayers, player, toysRegister, decorationsPlaced)
     end)
 
-    updateAllToyRegistersEvent:Connect(function(player: Player, toysRegister)
+    updateAllShopsEvent:Connect(function(player: Player, toysRegister, decorationsPlaced)
         playersToyRegisters[player] = toysRegister
+        playersDecorationsPlaced[player] = decorationsPlaced
 
-        updateToyRegistersEvent:FireAllClients(player, toysRegister)
+        updateShopsEvent:FireAllClients(player, toysRegister, decorationsPlaced)
     end)
 
     requestPlayerShopUpdateEvent:Connect(function(player: Player, requestedPlayer: Player)
-        updateToyRegistersEvent:FireClient(player, requestedPlayer, playersToyRegisters[requestedPlayer])
+        updateShopsEvent:FireClient(player, requestedPlayer, playersToyRegisters[requestedPlayer], playersDecorationsPlaced[requestedPlayer])
     end)
 end
 
@@ -62,7 +65,7 @@ function UnAssignPlayer(player: Player)
             shopsAssigned[k] = false
             shopsPlayers[k] = nil
 
-            returnShopAssignmentsEvent:FireAllClients(shopsPlayers, nil, nil)
+            returnShopAssignmentsEvent:FireAllClients(shopsPlayers, nil, nil, nil)
             return
         end
     end
@@ -71,35 +74,35 @@ end
 -- Client Side
 
 function self:ClientStart()
-    returnShopAssignmentsEvent:Connect(function(shopsPlayers, playerToUpdate, playerToyRegister)
+    returnShopAssignmentsEvent:Connect(function(shopsPlayers, playerToUpdate, playerToyRegister, playerDecorationsPlaced)
         for i, shop in ipairs(shops) do
             if(playerToUpdate == shopsPlayers[i]) then
-                shop.AssignPlayer(shopsPlayers[i], playerToyRegister)
+                shop.AssignPlayer(shopsPlayers[i], playerToyRegister, playerDecorationsPlaced)
             else
-                shop.AssignPlayer(shopsPlayers[i], nil)
+                shop.AssignPlayer(shopsPlayers[i], nil, nil)
             end
         end
     end)
 
-    updateToyRegistersEvent:Connect(function(player: Player, toysRegister)
+    updateShopsEvent:Connect(function(player: Player, toysRegister, decorationsPlaced)
         print("Updated shop " .. player.name)
         for i, shop in ipairs(shops) do
             if(shop.assignedPlayer == player) then
-                shop.UpdateTables(toysRegister)
+                shop.UpdateShop(toysRegister, decorationsPlaced)
                 return
             end
         end
     end)
 
     Timer.After(0.5, function() 
-        assignPlayerToShopEvent:FireServer(SaveModule.GetToyRegister(client.localPlayer))
+        assignPlayerToShopEvent:FireServer(SaveModule.GetToyRegister(client.localPlayer), SaveModule.GetDecorationsPlaced(client.localPlayer))
     end)
 end
 
-function OnToysLeftAtShop(toysRegister)
+function OnToysLeftAtShop(toysRegister, decorationsPlaced)
     print(client.localPlayer.name, "left toys at the shop")
 
-    updateAllToyRegistersEvent:FireServer(toysRegister)
+    updateAllShopsEvent:FireServer(toysRegister, decorationsPlaced)
 end
 
 function UpdatePlayerShop(requestedPlayer: Player)
