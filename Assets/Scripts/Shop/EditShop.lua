@@ -110,6 +110,47 @@ function RemoveHiddenDecorations()
     return removedDecorationIds
 end
 
-function LoadDecoration(pos, decorationId)
-    print(pos.x, pos.y, ",", decorationId)
+function LoadDecorations(decorationsPlaced)
+    local destroyAndInstantiateOperations = 0
+
+    -- iterate over all tiles
+    for i = 0, decorationTiles.transform.childCount - 1 do
+        local tile = decorationTiles.transform:GetChild(i)
+        local decorationTile = tile:GetComponent(DecorationTile)
+        local tilePos:Vector2 = decorationTile.GetTilePosition()
+
+        -- iterate over all decorations
+        for pos, decorationId in pairs(decorationsPlaced) do
+
+            if(tilePos == pos) then
+                destroyAndInstantiateOperations += LoadDecoration(tile, decorationId)
+                decorationsPlaced[pos] = nil
+            end
+        end
+    end
+
+    print("Destroy And Instantiate Operations:", destroyAndInstantiateOperations)
+end
+
+function LoadDecoration(tile:Transform, decorationId)
+    local operations = 0
+
+    if(tile.childCount > 0) then
+        local decorationObject = tile:GetChild(0).gameObject
+        local id = decorationObject:GetComponent(Decoration).GetDecorationId()
+
+        if(decorationId == id) then return operations end
+
+        GameObject.Destroy(decorationObject)
+        operations += 1
+    end
+
+    local model = DecorationsModule.GetDecorationModelById(decorationId)
+    local spawnedDecoration:GameObject = Object.Instantiate(model).gameObject
+    operations += 1
+
+    spawnedDecoration.transform.parent = tile
+    spawnedDecoration.transform.position = tile.position
+
+    return operations
 end

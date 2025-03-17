@@ -73,6 +73,10 @@ end
 
 function self:ClientStart()
     LoadFromCloud()
+
+    for i = 1, 9 do
+        localPlayerStorage[client.localPlayer].decorationsOwned[i] = 10
+    end
 end
 
 function LoadFromCloud()

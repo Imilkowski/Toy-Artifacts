@@ -44,6 +44,10 @@ function TileTapped(pos)
     end
 end
 
+function GetDecorationModelById(decorationId)
+    return decorationModels[decorationId]
+end
+
 function PlaceAction(pos)
     if(decorationPlaced) then return end
 

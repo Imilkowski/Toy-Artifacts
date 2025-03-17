@@ -124,9 +124,11 @@ function UpdateTables(toysRegister)
 end
 
 function UpdateDecorations(decorationsPlaced)
-    for k, v in pairs(decorationsPlaced) do
-        editShopScript.LoadDecoration(k, v)
+    if decorationsPlaced == nil then
+        return
     end
+    
+    editShopScript.LoadDecorations(decorationsPlaced)
 end
 
 function ClearTables()
