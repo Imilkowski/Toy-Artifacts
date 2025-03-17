@@ -46,13 +46,12 @@ end
 
 function InitializeUpgradesTables()
     --Excavation sites
-    upgradesValues["es-dp"] = 2
-    table.insert(es_diggingPoints, Upgrade.new("es-dp", 1, "Digging points number (2 -> 3)", 3, 1, 25))
-    table.insert(es_diggingPoints, Upgrade.new("es-dp", 2, "Digging points number (3 -> 4)", 4, 1, 75))
-    table.insert(es_diggingPoints, Upgrade.new("es-dp", 3, "Digging points number (4 -> 5)", 5, 1, 225))
-    table.insert(es_diggingPoints, Upgrade.new("es-dp", 4, "Digging points number (5 -> 6)", 6, 1, 675))
-    table.insert(es_diggingPoints, Upgrade.new("es-dp", 5, "Digging points number (6 -> 7)", 7, 1, 2025))
-    table.insert(es_diggingPoints, Upgrade.new("es-dp", 6, "Digging points number (7 -> 8)", 8, 1, 4050))
+    upgradesValues["es-dp"] = 3
+    table.insert(es_diggingPoints, Upgrade.new("es-dp", 1, "Digging points number (3 -> 4)", 4, 1, 25))
+    table.insert(es_diggingPoints, Upgrade.new("es-dp", 2, "Digging points number (4 -> 5)", 5, 1, 75))
+    table.insert(es_diggingPoints, Upgrade.new("es-dp", 3, "Digging points number (5 -> 6)", 6, 1, 225))
+    table.insert(es_diggingPoints, Upgrade.new("es-dp", 4, "Digging points number (6 -> 7)", 7, 1, 675))
+    table.insert(es_diggingPoints, Upgrade.new("es-dp", 5, "Digging points number (7 -> 8)", 8, 1, 2025))
 
     upgradesValues["es-psi"] = 100000
     table.insert(es_passiveItems, Upgrade.new("es-psi", 1, "Passively collected toys over 10s (0 -> 1)", 10, 2, 25))
