@@ -39,15 +39,15 @@
       <VisualElement class="tiers-container">
 
         <hr:UIButton class="tier-container" name="_TierIButton">
-          <hr:UILabel class="sub-label" name="_TierILabel"/>
+          <hr:UILabel class="tier-label" name="_TierILabel"/>
         </hr:UIButton>
 
         <hr:UIButton class="tier-container" name="_TierIIButton">
-          <hr:UILabel class="sub-label" name="_TierIILabel"/>
+          <hr:UILabel class="tier-label" name="_TierIILabel"/>
         </hr:UIButton>
 
         <hr:UIButton class="tier-container" name="_TierIIIButton">
-          <hr:UILabel class="sub-label" name="_TierIIILabel"/>
+          <hr:UILabel class="tier-label" name="_TierIIILabel"/>
         </hr:UIButton>
 
       </VisualElement>

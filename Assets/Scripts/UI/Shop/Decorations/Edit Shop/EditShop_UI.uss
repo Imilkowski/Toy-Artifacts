@@ -22,9 +22,9 @@
     align-self: center;
     margin-top: 8px;
     bottom: -32px;
-    width: 50%;
+    width: 75%;
 }
 
 .sub-label {
-    font-size: 24px;
+    font-size: 20px;
 }

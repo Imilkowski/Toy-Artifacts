@@ -40,14 +40,14 @@
 
 .title {
     -unity-font-style: bold;
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .close-button-container {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    height: 48px;
+    height: 40px;
 
     right: 16px;
     top: 16px;
@@ -57,12 +57,12 @@
 
 .close-button-icon {
     background-color: rgba(0, 0, 0, 0);
-    height: 32px;
-    width: 32px;
+    height: 24px;
+    width: 24px;
 }
 
 .content-separator {
-    height: 16px;
+    height: 8px;
 }
 
 .tutorial-container{
@@ -113,12 +113,12 @@
 
     margin-bottom: 16px;
 
-    height: 48px;
+    height: 40px;
     width: 90%;
 }
 
 .next-button-icon {
     background-color: rgba(0, 0, 0, 0);
-    height: 32px;
-    width: 32px;
+    height: 20px;
+    width: 20px;
 }
