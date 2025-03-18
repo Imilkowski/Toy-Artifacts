@@ -111,8 +111,6 @@ function RemoveHiddenDecorations()
 end
 
 function LoadDecorations(decorationsPlaced, decorationsPlacedRotations)
-    local destroyAndInstantiateOperations = 0
-
     -- iterate over all tiles
     for i = 0, decorationTiles.transform.childCount - 1 do
         local tile = decorationTiles.transform:GetChild(i)
@@ -121,41 +119,47 @@ function LoadDecorations(decorationsPlaced, decorationsPlacedRotations)
         local tilePosString = UtilsModule.Vector2ToString(tilePos)
 
         -- iterate over all decorations
+        local decorationLoaded = false
         for pos, decorationId in pairs(decorationsPlaced) do
             if(tilePosString == pos) then
-                destroyAndInstantiateOperations += LoadDecoration(tile, decorationId, decorationsPlacedRotations[tilePosString])
+                LoadDecoration(tile, decorationId, decorationsPlacedRotations[tilePosString])
                 decorationsPlaced[tilePosString] = nil
                 decorationsPlacedRotations[tilePosString] = nil
+
+                decorationLoaded = true
             end
         end
-    end
 
-    print("Destroy And Instantiate Operations:", destroyAndInstantiateOperations)
+        if(not decorationLoaded) then
+            ClearDecoration(tile)
+        end
+    end
 end
 
 function LoadDecoration(tile:Transform, decorationId, decorationRotation)
-    local operations = 0
-
     if(tile.childCount > 0) then
         local decorationObject = tile:GetChild(0).gameObject
         local id = decorationObject:GetComponent(Decoration).GetDecorationId()
 
         if(decorationId == id) then 
             decorationObject.transform.rotation = Quaternion.Euler(0, decorationRotation, 0)
-            return operations
+            return
         end
 
         GameObject.Destroy(decorationObject)
-        operations += 1
     end
 
     local model = DecorationsModule.GetDecorationModelById(decorationId)
     local spawnedDecoration:GameObject = Object.Instantiate(model).gameObject
-    operations += 1
 
     spawnedDecoration.transform.parent = tile
     spawnedDecoration.transform.position = tile.position
     spawnedDecoration.transform.rotation = Quaternion.Euler(0, decorationRotation, 0)
+end
 
-    return operations
+function ClearDecoration(tile:Transform)
+    if(tile.childCount > 0) then
+        local decorationObject = tile:GetChild(0).gameObject
+        GameObject.Destroy(decorationObject)
+    end
 end

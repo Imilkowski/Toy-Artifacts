@@ -97,7 +97,7 @@ function self:ClientStart()
         end
     end)
 
-    Timer.After(0.5, function() 
+    Timer.After(1, function() 
         assignPlayerToShopEvent:FireServer(SaveModule.GetToyRegister(client.localPlayer), SaveModule.GetDecorationsPlaced(client.localPlayer), SaveModule.GetDecorationsPlacedRotations(client.localPlayer))
     end)
 end

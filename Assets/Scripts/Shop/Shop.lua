@@ -96,8 +96,9 @@ function UpdateShop(toysRegister, decorationsPlaced, decorationsPlacedRotations)
 end
 
 function UpdateTables(toysRegister)
+    ClearTables()
+    
     if(assignedPlayer == nil) then
-        ClearTables()
         return
     end
 
