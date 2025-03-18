@@ -86,7 +86,6 @@ function AcceptDecoration()
     end
     
     SaveModule.UpdateDecoration(client.localPlayer, chosenDecoration, -1)
-    print(decorationObject.transform.eulerAngles.y)
     SaveModule.AddDecorationPlaced(client.localPlayer, chosenDecoration, GetDecorationPos(decorationObject), decorationObject.transform.eulerAngles.y)
 
     chosenDecoration = 0
