@@ -329,8 +329,10 @@ function GetDecorationsPlaced(player:Player)
 end
 
 function AddDecorationPlaced(player:Player, decorationId, pos, rotation)
-    localPlayerStorage[player].decorationsPlaced[pos] = decorationId
-    localPlayerStorage[player].decorationsPlacedRotations[pos] = rotation
+    local posString = UtilsModule.Vector2ToString(pos)
+
+    localPlayerStorage[player].decorationsPlaced[posString] = decorationId
+    localPlayerStorage[player].decorationsPlacedRotations[posString] = rotation
 
     -- print("---")
     -- for k, v in pairs(localPlayerStorage[player].decorationsPlaced) do
@@ -341,7 +343,10 @@ function AddDecorationPlaced(player:Player, decorationId, pos, rotation)
 end
 
 function RemoveDecorationPlaced(player:Player, pos)
-    localPlayerStorage[player].decorationsPlaced[pos] = nil
+    local posString = UtilsModule.Vector2ToString(pos)
+
+    localPlayerStorage[player].decorationsPlaced[posString] = nil
+    localPlayerStorage[player].decorationsPlacedRotations[posString] = nil
 
     ValueUpdated(player, "decorationsPlaced")
 end

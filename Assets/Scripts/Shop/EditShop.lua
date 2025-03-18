@@ -118,18 +118,14 @@ function LoadDecorations(decorationsPlaced, decorationsPlacedRotations)
         local tile = decorationTiles.transform:GetChild(i)
         local decorationTile = tile:GetComponent(DecorationTile)
         local tilePos:Vector2 = decorationTile.GetTilePosition()
+        local tilePosString = UtilsModule.Vector2ToString(tilePos)
 
         -- iterate over all decorations
         for pos, decorationId in pairs(decorationsPlaced) do
-            if(tilePos == pos) then
-                -- unfortunately iterate over all rotations
-                for pos2, rotation in pairs(decorationsPlacedRotations) do
-                    if(pos == pos2) then
-                        destroyAndInstantiateOperations += LoadDecoration(tile, decorationId, decorationsPlacedRotations[pos2])
-                        decorationsPlaced[pos] = nil
-                        decorationsPlacedRotations[pos2] = nil
-                    end
-                end
+            if(tilePosString == pos) then
+                destroyAndInstantiateOperations += LoadDecoration(tile, decorationId, decorationsPlacedRotations[tilePosString])
+                decorationsPlaced[tilePosString] = nil
+                decorationsPlacedRotations[tilePosString] = nil
             end
         end
     end
@@ -144,7 +140,10 @@ function LoadDecoration(tile:Transform, decorationId, decorationRotation)
         local decorationObject = tile:GetChild(0).gameObject
         local id = decorationObject:GetComponent(Decoration).GetDecorationId()
 
-        if(decorationId == id) then return operations end
+        if(decorationId == id) then 
+            decorationObject.transform.rotation = Quaternion.Euler(0, decorationRotation, 0)
+            return operations
+        end
 
         GameObject.Destroy(decorationObject)
         operations += 1

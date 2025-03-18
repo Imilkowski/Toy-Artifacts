@@ -21,3 +21,15 @@ end
 function RoundNumber(number)
     return math.round(number*100)/100
 end
+
+function StringToVector2(str)
+    local x, y = str:match("([^,]+),([^,]+)")
+    local vector = Vector2.new(tonumber(x) or 0, tonumber(y) or 0)
+    print("Vector2:", vector.x, vector.y)
+    return vector
+end
+
+function Vector2ToString(vector)
+    local str = vector.x .. "," .. vector.y
+    return str
+end
