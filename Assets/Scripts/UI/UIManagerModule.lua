@@ -14,6 +14,8 @@ local upgradesUI : Upgrades_UI = nil
 local tutorialUI : Tutorial_UI = nil
 --!SerializeField
 local toyCollectedUI : ToyCollected_UI = nil
+--!SerializeField
+local itemsShopUI : ItemsShop_UI = nil
 
 --!SerializeField
 local editShopButtonUI : EditShopButton_UI = nil
@@ -88,6 +90,12 @@ function SwitchUI(go:GameObject)
         removeDecorationsUI.gameObject:SetActive(true)
     else
         removeDecorationsUI.gameObject:SetActive(false)
+    end
+
+    if(itemsShopUI.gameObject == go) then
+        itemsShopUI.gameObject:SetActive(true)
+    else
+        itemsShopUI.gameObject:SetActive(false)
     end
 end
 
@@ -196,4 +204,13 @@ end
 
 function SwitchRemoveDecorations()
     SwitchUI(removeDecorationsUI.gameObject)
+end
+
+function SwitchItemsShop(shopType)
+    SwitchUI(itemsShopUI.gameObject)
+    itemsShopUI.CreateItemsList(shopType)
+end
+
+function SwitchItemsShopOff()
+    SwitchUI(self.gameObject)
 end

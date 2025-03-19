@@ -22,6 +22,10 @@ function GetDecorationIcons()
     return decorationIcons
 end
 
+function GetDecorationIcon(id)
+    return decorationIcons[id]
+end
+
 function StartDecorating(mode)
     local editShop = UtilsModule.localShop.GetEditShopScript()
     editShop.ActivateEditMode(true)
