@@ -2,6 +2,8 @@
 
 local localShop: Shop = nil
 
+local inOwnShop: boolean = false
+
 function CheckIfLocalPlayer(player:Player)
     if client.localPlayer ~= player then return false end
     

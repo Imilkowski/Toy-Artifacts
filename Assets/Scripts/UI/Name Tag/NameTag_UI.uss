@@ -1,0 +1,18 @@
+.name-tag_-u-i {
+}
+
+.name-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    height: 128px;
+    width: 256px;
+}
+
+.name-label {
+    -unity-font-style: bold;
+    font-size: 24px;
+
+    color: rgb(0, 0, 0);
+}

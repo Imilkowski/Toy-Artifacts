@@ -1,6 +1,7 @@
 --!Type(Module)
 
 local DecorationsModule = require("DecorationsModule")
+local UtilsModule = require("UtilsModule")
 
 --!SerializeField
 local leftHUD : LeftHUD_UI = nil
@@ -38,64 +39,81 @@ function self:Start()
 end
 
 function SwitchUI(go:GameObject)
+    local UI_Visible = false
+
     if(shopUI.gameObject == go) then
         shopUI.gameObject:SetActive(true)
+        UI_Visible = true
     else
         shopUI.gameObject:SetActive(false)
     end
 
     if(bridgePopUpUI.gameObject == go) then
         bridgePopUpUI.gameObject:SetActive(true)
+        UI_Visible = true
     else
         bridgePopUpUI.gameObject:SetActive(false)
     end
 
     if(upgradesUI.gameObject == go) then
         upgradesUI.gameObject:SetActive(true)
+        UI_Visible = true
     else
         upgradesUI.gameObject:SetActive(false)
     end
 
     if(tutorialUI.gameObject == go) then
         tutorialUI.gameObject:SetActive(true)
+        UI_Visible = true
     else
         tutorialUI.gameObject:SetActive(false)
     end
 
     if(editShopButtonUI.gameObject == go) then
         editShopButtonUI.gameObject:SetActive(true)
+        UI_Visible = true
     else
         editShopButtonUI.gameObject:SetActive(false)
     end
 
     if(editShopUI.gameObject == go) then
         editShopUI.gameObject:SetActive(true)
+        UI_Visible = true
     else
         editShopUI.gameObject:SetActive(false)
     end
 
     if(ownedDecorationsUI.gameObject == go) then
         ownedDecorationsUI.gameObject:SetActive(true)
+        UI_Visible = true
     else
         ownedDecorationsUI.gameObject:SetActive(false)
     end
 
     if(placeDecorationUI.gameObject == go) then
         placeDecorationUI.gameObject:SetActive(true)
+        UI_Visible = true
     else
         placeDecorationUI.gameObject:SetActive(false)
     end
 
     if(removeDecorationsUI.gameObject == go) then
         removeDecorationsUI.gameObject:SetActive(true)
+        UI_Visible = true
     else
         removeDecorationsUI.gameObject:SetActive(false)
     end
 
     if(itemsShopUI.gameObject == go) then
         itemsShopUI.gameObject:SetActive(true)
+        UI_Visible = true
     else
         itemsShopUI.gameObject:SetActive(false)
+    end
+
+    if(not UI_Visible and UtilsModule.inOwnShop) then
+        editShopButtonUI.gameObject:SetActive(true)
+        UI_Visible = true
     end
 end
 

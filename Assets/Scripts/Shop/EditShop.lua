@@ -17,6 +17,8 @@ function self:OnTriggerEnter(collider: Collider)
     if UtilsModule.CheckIfLocalPlayer(playerCharacter.player) ~= true then return end
     if(playerCharacter.player ~= shopScript.assignedPlayer) then return end
 
+    UtilsModule.inOwnShop = true
+
     UIManagerModule.SwitchEditShopButton(true)
 end
 
@@ -24,6 +26,8 @@ function self:OnTriggerExit(collider: Collider)
     local playerCharacter = collider.gameObject:GetComponent(Character)
     if UtilsModule.CheckIfLocalPlayer(playerCharacter.player) ~= true then return end
     if(playerCharacter.player ~= shopScript.assignedPlayer) then return end
+
+    UtilsModule.inOwnShop = false
 
     UIManagerModule.SwitchEditShopButton(false)
     DecorationsModule.OnDecorationModeExit()
