@@ -25,13 +25,10 @@
 
           <Image class="item-icon"/>
 
-          <!-- <hr:UIButton class="buy-button">
+          <VisualElement class="price-container">
+            <Image class="currency-icon"/>
             <hr:UILabel class="currency-label"/>
-            <VisualElement class="price-container">
-              <Image class="currency-icon"/>
-              <hr:UILabel class="currency-label"/>
-            </VisualElement>
-          </hr:UIButton> -->
+          </VisualElement>
 
         </hr:UIButton>
       </VisualElement>

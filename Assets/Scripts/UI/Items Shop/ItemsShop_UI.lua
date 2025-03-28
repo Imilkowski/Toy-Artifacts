@@ -49,9 +49,23 @@ function CreateItemsList(shopType)
         _itemIcon.image = ItemsShopModule.GetItemIcon(shopType, items[i].itemId)
         _itemButtonContainer:Add(_itemIcon)
 
+        local _priceContainer = VisualElement.new();
+        _priceContainer:AddToClassList("price-container")
+        _itemButtonContainer:Add(_priceContainer)
+
+        local _currencyIcon = Image.new()
+        _currencyIcon:AddToClassList("currency-icon")
+        _currencyIcon.image = coinIcon
+        _priceContainer:Add(_currencyIcon)
+
+        local _priceLabel = UILabel.new()
+        _priceLabel:AddToClassList("currency-label")
+        _priceLabel:SetPrelocalizedText(items[i].price)
+        _priceContainer:Add(_priceLabel)
+
         -- Register a callback for when the button is pressed
         _itemButtonContainer:RegisterPressCallback(function()
-            --buy action here
+            ItemsShopModule.BuyAnItem(client.localPlayer, shopType, items[i].itemId)
         end, true, true, true)
     end
 end

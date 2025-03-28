@@ -74,10 +74,6 @@ end
 
 function self:ClientStart()
     LoadFromCloud()
-
-    -- for i = 1, 9 do
-    --     localPlayerStorage[client.localPlayer].decorationsOwned[i] = 10
-    -- end
 end
 
 function LoadFromCloud()
@@ -353,4 +349,12 @@ end
 
 function GetDecorationsPlacedRotations(player:Player)
     return localPlayerStorage[player].decorationsPlacedRotations
+end
+
+function BuyADecoration(player:Player, decorationId)
+    UpdateDecoration(player, decorationId, 1)
+    ValueSaved(player, "decorationsOwned")
+
+    CloudSaveModule.SaveDecorationsOwnedToCloud(localPlayerStorage[player].decorationsOwned)
+    CloudSaveModule.SaveCoinsToCloud(localPlayerStorage[player].coins)
 end
