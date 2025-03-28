@@ -13,6 +13,8 @@ local tablesParent:Transform = nil
 local playerIndicator:GameObject = nil
 --!SerializeField
 local editShopScript:EditShop = nil
+--!SerializeField
+local nameTag:NameTag_UI = nil
 
 assignedPlayer = nil
 local sellTimePassed = 0.0
@@ -22,7 +24,7 @@ function self:Start()
     UpdateTables(nil)
 end
 
-function AssignPlayer(playerToAssign, toysRegister, decorationsPlaced, decorationsPlacedRotations)
+function AssignPlayer(playerToAssign:Player, toysRegister, decorationsPlaced, decorationsPlacedRotations)
     if(playerToAssign == nil) then
         self.gameObject:SetActive(false)
         return
@@ -32,8 +34,10 @@ function AssignPlayer(playerToAssign, toysRegister, decorationsPlaced, decoratio
     
     if(playerToAssign == client.localPlayer) then
         playerIndicator:SetActive(true)
+        nameTag.SetText("")
     else
         playerIndicator:SetActive(false)
+        nameTag.SetText(playerToAssign.name)
     end
 
     SetPlayer(playerToAssign)

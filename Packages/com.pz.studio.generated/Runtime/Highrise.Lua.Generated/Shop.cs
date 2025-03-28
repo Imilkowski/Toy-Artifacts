@@ -30,6 +30,8 @@ namespace Highrise.Lua.Generated
         [SerializeField] public UnityEngine.GameObject m_playerIndicator = default;
         [LuaScriptPropertyAttribute("00f3fed9fd66c4340a5a5677124c1c48")]
         [SerializeField] public UnityEngine.Object m_editShopScript = default;
+        [LuaScriptPropertyAttribute("a593ef50f1f7b5c43b09245927e1b0fc")]
+        [SerializeField] public UnityEngine.Object m_nameTag = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -42,6 +44,7 @@ namespace Highrise.Lua.Generated
                 CreateSerializedProperty(_script.GetPropertyAt(1), m_tablesParent),
                 CreateSerializedProperty(_script.GetPropertyAt(2), m_playerIndicator),
                 CreateSerializedProperty(_script.GetPropertyAt(3), m_editShopScript),
+                CreateSerializedProperty(_script.GetPropertyAt(4), m_nameTag),
             };
         }
     }

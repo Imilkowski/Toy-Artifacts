@@ -7,7 +7,7 @@
     xsi:noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd"
 >
 
-  <hr:UILuaView class="name-tag_-u-i">
+  <hr:UILuaView class="name-tag_-u-i"   picking-mode="Ignore">
     <VisualElement class="name-container">
       <hr:UILabel class="name-label" name="_NameLabel"/>
     </VisualElement>

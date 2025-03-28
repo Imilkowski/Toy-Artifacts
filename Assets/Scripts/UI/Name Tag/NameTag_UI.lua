@@ -7,5 +7,9 @@ local _NameLabel: UILabel = nil
 local nameText: string = ""
 
 function self:Awake()
-    _NameLabel:SetPrelocalizedText(nameText)
+    SetText(nameText)
+end
+
+function SetText(text)
+    _NameLabel:SetPrelocalizedText(text)
 end
