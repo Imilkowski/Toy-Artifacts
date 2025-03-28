@@ -358,3 +358,8 @@ function BuyADecoration(player:Player, decorationId)
     CloudSaveModule.SaveDecorationsOwnedToCloud(localPlayerStorage[player].decorationsOwned)
     CloudSaveModule.SaveCoinsToCloud(localPlayerStorage[player].coins)
 end
+
+function BuyCoinsIWP(player:Player, amount)
+    UpdateCoins(player, amount)
+    CloudSaveModule.SaveCoinsToCloud(localPlayerStorage[player].coins)
+end
