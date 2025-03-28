@@ -25,6 +25,10 @@
         <Image class="icon" name="_TutorialIcon" />
       </hr:UIButton>
 
+      <hr:UIButton class="button-container" name="_IWP_Button">
+        <Image class="icon" name="_IWP_Icon" />
+      </hr:UIButton>
+
       <!--
       <hr:UIButton class="button-container" name="_UpgradesButton">
         <Image class="icon" name="_UpgradesIcon" />

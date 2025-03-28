@@ -8,6 +8,8 @@ local coinIcon : Texture = nil
 local shopIcon : Texture = nil
 --!SerializeField
 local tutorialIcon : Texture = nil
+--!SerializeField
+local IWP_icon : Texture = nil
 -- --!SerializeField
 -- local upgradesIcon : Texture = nil
 
@@ -26,6 +28,11 @@ local _TutorialIcon: Image  = nil
 --!Bind
 local _TutorialButton : UIButton = nil
 
+--!Bind
+local _IWP_Icon: Image  = nil
+--!Bind
+local _IWP_Button : UIButton = nil
+
 -- --!Bind
 -- local _UpgradesIcon: Image  = nil
 -- --!Bind
@@ -40,6 +47,7 @@ function SetIcons()
     _CoinIcon.image = coinIcon
     _ShopIcon.image = shopIcon
     _TutorialIcon.image = tutorialIcon
+    _IWP_Icon.image = coinIcon
     --_UpgradesIcon.image = upgradesIcon
 end
 
@@ -55,6 +63,11 @@ end, true, true, true)
 -- Register a callback for when the button is pressed
 _TutorialButton:RegisterPressCallback(function()
     UIManagerModule.SwitchTutorial()
+end, true, true, true)
+
+-- Register a callback for when the button is pressed
+_IWP_Button:RegisterPressCallback(function()
+    UIManagerModule.SwitchIWP()
 end, true, true, true)
 
 -- Register a callback for when the button is pressed

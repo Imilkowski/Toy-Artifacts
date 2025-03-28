@@ -63,11 +63,6 @@ function CreateUpgradesList(upgradeType)
         _upgradeButton:AddToClassList("upgrade-button")
         _upgradeInfo:Add(_upgradeButton)
 
-        local _buttonLabel = UILabel.new()
-        _buttonLabel:AddToClassList("coin-label")
-        _buttonLabel:SetPrelocalizedText("Buy")
-        _upgradeButton:Add(_buttonLabel)
-
         local _priceContainer = VisualElement.new()
         _priceContainer:AddToClassList("price-container")
         _upgradeButton:Add(_priceContainer)

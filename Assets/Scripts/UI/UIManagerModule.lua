@@ -17,6 +17,8 @@ local tutorialUI : Tutorial_UI = nil
 local toyCollectedUI : ToyCollected_UI = nil
 --!SerializeField
 local itemsShopUI : ItemsShop_UI = nil
+--!SerializeField
+local iwpUI : IWP_UI = nil
 
 --!SerializeField
 local editShopButtonUI : EditShopButton_UI = nil
@@ -109,6 +111,13 @@ function SwitchUI(go:GameObject)
         UI_Visible = true
     else
         itemsShopUI.gameObject:SetActive(false)
+    end
+
+    if(iwpUI.gameObject == go) then
+        iwpUI.gameObject:SetActive(true)
+        UI_Visible = true
+    else
+        iwpUI.gameObject:SetActive(false)
     end
 
     if(not UI_Visible and UtilsModule.inOwnShop) then
@@ -231,4 +240,12 @@ end
 
 function SwitchItemsShopOff()
     SwitchUI(self.gameObject)
+end
+
+function SwitchIWP()
+    if(iwpUI.gameObject.activeSelf) then
+        SwitchUI(self.gameObject)
+    else
+        SwitchUI(iwpUI.gameObject)
+    end
 end

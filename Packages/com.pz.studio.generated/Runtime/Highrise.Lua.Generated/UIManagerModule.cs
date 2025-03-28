@@ -39,6 +39,8 @@ namespace Highrise.Lua.Generated
         [SerializeField] public UnityEngine.Object m_toyCollectedUI = default;
         [LuaScriptPropertyAttribute("8cde22022d1f44b4b81091cce10161d9")]
         [SerializeField] public UnityEngine.Object m_itemsShopUI = default;
+        [LuaScriptPropertyAttribute("0c19239094026ac4f8c37f5cee91c7fe")]
+        [SerializeField] public UnityEngine.Object m_iwpUI = default;
         [LuaScriptPropertyAttribute("a9b8ea38ce8c83b4eba8e6f4736bc3d5")]
         [SerializeField] public UnityEngine.Object m_editShopButtonUI = default;
         [LuaScriptPropertyAttribute("1cd0e2608667baa4ab31d6cbaeb1973f")]
@@ -64,11 +66,12 @@ namespace Highrise.Lua.Generated
                 CreateSerializedProperty(_script.GetPropertyAt(4), m_tutorialUI),
                 CreateSerializedProperty(_script.GetPropertyAt(5), m_toyCollectedUI),
                 CreateSerializedProperty(_script.GetPropertyAt(6), m_itemsShopUI),
-                CreateSerializedProperty(_script.GetPropertyAt(7), m_editShopButtonUI),
-                CreateSerializedProperty(_script.GetPropertyAt(8), m_editShopUI),
-                CreateSerializedProperty(_script.GetPropertyAt(9), m_ownedDecorationsUI),
-                CreateSerializedProperty(_script.GetPropertyAt(10), m_placeDecorationUI),
-                CreateSerializedProperty(_script.GetPropertyAt(11), m_removeDecorationsUI),
+                CreateSerializedProperty(_script.GetPropertyAt(7), m_iwpUI),
+                CreateSerializedProperty(_script.GetPropertyAt(8), m_editShopButtonUI),
+                CreateSerializedProperty(_script.GetPropertyAt(9), m_editShopUI),
+                CreateSerializedProperty(_script.GetPropertyAt(10), m_ownedDecorationsUI),
+                CreateSerializedProperty(_script.GetPropertyAt(11), m_placeDecorationUI),
+                CreateSerializedProperty(_script.GetPropertyAt(12), m_removeDecorationsUI),
             };
         }
     }

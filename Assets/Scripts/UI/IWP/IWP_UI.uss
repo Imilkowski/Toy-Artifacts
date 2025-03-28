@@ -1,4 +1,4 @@
-.upgrades_-u-i {
+.i-w-p_-u-i {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -72,7 +72,7 @@
     height: 8px;
 }
 
-.upgrades-container{
+.iwps-container{
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -80,7 +80,7 @@
     width: 100%;
 }
 
-.upgrade-container{
+.iwp-container{
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -88,7 +88,7 @@
 
     margin-bottom: 16px;
 
-    height: 128px;
+    height: 96px;
     width: 90%;
 
     border-radius: 16px;
@@ -96,7 +96,7 @@
     background-color: rgb(149, 167, 209);
 }
 
-.upgrade-info{
+.iwp-info{
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -106,7 +106,7 @@
     width: 70%;
 }
 
-.upgrade-icon {
+.iwp-icon {
     background-color: rgb(170, 185, 224);
     height: 80px;
     width: 80px;
@@ -115,7 +115,7 @@
     border-radius: 16px;
 }
 
-.upgrade-button {
+.purchase-button {
     margin-top: 8px;
     align-self: center;
     width: 90%;

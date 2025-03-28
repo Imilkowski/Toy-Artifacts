@@ -44,13 +44,12 @@ end
 
 function self:ClientAwake()
     addCoinsEvent:Connect(function(coinsAmount)
-        print("<<< Adding Coins >>>")
-        SaveModule.BuyCoinsIWP(coinsAmount)
+        SaveModule.BuyCoinsIWP(client.localPlayer, coinsAmount)
     end)
 end
 
 -- Function to Prompt the player to purchase coins
-function PromptTokenPurchase(id: string)
+function PromptIWPPurchase(id: string)
     Payments:PromptPurchase(id, function(paid)
     if paid then
         print("Purchase successful")

@@ -32180,6 +32180,67 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1396895101}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1397295876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1397295877}
+  - component: {fileID: 1397295878}
+  m_Layer: 0
+  m_Name: IWP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1397295877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397295876}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2063701204}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1397295878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397295876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c623452edd6a11421c7f89544ec72b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: 0c19239094026ac4f8c37f5cee91c7fe, type: 3}
+  _properties: []
+  _uiOutput: 2
+  _uiOutputSettings:
+    rid: -2
+  m_closeIcon: {fileID: 2800000, guid: a0e005b7fe1b74d459b34e5a18363a85, type: 3}
+  m_coinIcon: {fileID: 2800000, guid: df2d21485109aa747b88454b0bbc84ea, type: 3}
+  m_iwpIcons:
+  - {fileID: 2800000, guid: 335b9ad243e81cc49905b6e6bc65b2f3, type: 3}
+  - {fileID: 2800000, guid: 4622d4001718d2a41993c5c8e4f5b969, type: 3}
+  - {fileID: 2800000, guid: f24a94115c5291947914a9d7006184c8, type: 3}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1001 &1407524468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32829,6 +32890,7 @@ MonoBehaviour:
   m_coinIcon: {fileID: 2800000, guid: df2d21485109aa747b88454b0bbc84ea, type: 3}
   m_shopIcon: {fileID: 2800000, guid: 7a2e05a0963134c43afe1ea033cee6b6, type: 3}
   m_tutorialIcon: {fileID: 2800000, guid: bf3b3e5796cace54298caa9eff3002cf, type: 3}
+  m_IWP_icon: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -46082,6 +46144,7 @@ Transform:
   - {fileID: 937599330}
   - {fileID: 204581207}
   - {fileID: 72878558}
+  - {fileID: 1397295877}
   - {fileID: 1620418013}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46110,6 +46173,7 @@ MonoBehaviour:
   m_tutorialUI: {fileID: 937599331}
   m_toyCollectedUI: {fileID: 204581208}
   m_itemsShopUI: {fileID: 72878559}
+  m_iwpUI: {fileID: 1397295878}
   m_editShopButtonUI: {fileID: 555948852}
   m_editShopUI: {fileID: 327575544}
   m_ownedDecorationsUI: {fileID: 1429436589}

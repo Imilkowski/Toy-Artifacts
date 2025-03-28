@@ -7,7 +7,7 @@
     xsi:noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd"
 >
 
-  <hr:UILuaView class="upgrades_-u-i" picking-mode="Ignore">
+  <hr:UILuaView class="i-w-p_-u-i"  picking-mode="Ignore">
     <VisualElement class="panel-container">
 
       <VisualElement class="title-container">
@@ -20,15 +20,15 @@
 
       <VisualElement class="content-separator"></VisualElement>
 
-      <VisualElement class="upgrades-container" name="_UpgradesList">
-        <VisualElement class="upgrade-container">
+      <VisualElement class="iwps-container" name="_IWPsList">
+        <VisualElement class="iwp-container">
 
-          <Image class="upgrade-icon"/>
+          <Image class="iwp-icon"/>
 
-          <VisualElement class="upgrade-info">
+          <VisualElement class="iwp-info">
             <hr:UILabel class="description-label"/>
 
-            <hr:UIButton class="upgrade-button">
+            <hr:UIButton class="purchase-button">
               <VisualElement class="price-container">
                 <Image class="coin-icon"/>
                 <hr:UILabel class="coin-label"/>
