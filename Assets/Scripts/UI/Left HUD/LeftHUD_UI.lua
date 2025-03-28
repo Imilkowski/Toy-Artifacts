@@ -47,7 +47,7 @@ function SetIcons()
     _CoinIcon.image = coinIcon
     _ShopIcon.image = shopIcon
     _TutorialIcon.image = tutorialIcon
-    _IWP_Icon.image = coinIcon
+    _IWP_Icon.image = IWP_icon
     --_UpgradesIcon.image = upgradesIcon
 end
 

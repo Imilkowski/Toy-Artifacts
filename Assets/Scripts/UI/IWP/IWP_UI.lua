@@ -7,6 +7,8 @@ local PaymentHandler = require("PaymentHandler")
 local closeIcon : Texture = nil
 --!SerializeField
 local coinIcon : Texture = nil
+--!SerializeField
+local goldIcon : Texture = nil
 
 --!Bind
 local _CloseButton : UIButton = nil
@@ -71,15 +73,15 @@ function CreateIWP_Element(iwpId, icon, name, description, price)
     _priceContainer:AddToClassList("price-container")
     _purchaseButton:Add(_priceContainer)
 
-    local _coinIcon = Image.new()
-    _coinIcon:AddToClassList("coin-icon")
-    _coinIcon.image = coinIcon
-    _priceContainer:Add(_coinIcon)
+    local _goldIcon = Image.new()
+    _goldIcon:AddToClassList("gold-icon")
+    _goldIcon.image = goldIcon
+    _priceContainer:Add(_goldIcon)
 
-    local _coinLabel = UILabel.new()
-    _coinLabel:AddToClassList("coin-label")
-    _coinLabel:SetPrelocalizedText(tostring(price))
-    _priceContainer:Add(_coinLabel)
+    local _goldLabel = UILabel.new()
+    _goldLabel:AddToClassList("gold-label")
+    _goldLabel:SetPrelocalizedText(tostring(price))
+    _priceContainer:Add(_goldLabel)
 
     -- Register a callback for when the button is pressed
     _purchaseButton:RegisterPressCallback(function()

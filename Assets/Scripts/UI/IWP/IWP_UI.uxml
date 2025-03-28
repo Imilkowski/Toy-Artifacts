@@ -30,8 +30,8 @@
 
             <hr:UIButton class="purchase-button">
               <VisualElement class="price-container">
-                <Image class="coin-icon"/>
-                <hr:UILabel class="coin-label"/>
+                <Image class="gold-icon"/>
+                <hr:UILabel class="gold-label"/>
               </VisualElement>
             </hr:UIButton>
           </VisualElement>

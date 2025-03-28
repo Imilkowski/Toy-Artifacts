@@ -32232,6 +32232,7 @@ MonoBehaviour:
     rid: -2
   m_closeIcon: {fileID: 2800000, guid: a0e005b7fe1b74d459b34e5a18363a85, type: 3}
   m_coinIcon: {fileID: 2800000, guid: df2d21485109aa747b88454b0bbc84ea, type: 3}
+  m_goldIcon: {fileID: 2800000, guid: f5a1c22d2e6ea554c854f8e993d65972, type: 3}
   m_iwpIcons:
   - {fileID: 2800000, guid: 335b9ad243e81cc49905b6e6bc65b2f3, type: 3}
   - {fileID: 2800000, guid: 4622d4001718d2a41993c5c8e4f5b969, type: 3}
@@ -32890,7 +32891,7 @@ MonoBehaviour:
   m_coinIcon: {fileID: 2800000, guid: df2d21485109aa747b88454b0bbc84ea, type: 3}
   m_shopIcon: {fileID: 2800000, guid: 7a2e05a0963134c43afe1ea033cee6b6, type: 3}
   m_tutorialIcon: {fileID: 2800000, guid: bf3b3e5796cace54298caa9eff3002cf, type: 3}
-  m_IWP_icon: {fileID: 0}
+  m_IWP_icon: {fileID: 2800000, guid: f5a1c22d2e6ea554c854f8e993d65972, type: 3}
   references:
     version: 2
     RefIds:

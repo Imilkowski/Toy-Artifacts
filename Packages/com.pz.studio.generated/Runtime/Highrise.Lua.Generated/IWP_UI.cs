@@ -27,6 +27,7 @@ namespace Highrise.Lua.Generated
 
         [SerializeField] public UnityEngine.Texture m_closeIcon = default;
         [SerializeField] public UnityEngine.Texture m_coinIcon = default;
+        [SerializeField] public UnityEngine.Texture m_goldIcon = default;
         [SerializeField] public System.Collections.Generic.List<UnityEngine.Texture> m_iwpIcons = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
@@ -38,11 +39,12 @@ namespace Highrise.Lua.Generated
             {
                 CreateSerializedProperty(_script.GetPropertyAt(0), m_closeIcon),
                 CreateSerializedProperty(_script.GetPropertyAt(1), m_coinIcon),
-                CreateSerializedProperty(_script.GetPropertyAt(2), null),
+                CreateSerializedProperty(_script.GetPropertyAt(2), m_goldIcon),
                 CreateSerializedProperty(_script.GetPropertyAt(3), null),
                 CreateSerializedProperty(_script.GetPropertyAt(4), null),
                 CreateSerializedProperty(_script.GetPropertyAt(5), null),
-                CreateSerializedProperty(_script.GetPropertyAt(6), m_iwpIcons),
+                CreateSerializedProperty(_script.GetPropertyAt(6), null),
+                CreateSerializedProperty(_script.GetPropertyAt(7), m_iwpIcons),
             };
         }
     }
