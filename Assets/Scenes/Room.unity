@@ -36470,6 +36470,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3551931345751937580, guid: 4db44322431f6d6439fa69e352e81b67,
         type: 3}
+      propertyPath: m_zoomMin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551931345751937580, guid: 4db44322431f6d6439fa69e352e81b67,
+        type: 3}
       propertyPath: m_allowRotation
       value: 0
       objectReference: {fileID: 0}
